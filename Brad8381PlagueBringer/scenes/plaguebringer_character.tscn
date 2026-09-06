@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://Brad8381PlagueBringer/images/character/plaguebringer_combat.png" id="1_texture"]
+
+[node name="PlagueBringerCharacter" type="Node2D"]
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -240)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("1_texture")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+offset_left = -220.0
+offset_top = -500.0
+offset_right = 220.0
+offset_bottom = 10.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -500)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -250)
+
+[node name="OrbPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -370)
+
+[node name="TalkPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(170, -420)
