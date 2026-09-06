@@ -12,13 +12,19 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
 public class PlagueBringer : PlaceholderCharacterModel
 {
     public const string CharacterId = "Brad8381PlagueBringer";
-    
+
     public static readonly Color Color = new("c8c3b8");
 
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Neutral;
     public override int StartingHp => 70;
-    
+
+    // Use our own combat visual instead of PlaceholderCharacterModel's Ironclad body.
+    // Other secondary character assets can continue to fall back to Ironclad until
+    // we replace them individually.
+    public override string CustomVisualPath =>
+        "res://Brad8381PlagueBringer/scenes/plaguebringer_character.tscn";
+
     public override IEnumerable<CardModel> StartingDeck => [
         ModelDb.Card<StrikePlagueBringer>(), ModelDb.Card<StrikePlagueBringer>(),
         ModelDb.Card<StrikePlagueBringer>(), ModelDb.Card<StrikePlagueBringer>(),
@@ -32,11 +38,7 @@ public class PlagueBringer : PlaceholderCharacterModel
     public override CardPoolModel CardPool => ModelDb.CardPool<PlagueBringerCardPool>();
     public override RelicPoolModel RelicPool => ModelDb.RelicPool<PlagueBringerRelicPool>();
     public override PotionPoolModel PotionPool => ModelDb.PotionPool<PlagueBringerPotionPool>();
-    
-    /*  PlaceholderCharacterModel will utilize placeholder basegame assets for most of your character assets until you
-        override all the other methods that define those assets. 
-        These are just some of the simplest assets, given some placeholders to differentiate your character with. 
-        You don't have to, but you're suggested to rename these images. */
+
     public override Control CustomIcon
     {
         get
@@ -46,6 +48,7 @@ public class PlagueBringer : PlaceholderCharacterModel
             return icon;
         }
     }
+
     public override string CustomIconTexturePath => "character_icon_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "char_select_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "char_select_char_name_locked.png".CharacterUiPath();
