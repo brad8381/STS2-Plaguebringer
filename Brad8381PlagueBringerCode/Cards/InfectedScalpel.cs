@@ -18,9 +18,9 @@ public sealed class InfectedScalpel : PlagueBringerCard, IPlagueCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         if (play.Target is not { IsAlive: true } target) return;
-        await CommonActions.CardAttack(this, target).Execute(choiceContext);
+        await CommonActions.CardAttack(this, play).Execute(choiceContext);
         if (target.IsAlive)
-            await PowerCmd.Apply<PlaguePower>(target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+            await PowerCmd.Apply<PlaguePower>(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
