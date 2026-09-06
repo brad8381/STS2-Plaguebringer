@@ -3,6 +3,7 @@ using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
