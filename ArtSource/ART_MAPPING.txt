@@ -1,0 +1,17 @@
+Approved PlagueBringer art pack
+
+Strike = censer strike
+Defend = miasma shield
+Infected Scalpel = toxic blade strike
+Plague Vial = poisonous vial
+Fumigate = toxic smoke
+Quarantine = swirling shadows
+Inhale Spices = herbal mist
+Inhale block choice = miasma shield
+Inhale heal choice = herbal mist
+Open Censer = open brass censer
+Sealed Censer = sealed bronze censer
+Character UI/default art = tattered plague doctor with censer staff
+
+Cards: 1000x760 normal, 606x852 big. Beta copies included.
+Relics: 128x128 normal, 256x256 big, transparent outline files included.
