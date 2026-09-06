@@ -399,3 +399,11 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Plaguebringer / Godot local files
+.godot/
+.idea/
+local.props
+*.pck
+*.dll
+

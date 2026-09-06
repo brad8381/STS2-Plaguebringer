@@ -1,0 +1,14 @@
+{
+  "BRAD8381PLAGUEBRINGER-STRIKE_PLAGUE_BRINGER.title": "Strike",
+  "BRAD8381PLAGUEBRINGER-STRIKE_PLAGUE_BRINGER.description": "Deal {Damage:diff()} damage.",
+  "BRAD8381PLAGUEBRINGER-DEFEND_PLAGUE_BRINGER.title": "Defend",
+  "BRAD8381PLAGUEBRINGER-DEFEND_PLAGUE_BRINGER.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "BRAD8381PLAGUEBRINGER-INFECTED_SCALPEL.title": "Infected Scalpel",
+  "BRAD8381PLAGUEBRINGER-INFECTED_SCALPEL.description": "Deal {Damage:diff()} damage.\nApply {Plague:diff()} [gold]Plague[/gold].",
+  "BRAD8381PLAGUEBRINGER-PLAGUE_VIAL.title": "Plague Vial",
+  "BRAD8381PLAGUEBRINGER-PLAGUE_VIAL.description": "Apply {Plague:diff()} [gold]Plague[/gold].",
+  "BRAD8381PLAGUEBRINGER-FUMIGATE.title": "Fumigate",
+  "BRAD8381PLAGUEBRINGER-FUMIGATE.description": "Apply {Plague:diff()} [gold]Plague[/gold] to ALL enemies.",
+  "BRAD8381PLAGUEBRINGER-QUARANTINE.title": "Quarantine",
+  "BRAD8381PLAGUEBRINGER-QUARANTINE.description": "Gain {Block:diff()} [gold]Block[/gold]."
+}
