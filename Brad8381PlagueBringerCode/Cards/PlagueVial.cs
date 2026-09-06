@@ -17,7 +17,7 @@ public sealed class PlagueVial : PlagueBringerCard, IPlagueCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         if (play.Target is not { IsAlive: true } target) return;
-        await PowerCmd.Apply<PlaguePower>(target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<PlaguePower>(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
