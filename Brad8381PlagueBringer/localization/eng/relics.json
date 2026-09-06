@@ -1,0 +1,9 @@
+{
+  "BRAD8381PLAGUEBRINGER-SEALED_CENSER.title": "Sealed Censer",
+  "BRAD8381PLAGUEBRINGER-SEALED_CENSER.description": "At the start of combat, apply 1 [gold]Plague[/gold] to ALL enemies.",
+  "BRAD8381PLAGUEBRINGER-SEALED_CENSER.flavor": "The seal was a courtesy.",
+  "BRAD8381PLAGUEBRINGER-OPEN_CENSER.title": "Open Censer",
+  "BRAD8381PLAGUEBRINGER-OPEN_CENSER.description": "At the start of combat, apply 1 [gold]Plague[/gold] to ALL enemies. After drawing your opening hand, choose 1 of the first 3 Plague cards in your draw pile to put into your hand.",
+  "BRAD8381PLAGUEBRINGER-OPEN_CENSER.flavor": "There is no putting it back.",
+  "BRAD8381PLAGUEBRINGER-OPEN_CENSER.selectionScreenPrompt": "Choose a Plague card to put into your Hand."
+}

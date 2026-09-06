@@ -1,0 +1,24 @@
+name: Bug report
+description: Report a load, combat or multiplayer problem
+title: "[Bug] "
+body:
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions
+      description: Game build and branch, BaseLib, Extra Multiplayer, mod commit, OS and player count.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps and result
+      description: What happened, what you expected, and the smallest set of steps that reproduces it.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: First exception and surrounding log
+      description: Include the full stack trace and the Plaguebringer startup line. Remove personal paths or unrelated private data before sharing.
+      render: text
