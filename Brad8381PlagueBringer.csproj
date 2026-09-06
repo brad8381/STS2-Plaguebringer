@@ -101,7 +101,15 @@
         <Message Text="Copying .dll .pdb and .json to mods folder." Importance="high" />
         <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
         <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
-        <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
+        <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
+    </Target>
+
+    <Target Name="CopyToModsFolderOnPublish" AfterTargets="Publish" Condition="'$(IsInnerGodotExport)' != 'true'">
+        <Message Text="Copying published .dll .pdb and .json to mods folder." Importance="high" />
+        <MakeDir Directories="$(ModsPath)$(MSBuildProjectName)/" />
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
+        <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
+        <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
     </Target>
 
     <Target Name="CopyQuickPck" AfterTargets="PackPck" Condition="'$(InstallToGame)' == 'true' And Exists('$(PckPackerOutputPath)') And '$(PckPackerSkipped)' != 'true'">
