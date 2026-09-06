@@ -29,6 +29,10 @@ public sealed class PlaguePower : PlagueBringerPower
             ValueProp.Unpowered | ValueProp.Unblockable, Applier ?? target);
 
         if (target.IsAlive && target.GetPower<PlaguePower>() == this)
-            await PowerCmd.ModifyAmount(choiceContext, this, 1, null, null);
+        {
+            var increase = Math.Ceiling(Amount * 0.15m);
+            if (increase > 0)
+                await PowerCmd.ModifyAmount(choiceContext, this, increase, null, null);
+        }
     }
 }
