@@ -17,7 +17,7 @@ public sealed class StrikePlagueBringer : PlagueBringerCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await CommonActions.CardAttack(this, play.Target).Execute(choiceContext);
+        await CommonActions.CardAttack(this, play).Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
