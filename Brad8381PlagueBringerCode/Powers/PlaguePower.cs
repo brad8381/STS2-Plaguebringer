@@ -18,7 +18,6 @@ public sealed class PlaguePower : PlagueBringerPower
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext,
         CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
-        // The participant check prevents ticks for creatures that are not taking this turn.
         if (side != CombatSide.Enemy || Owner.Side != side || !participants.Contains(Owner)
             || !Owner.IsAlive || Amount <= 0) return;
 
@@ -29,8 +28,7 @@ public sealed class PlaguePower : PlagueBringerPower
         await CreatureCmd.Damage(choiceContext, target, stacks,
             ValueProp.Unpowered | ValueProp.Unblockable, Applier ?? target);
 
-        // Damage may kill the creature or cause another effect to remove this power.
         if (target.IsAlive && target.GetPower<PlaguePower>() == this)
-            await PowerCmd.ModifyAmount(this, 1, null, null);
+            await PowerCmd.ModifyAmount(choiceContext, this, 1, null, null);
     }
 }
