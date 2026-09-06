@@ -20,43 +20,44 @@ public sealed class PlaguePower : PlagueBringerPower
         IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
-        if (side != Owner.Side || !participants.Contains(Owner) || !Owner.IsAlive || Amount <= 0)
+        if (!participants.Contains(Owner) || !Owner.IsAlive || Amount <= 0)
             return;
 
-        var target = Owner;
         var stacks = Amount;
-
-        MainFile.Logger.Debug($"Plague tick: target={target}, stacks={stacks}");
-        Flash();
+        MainFile.Logger.Debug($"Plague tick: target={Owner}, stacks={stacks}");
 
         await CreatureCmd.Damage(
             new ThrowingPlayerChoiceContext(),
-            target,
+            Owner,
             stacks,
             ValueProp.Unpowered | ValueProp.Unblockable,
             null,
             null);
 
-        if (target.IsAlive && target.GetPower<PlaguePower>() == this)
+        // Do not run any more commands against a creature killed by the tick.
+        // The combat flow handles the death after this hook returns.
+        if (!Owner.IsAlive)
         {
-            var nextAmount = Math.Ceiling(stacks * 1.15m);
-            var increase = nextAmount - stacks;
-
-            MainFile.Logger.Debug($"Plague growth: {stacks} -> {nextAmount} (+{increase})");
-
-            if (increase > 0)
-                await PowerCmd.ModifyAmount(
-                    new ThrowingPlayerChoiceContext(),
-                    this,
-                    increase,
-                    null,
-                    null);
+            MainFile.Logger.Debug("Plague lethal tick complete; returning to combat flow.");
+            return;
         }
-        else
+
+        if (Owner.GetPower<PlaguePower>() != this)
+            return;
+
+        var nextAmount = Math.Ceiling(stacks * 1.15m);
+        var increase = nextAmount - stacks;
+
+        MainFile.Logger.Debug($"Plague growth: {stacks} -> {nextAmount} (+{increase})");
+
+        if (increase > 0)
         {
-            // Match the game's Poison handling so a lethal damage-over-time tick
-            // has time to finish the creature death flow before combat continues.
-            await Cmd.CustomScaledWait(0.1f, 0.25f);
+            await PowerCmd.ModifyAmount(
+                new ThrowingPlayerChoiceContext(),
+                this,
+                increase,
+                null,
+                null);
         }
     }
 }
