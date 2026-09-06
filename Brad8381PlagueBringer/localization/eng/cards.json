@@ -10,5 +10,11 @@
   "BRAD8381PLAGUEBRINGER-FUMIGATE.title": "Fumigate",
   "BRAD8381PLAGUEBRINGER-FUMIGATE.description": "Apply {Plague:diff()} [gold]Plague[/gold] to ALL enemies.",
   "BRAD8381PLAGUEBRINGER-QUARANTINE.title": "Quarantine",
-  "BRAD8381PLAGUEBRINGER-QUARANTINE.description": "Gain {Block:diff()} [gold]Block[/gold]."
+  "BRAD8381PLAGUEBRINGER-QUARANTINE.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "BRAD8381PLAGUEBRINGER-INHALE_SPICES.title": "Inhale Spices",
+  "BRAD8381PLAGUEBRINGER-INHALE_SPICES.description": "Choose one: Gain [gold]Block[/gold] equal to total [gold]Plague[/gold] on all enemies, or heal 10% of it, rounded up. [gold]Exhaust[/gold].",
+  "BRAD8381PLAGUEBRINGER-INHALE_SPICES_BLOCK_CHOICE.title": "Take Cover",
+  "BRAD8381PLAGUEBRINGER-INHALE_SPICES_BLOCK_CHOICE.description": "Gain [gold]Block[/gold] equal to total [gold]Plague[/gold] on all enemies.",
+  "BRAD8381PLAGUEBRINGER-INHALE_SPICES_HEAL_CHOICE.title": "Inhale",
+  "BRAD8381PLAGUEBRINGER-INHALE_SPICES_HEAL_CHOICE.description": "Heal 10% of total [gold]Plague[/gold] on all enemies, rounded up."
 }
