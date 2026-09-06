@@ -19,6 +19,6 @@ public sealed class SealedCenser : PlagueBringerRelic
         if (player != Owner || Owner.PlayerCombatState is not { TurnNumber: 1 }) return;
         Flash();
         foreach (var enemy in combatState.GetOpponentsOf(Owner.Creature).Where(enemy => enemy.IsAlive).ToArray())
-            await PowerCmd.Apply<PlaguePower>(enemy, 1, Owner.Creature, null);
+            await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, 1, Owner.Creature, null);
     }
 }
