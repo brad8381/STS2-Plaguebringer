@@ -14,8 +14,13 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
 /// You can also just create the class manually; just make sure to inherit from this class.
 /// </summary>
 [Pool(typeof(PlagueBringerCardPool))]
-public abstract class PlagueBringerCard(int cost, CardType type, CardRarity rarity, TargetType target) :
-    ConstructedCardModel(cost, type, rarity, target)
+public abstract class PlagueBringerCard(
+    int cost,
+    CardType type,
+    CardRarity rarity,
+    TargetType target,
+    bool shouldShowInCardLibrary = true) :
+    ConstructedCardModel(cost, type, rarity, target, shouldShowInCardLibrary)
 {
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
