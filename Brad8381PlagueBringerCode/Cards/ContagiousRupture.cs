@@ -1,4 +1,3 @@
-using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -15,18 +14,19 @@ public sealed class ContagiousRupture : PlagueBringerCard, IPlagueCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        if (play.Target is not { IsAlive: true } target) return;
+        if (play.Target is not { IsAlive: true } target)
+            return;
 
         var combatState = Owner.Creature.CombatState;
-        if (combatState == null) return;
+        if (combatState == null)
+            return;
 
-        var plague = target.GetPower<PlaguePower>();
-        if (plague == null || plague.Amount <= 0) return;
+        var consumed = await PlagueCardUtils.RemoveAllPlague(choiceContext, target, this);
+        if (consumed <= 0)
+            return;
 
-        var consumed = plague.Amount;
-        await PowerCmd.Remove(plague);
         await DamageCmd.Attack(consumed * DynamicVars["Multiplier"].IntValue)
-            .FromCard(this)
+            .FromCard(this, play)
             .TargetingAllOpponents(combatState)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
