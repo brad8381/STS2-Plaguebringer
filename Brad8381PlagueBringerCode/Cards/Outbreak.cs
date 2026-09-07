@@ -1,5 +1,6 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
 
@@ -7,6 +8,7 @@ public sealed class Outbreak : PlagueBringerCard, IPlagueCard
 {
     public Outbreak() : base(2, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
     {
+        WithVars(new DynamicVar("Triggers", 1));
         WithKeywords(CardKeyword.Exhaust);
     }
 
@@ -16,11 +18,13 @@ public sealed class Outbreak : PlagueBringerCard, IPlagueCard
         if (combatState == null)
             return;
 
-        await PlagueCardUtils.TriggerAllEnemies(choiceContext, combatState, Owner.Creature);
+        for (var i = 0; i < DynamicVars["Triggers"].IntValue; i++)
+            await PlagueCardUtils.TriggerAllEnemies(choiceContext, combatState, Owner.Creature);
     }
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
+        EnergyCost.UpgradeBy(-1);
+        DynamicVars["Triggers"].UpgradeValueBy(1m);
     }
 }
