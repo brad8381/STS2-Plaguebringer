@@ -1,3 +1,4 @@
+using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -13,6 +14,14 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Relics;
 
 public sealed class OpenCenser : PlagueBringerRelic
 {
+    public override List<(string, string)>? Localization =>
+        new RelicLoc(
+            "Open Censer",
+            "At the start of combat, apply 1 [gold]Plague[/gold] to ALL enemies. After drawing your opening hand, choose 1 of the first 3 Plague cards in your draw pile to put into your hand.",
+            "There is no putting it back.",
+            ("selectionScreenPrompt", "Choose a Plague card to put into your Hand.")
+        );
+
     public override RelicRarity Rarity => RelicRarity.Starter;
 
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext,
@@ -28,7 +37,6 @@ public sealed class OpenCenser : PlagueBringerRelic
     {
         if (player != Owner || Owner.PlayerCombatState is not { TurnNumber: 1 }) return;
         var drawPile = PileType.Draw.GetPile(Owner);
-        // Take the first three eligible cards in pile order, preserving multiplayer determinism.
         var candidates = drawPile.Cards.Where(card => card is IPlagueCard).Take(3).ToList();
         if (candidates.Count == 0) return;
 
