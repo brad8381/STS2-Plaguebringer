@@ -1,3 +1,4 @@
+using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -11,6 +12,13 @@ public sealed class PlaguePower : PlagueBringerPower
 {
     public override string CustomPackedIconPath => "res://Brad8381PlagueBringer/images/powers/plague_power.svg";
     public override string CustomBigIconPath => "res://Brad8381PlagueBringer/images/powers/big/plague_power.svg";
+
+    public override List<(string, string)>? Localization =>
+        new PowerLoc(
+            "Plague",
+            "At the start of this enemy's turn, take {Amount} damage that ignores Block, then increase Plague by 15%, rounded up.",
+            "At the start of this enemy's turn, take {Amount} damage that ignores Block, then increase Plague by 15%, rounded up."
+        );
 
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -34,8 +42,6 @@ public sealed class PlaguePower : PlagueBringerPower
             null,
             null);
 
-        // Do not run any more commands against a creature killed by the tick.
-        // The combat flow handles the death after this hook returns.
         if (!Owner.IsAlive)
         {
             MainFile.Logger.Debug("Plague lethal tick complete; returning to combat flow.");
