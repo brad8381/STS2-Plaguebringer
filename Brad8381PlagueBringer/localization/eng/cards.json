@@ -26,7 +26,7 @@
   "BRAD8381PLAGUEBRINGER-UNSTEADY_STEP.description": "Apply {Sway:diff()} [gold]Sway[/gold].\nDraw {Cards:diff()} card.",
 
   "BRAD8381PLAGUEBRINGER-PESTILENT_BLOW.title": "Pestilent Blow",
-  "BRAD8381PLAGUEBRINGER-PESTILENT_BLOW.description": "Deal {Damage:diff()} damage.\nMultiply this enemy's current [gold]Plague[/gold] by {Multiplier:diff()}x.",
+  "BRAD8381PLAGUEBRINGER-PESTILENT_BLOW.description": "Deal {Damage:diff()} damage.\nMultiply this enemy's current [gold]Plague[/gold] by {MultiplierWhole:diff()}.5x.",
   "BRAD8381PLAGUEBRINGER-BONE_SAW.title": "Bone Saw",
   "BRAD8381PLAGUEBRINGER-BONE_SAW.description": "Deal {Damage:diff()} damage.\nIf you have a [gold]Specimen[/gold], spend 1 to deal {Damage:diff()} damage again.",
   "BRAD8381PLAGUEBRINGER-EXPERIMENTAL_DOSE.title": "Experimental Dose",
