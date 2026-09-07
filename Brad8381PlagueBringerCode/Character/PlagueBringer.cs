@@ -31,7 +31,7 @@ public class PlagueBringer : PlaceholderCharacterModel
             GoldMonologue: "Payment before treatment.",
             CardsModifierTitle: "Plaguebringer Cards",
             CardsModifierDescription: "Plaguebringer cards now appear in rewards and shops.",
-            ("unlockText", "Play a run with [pink]{Prerequisite}[/pink] to unlock this character.")
+            ExtraLoc: [("unlockText", "Play a run with [pink]{Prerequisite}[/pink] to unlock this character.")]
         );
 
     public override Color NameColor => Color;
