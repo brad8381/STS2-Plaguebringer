@@ -1,3 +1,4 @@
+using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Mechanics;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -11,7 +12,8 @@ public sealed class Autopsy : PlagueBringerCard, IPlagueCard
     {
         WithVars(
             new DynamicVar("PlaguePerCard", 3),
-            new DynamicVar("MaxDraw", 3));
+            new DynamicVar("MaxDraw", 3),
+            new DynamicVar("SpecimenPercent", 10));
         WithKeywords(CardKeyword.Exhaust);
     }
 
@@ -30,6 +32,12 @@ public sealed class Autopsy : PlagueBringerCard, IPlagueCard
 
         if (draw > 0)
             await CardPileCmd.Draw(choiceContext, draw, Owner);
+
+        var specimens = (int)Math.Floor(
+            removed * DynamicVars["SpecimenPercent"].IntValue / 100m);
+
+        if (specimens > 0)
+            await SpecimenActions.Gain(choiceContext, Owner.Creature, specimens, this);
     }
 
     protected override void OnUpgrade()
