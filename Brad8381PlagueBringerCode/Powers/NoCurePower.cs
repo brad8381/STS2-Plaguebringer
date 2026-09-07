@@ -8,8 +8,8 @@ public sealed class NoCurePower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "No Cure",
-            "Whenever an enemy's Plague grows, it grows by {Amount} additional Plague.",
-            "Whenever an enemy's Plague grows, it grows by {Amount} additional Plague."
+            "Whenever an enemy's Plague grows, add an additional {Amount}% of its current Plague, rounded up.",
+            "Whenever an enemy's Plague grows, add an additional {Amount}% of its current Plague, rounded up."
         );
 
     public override PowerType Type => PowerType.Buff;
