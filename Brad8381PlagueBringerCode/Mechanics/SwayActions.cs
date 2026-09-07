@@ -9,7 +9,7 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Mechanics;
 public static class SwayActions
 {
     public static int Count(Creature target) =>
-        Math.Min(target.GetPower<SwayPower>()?.Amount ?? 0, SwayPower.MaxEffectiveStacks);
+        Math.Min(target.GetPower<SwayPower>()?.Amount ?? 0, SwayPower.MaxStacks);
 
     public static async Task<int> Apply(
         PlayerChoiceContext choiceContext,
@@ -19,7 +19,7 @@ public static class SwayActions
         CardModel? source)
     {
         var current = Count(target);
-        var toApply = Math.Clamp(amount, 0, SwayPower.MaxEffectiveStacks - current);
+        var toApply = Math.Clamp(amount, 0, SwayPower.MaxStacks - current);
         if (toApply <= 0)
             return 0;
 
@@ -33,12 +33,12 @@ public static class SwayActions
         if (power == null)
             return 0;
 
-        if (power.Amount > SwayPower.MaxEffectiveStacks)
+        if (power.Amount > SwayPower.MaxStacks)
         {
             await PowerCmd.ModifyAmount(
                 choiceContext,
                 power,
-                SwayPower.MaxEffectiveStacks - power.Amount,
+                SwayPower.MaxStacks - power.Amount,
                 applier,
                 source);
         }
