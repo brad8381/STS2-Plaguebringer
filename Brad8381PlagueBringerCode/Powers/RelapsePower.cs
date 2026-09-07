@@ -25,9 +25,12 @@ public sealed class RelapsePower : PlagueBringerPower
     {
         if (!participants.Contains(Owner) || !Owner.IsAlive) return;
 
+        var ownerCombatState = Owner.CombatState;
+        if (ownerCombatState == null) return;
+
         Flash();
         var choiceContext = new ThrowingPlayerChoiceContext();
-        foreach (var enemy in Owner.CombatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray())
+        foreach (var enemy in ownerCombatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray())
         {
             var plague = enemy.GetPower<PlaguePower>();
             if (plague != null && plague.Amount > 0)
