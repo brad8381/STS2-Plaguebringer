@@ -1,5 +1,4 @@
 using BaseLib.Abstracts;
-using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Extensions;
 using Godot;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
@@ -7,10 +6,14 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
 public class PlagueBringerCardPool : CustomCardPoolModel
 {
     public override string Title => PlagueBringer.CharacterId; //This is not a display name.
-    
-    public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
-    public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();
 
+    // Temporary vanilla energy icon until the Plaguebringer energy art is final.
+    // Keeping this on a known-good game resource also prevents Neow reward generation
+    // from failing when it builds energy-related hover tips.
+    public override string BigEnergyIconPath =>
+        "res://images/atlases/ui_atlas.sprites/card/energy_ironclad.tres";
+    public override string TextEnergyIconPath =>
+        "res://images/atlases/ui_atlas.sprites/card/energy_ironclad.tres";
 
     /* These HSV values will determine the color of your card back.
     They are applied as a shader onto an already colored image,
@@ -19,16 +22,9 @@ public class PlagueBringerCardPool : CustomCardPoolModel
     public override float H => 1f; //Hue; changes the color.
     public override float S => 0.08f; //Saturation
     public override float V => 0.3f; //Brightness
-    
-    //Alternatively, leave these values at 1 and provide a custom frame image.
-    /*public override Texture2D CustomFrame(CustomCardModel card)
-    {
-        //This will attempt to load Brad8381PlagueBringer/images/cards/frame.png
-        return PreloadManager.Cache.GetTexture2D("cards/frame.png".ImagePath());
-    }*/
 
     //Color of small card icons
     public override Color DeckEntryCardColor => new("55545a");
-    
+
     public override bool IsColorless => false;
 }
