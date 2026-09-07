@@ -27,7 +27,12 @@ public sealed class QuarantineProtocol : PlagueBringerCard, IPlagueCard
         if (block <= 0)
             return;
 
-        await CreatureCmd.GainBlock(Owner.Creature, block, ValueProp.Unpowered, this);
+        await CreatureCmd.GainBlock(
+            Owner.Creature,
+            block,
+            ValueProp.Move,
+            play,
+            false);
     }
 
     protected override void OnUpgrade()
