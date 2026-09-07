@@ -8,10 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
 
 /// <summary>
-/// This is the base class for your mod's cards, which is set up to load the card's images from your mod's resources.
-/// When creating a card, right click the Cards folder and create a new file with the Custom Card template.
-/// This will generate a class that extends this one.
-/// You can also just create the class manually; just make sure to inherit from this class.
+/// Base class for Plaguebringer cards and their portrait paths.
 /// </summary>
 [Pool(typeof(PlagueBringerCardPool))]
 public abstract class PlagueBringerCard(
@@ -22,16 +19,13 @@ public abstract class PlagueBringerCard(
     bool shouldShowInCardLibrary = true) :
     ConstructedCardModel(cost, type, rarity, target, shouldShowInCardLibrary)
 {
-    //Image size:
-    //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
-    //Full art: 606x852
-    public override string CustomPortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigCardImagePath();
-    
-    //Smaller variants of card images for efficiency:
-    //Smaller variant of fullart: 250x350
-    //Smaller variant of normalart: 250x190
-    
-    //Uses card_portraits/card_name.png as image path. These should be smaller images.
-    public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
-    public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
+    private string PortraitFileName => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png";
+
+    // BaseLib uses CustomPortraitPath for the actual card portrait texture.
+    // STS2's high-resolution individual portraits are 1000x760, so use the
+    // normal portrait instead of the tall 606x852 full-art image. Feeding the
+    // tall image into the normal portrait slot makes it letterbox and look tiny.
+    public override string CustomPortraitPath => PortraitFileName.CardImagePath();
+    public override string PortraitPath => PortraitFileName.CardImagePath();
+    public override string BetaPortraitPath => $"beta/{PortraitFileName}".CardImagePath();
 }
