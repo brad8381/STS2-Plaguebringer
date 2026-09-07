@@ -28,7 +28,7 @@ public abstract class PlagueBringerCard(
             "Remove up to {PlagueCap:diff()} [gold]Plague[/gold] from the target. Gain {BlockPerPlague} [gold]Block[/gold] for each Plague removed."),
         [typeof(Autopsy)] = new(
             "Autopsy",
-            "Remove ALL [gold]Plague[/gold] from the target. Draw 1 card for every {PlaguePerCard} Plague removed, up to {MaxDraw:diff()} cards."),
+            "Remove ALL [gold]Plague[/gold] from the target. Draw 1 card for every {PlaguePerCard} Plague removed, up to {MaxDraw:diff()} cards. Gain Specimens equal to {SpecimenPercent}% of the Plague removed, rounded down."),
         [typeof(SepticReflex)] = new(
             "Septic Reflex",
             "Deal {Damage:diff()} damage. If the target has at least {PlagueThreshold} [gold]Plague[/gold], draw 1 card."),
@@ -37,7 +37,7 @@ public abstract class PlagueBringerCard(
             "Trigger the target's [gold]Plague[/gold] twice."),
         [typeof(Outbreak)] = new(
             "Outbreak",
-            "Trigger [gold]Plague[/gold] on ALL enemies."),
+            "Trigger [gold]Plague[/gold] on ALL enemies {Triggers:diff()} time(s)."),
         [typeof(SpentSample)] = new(
             "Spent Sample",
             "Remove {PlagueCost:diff()} [gold]Plague[/gold] from the target. If you do, gain {Energy} [gold]Energy[/gold]."),
@@ -55,10 +55,10 @@ public abstract class PlagueBringerCard(
             "When an infected enemy dies, apply {SpreadPercent:diff()}% of its remaining [gold]Plague[/gold], rounded up, to every living enemy."),
         [typeof(NoCure)] = new(
             "No Cure",
-            "Whenever an enemy's [gold]Plague[/gold] grows, it grows by {BonusGrowth:diff()} additional Plague."),
+            "Whenever an enemy's [gold]Plague[/gold] grows, add an additional {BonusGrowthPercent:diff()}% of its current Plague, rounded up."),
         [typeof(QuarantineProtocol)] = new(
             "Quarantine Protocol",
-            "Gain {BlockPerInfectedEnemy:diff()} [gold]Block[/gold] for each infected enemy."),
+            "Gain {BaseBlock} [gold]Block[/gold] plus {BlockPerThreshold:diff()} Block for every {PlagueThreshold} total [gold]Plague[/gold] on enemies."),
         [typeof(Reinfection)] = new(
             "Reinfection",
             "If the target has no [gold]Plague[/gold], apply {Plague:diff()} Plague. Otherwise, trigger its Plague."),
