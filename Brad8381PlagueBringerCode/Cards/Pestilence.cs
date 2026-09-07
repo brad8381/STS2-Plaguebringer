@@ -1,4 +1,3 @@
-using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Extensions;
 using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -8,10 +7,6 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
 
 public sealed class Pestilence : PlagueBringerCard, IPlagueCard
 {
-    public override string CustomPortraitPath => "card.png".BigCardImagePath();
-    public override string PortraitPath => "card.png".CardImagePath();
-    public override string BetaPortraitPath => "card.png".CardImagePath();
-
     public Pestilence() : base(2, CardType.Skill, CardRarity.Rare, TargetType.AllEnemies)
     {
         WithKeywords(CardKeyword.Exhaust);
