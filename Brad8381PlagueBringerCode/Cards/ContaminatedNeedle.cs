@@ -20,7 +20,7 @@ public sealed class ContaminatedNeedle : PlagueBringerCard, IPlagueCard
     public override List<(string, string)>? Localization =>
         new CardLoc(
             "Contaminated Needle",
-            "Deal {Damage:diff()} damage. Apply {Plague:diff()} [gold]Plague[/gold]. Exhaust."
+            "Deal {Damage:diff()} damage. Apply {Plague:diff()} [gold]Plague[/gold]."
         );
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
