@@ -1,4 +1,10 @@
 {
   "BRAD8381PLAGUEBRINGER-PLAGUE_POWER.title": "Plague",
-  "BRAD8381PLAGUEBRINGER-PLAGUE_POWER.description": "At the start of this enemy's turn, take {Amount} damage that ignores Block, then increase Plague by 1."
+  "BRAD8381PLAGUEBRINGER-PLAGUE_POWER.description": "At the start of this enemy's turn, take {Amount} damage that ignores Block, then increase Plague by 1.",
+  "BRAD8381PLAGUEBRINGER-SPECIMEN_POWER.title": "Specimen",
+  "BRAD8381PLAGUEBRINGER-SPECIMEN_POWER.description": "A combat resource gained from sacrifice and Exhaust effects. Persists between turns. Maximum 6.",
+  "BRAD8381PLAGUEBRINGER-SWAY_POWER.title": "Sway",
+  "BRAD8381PLAGUEBRINGER-SWAY_POWER.description": "Each effective stack reduces this enemy's attack damage by 10%, up to 30%. Lose 1 Sway after this enemy's turn.",
+  "BRAD8381PLAGUEBRINGER-FIELD_RESEARCH_POWER.title": "Field Research",
+  "BRAD8381PLAGUEBRINGER-FIELD_RESEARCH_POWER.description": "Whenever you Exhaust a card, gain {Amount} Specimen."
 }
