@@ -9,31 +9,47 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
 
 public sealed class PestilentBlow : PlagueBringerCard, IPlagueCard
 {
+    private const decimal MultiplierFraction = 0.5m;
+
     public PestilentBlow() : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
         WithDamage(6);
-        WithVars(new DynamicVar("Multiplier", 1.5m));
+        // Generic DynamicVar formatting is integer-based, so keep the changing whole
+        // number as the var and append the fixed .5 in localization.
+        WithVars(new DynamicVar("MultiplierWhole", 1m));
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        if (play.Target is not { IsAlive: true } target) return;
+        if (play.Target is not { IsAlive: true } target)
+            return;
 
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        if (!target.IsAlive) return;
+        if (!target.IsAlive)
+            return;
 
-        var plague = target.GetPower<PlaguePower>();
-        if (plague == null || plague.Amount <= 0) return;
+        PlaguePower? plague = target.GetPower<PlaguePower>();
+        if (plague == null || plague.Amount <= 0)
+            return;
 
-        var newAmount = (int)Math.Ceiling(plague.Amount * DynamicVars["Multiplier"].BaseValue);
-        var increase = newAmount - plague.Amount;
+        decimal multiplier = DynamicVars["MultiplierWhole"].BaseValue + MultiplierFraction;
+        int newAmount = (int)Math.Ceiling(plague.Amount * multiplier);
+        int increase = newAmount - plague.Amount;
+
         if (increase > 0)
-            await PowerCmd.ModifyAmount(choiceContext, plague, increase, Owner.Creature, this);
+        {
+            await PowerCmd.ModifyAmount(
+                choiceContext,
+                plague,
+                increase,
+                Owner.Creature,
+                this);
+        }
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(3m);
-        DynamicVars["Multiplier"].UpgradeValueBy(1m);
+        DynamicVars["MultiplierWhole"].UpgradeValueBy(1m);
     }
 }
