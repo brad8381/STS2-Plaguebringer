@@ -32,8 +32,9 @@ public sealed class Bloodletting : PlagueBringerCard, IPlagueCard
         await CreatureCmd.GainBlock(
             Owner.Creature,
             removed * DynamicVars["BlockPerPlague"].IntValue,
-            ValueProp.Unpowered,
-            this);
+            ValueProp.Move,
+            play,
+            false);
     }
 
     protected override void OnUpgrade()
