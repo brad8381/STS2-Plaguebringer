@@ -1,3 +1,4 @@
+using BaseLib.Abstracts;
 using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -17,6 +18,12 @@ public sealed class ConcentratedDose : PlagueBringerCard, IPlagueCard
             new DynamicVar("EnergyRefund", 0));
         WithKeywords(CardKeyword.Exhaust);
     }
+
+    public override List<(string, string)>? Localization =>
+        new CardLoc(
+            "Concentrated Dose",
+            "Apply {PlaguePerEnergy:diff()} [gold]Plague[/gold] for each [gold]Energy[/gold] spent.{IfUpgraded:show:\nGain 1 [gold]Energy[/gold].|}"
+        );
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
