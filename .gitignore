@@ -371,3 +371,24 @@ ArtSource/*.import
 *_FIX_README.txt
 ASSET_PACK_README.txt
 SELECT_FIX_README.txt
+.art packs/
+*.zip
+ASSET_PACK_README.txt
+CHARACTER_FIX_README.txt
+SELECT_FIX_README.txt
+README.txt
+.art packs/
+PlagueBringer-Art-Pack.zip
+PlagueBringer-Asset-Fix-Pack.zip
+PlagueBringer-Character-Fix.zip
+PlagueBringer-Character-UI-Fix.zip
+PlagueBringer-Select-Fix.zip
+PlagueBringer-Visual-Polish.zip
+PlagueBringer-Visual-Polish-v2.zip
+PlagueBringer-Visual-Polish-v2-clean.zip
+ASSET_PACK_README.txt
+CHARACTER_FIX_README.txt
+SELECT_FIX_README.txt
+README.txt
+
+*.import
