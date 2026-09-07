@@ -1,4 +1,5 @@
 using Godot;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode;
@@ -14,5 +15,8 @@ public partial class MainFile : Node
     public static void Initialize()
     {
         Logger.Info($"Loading Plaguebringer {typeof(MainFile).Assembly.GetName().Version}; BaseLib {typeof(BaseLib.Abstracts.CustomCardModel).Assembly.GetName().Version}");
+
+        Harmony harmony = new(ModId);
+        harmony.PatchAll();
     }
 }
