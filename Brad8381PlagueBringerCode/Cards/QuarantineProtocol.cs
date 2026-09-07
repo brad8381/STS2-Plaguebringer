@@ -10,7 +10,10 @@ public sealed class QuarantineProtocol : PlagueBringerCard, IPlagueCard
 {
     public QuarantineProtocol() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
-        WithVars(new DynamicVar("BlockPerInfectedEnemy", 4));
+        WithVars(
+            new DynamicVar("BaseBlock", 3),
+            new DynamicVar("BlockPerThreshold", 4),
+            new DynamicVar("PlagueThreshold", 6));
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
@@ -19,13 +22,14 @@ public sealed class QuarantineProtocol : PlagueBringerCard, IPlagueCard
         if (combatState == null)
             return;
 
-        var infected = combatState
+        var totalPlague = combatState
             .GetOpponentsOf(Owner.Creature)
-            .Count(enemy => enemy.IsAlive && PlagueCardUtils.GetPlague(enemy) > 0);
+            .Where(enemy => enemy.IsAlive)
+            .Sum(PlagueCardUtils.GetPlague);
 
-        var block = infected * DynamicVars["BlockPerInfectedEnemy"].IntValue;
-        if (block <= 0)
-            return;
+        var plagueGroups = totalPlague / DynamicVars["PlagueThreshold"].IntValue;
+        var block = DynamicVars["BaseBlock"].IntValue +
+                    plagueGroups * DynamicVars["BlockPerThreshold"].IntValue;
 
         await CreatureCmd.GainBlock(
             Owner.Creature,
@@ -37,6 +41,6 @@ public sealed class QuarantineProtocol : PlagueBringerCard, IPlagueCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["BlockPerInfectedEnemy"].UpgradeValueBy(1m);
+        DynamicVars["BlockPerThreshold"].UpgradeValueBy(1m);
     }
 }
