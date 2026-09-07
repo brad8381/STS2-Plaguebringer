@@ -18,9 +18,13 @@ public sealed class ContagiousCut : PlagueBringerCard, IPlagueCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         if (play.Target is not { IsAlive: true }) return;
+
+        var combatState = Owner.Creature.CombatState;
+        if (combatState == null) return;
+
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
 
-        foreach (var enemy in CombatState.GetOpponentsOf(Owner.Creature).Where(enemy => enemy.IsAlive).ToArray())
+        foreach (var enemy in combatState.GetOpponentsOf(Owner.Creature).Where(enemy => enemy.IsAlive).ToArray())
             await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, DynamicVars["Plague"].IntValue, Owner.Creature, this);
     }
 
