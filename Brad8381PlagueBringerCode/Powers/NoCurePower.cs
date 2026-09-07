@@ -1,3 +1,4 @@
+using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Entities.Powers;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
