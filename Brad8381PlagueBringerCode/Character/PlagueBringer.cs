@@ -2,6 +2,8 @@ using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
 using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Extensions;
 using Godot;
+using MegaCrit.Sts2.Core.Animation;
+using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
@@ -38,17 +40,20 @@ public class PlagueBringer : PlaceholderCharacterModel
     public override CharacterGender Gender => CharacterGender.Neutral;
     public override int StartingHp => 70;
 
-    // Static custom combat sprite for now. This can later be replaced by an
-    // AnimatedSprite2D or Spine scene without changing the character model.
     public override string CustomVisualPath =>
         "res://Brad8381PlagueBringer/scenes/plaguebringer_character.tscn";
 
-    // Do not inherit Ironclad's full character-select artwork.
     public override string CustomCharacterSelectBg =>
         "res://Brad8381PlagueBringer/scenes/plaguebringer_select_bg.tscn";
 
-    // Keep a known-good vanilla transition until we make a custom one.
     public override string CharacterTransitionSfx => "event:/sfx/ui/wipe_ironclad";
+
+    // The combat scene supplies Godot animations named "idle" and "die".
+    // Attack/cast/hurt deliberately fall back to idle until the ability animation pass.
+    public override CreatureAnimator? SetupCustomAnimationStates(MegaSprite controller) =>
+        SetupAnimationState(controller, "idle", deadName: "die");
+
+    public override float DeathAnimTime => 1.25f;
 
     public override IEnumerable<CardModel> StartingDeck => [
         ModelDb.Card<StrikePlagueBringer>(), ModelDb.Card<StrikePlagueBringer>(),
