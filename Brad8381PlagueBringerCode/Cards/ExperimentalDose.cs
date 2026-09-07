@@ -12,15 +12,13 @@ public sealed class ExperimentalDose : PlagueBringerCard, IPlagueCard
 {
     public ExperimentalDose() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
-        WithVars(
-            new DynamicVar("MaxSpecimens", 3),
-            new PowerVar<PlaguePower>("PlaguePerSpecimen", 4));
+        WithVars(new PowerVar<PlaguePower>("PlaguePerSpecimen", 4));
     }
 
     public override List<(string, string)>? Localization =>
         new CardLoc(
             "Experimental Dose",
-            "Spend up to {MaxSpecimens} Specimens. Apply {PlaguePerSpecimen:diff()} [gold]Plague[/gold] per Specimen spent."
+            "Spend ALL Specimens. Apply {PlaguePerSpecimen:diff()} [gold]Plague[/gold] per Specimen spent."
         );
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
@@ -28,9 +26,7 @@ public sealed class ExperimentalDose : PlagueBringerCard, IPlagueCard
         if (play.Target is not { IsAlive: true } target)
             return;
 
-        var amountToSpend = Math.Min(
-            DynamicVars["MaxSpecimens"].IntValue,
-            SpecimenActions.Count(Owner.Creature));
+        var amountToSpend = SpecimenActions.Count(Owner.Creature);
         if (amountToSpend <= 0)
             return;
 
