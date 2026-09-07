@@ -14,6 +14,8 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Mechanics;
 public static class SpecimenUiPatch
 {
     private const string CounterName = "PlagueBringerSpecimenCounter";
+    private const string Tooltip =
+        "Specimen\nA persistent combat resource gained mainly from Exhausting cards. Persists between turns, up to 6. Lost at the end of combat.";
 
     [HarmonyPostfix]
     public static void Postfix(NCombatUi __instance, CombatState state)
@@ -41,7 +43,8 @@ public static class SpecimenUiPatch
             {
                 Name = CounterName,
                 Size = new Vector2(76, 76),
-                MouseFilter = Control.MouseFilterEnum.Ignore
+                MouseFilter = Control.MouseFilterEnum.Pass,
+                TooltipText = Tooltip
             };
 
             var icon = new TextureRect
