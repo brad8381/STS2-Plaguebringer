@@ -9,7 +9,8 @@ public sealed class ContagiousRupture : PlagueBringerCard, IPlagueCard
 {
     public ContagiousRupture() : base(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
     {
-        WithVars(new DynamicVar("Multiplier", 1));
+        WithVars(new DynamicVar("MultiplierTenths", 15));
+        WithKeywords(CardKeyword.Exhaust);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
@@ -25,7 +26,10 @@ public sealed class ContagiousRupture : PlagueBringerCard, IPlagueCard
         if (consumed <= 0)
             return;
 
-        await DamageCmd.Attack(consumed * DynamicVars["Multiplier"].IntValue)
+        var multiplier = DynamicVars["MultiplierTenths"].IntValue / 10m;
+        var damage = Math.Ceiling(consumed * multiplier);
+
+        await DamageCmd.Attack(damage)
             .FromCard(this, play)
             .TargetingAllOpponents(combatState)
             .WithHitFx("vfx/vfx_attack_slash")
@@ -34,6 +38,6 @@ public sealed class ContagiousRupture : PlagueBringerCard, IPlagueCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Multiplier"].UpgradeValueBy(1m);
+        DynamicVars["MultiplierTenths"].UpgradeValueBy(15m);
     }
 }
