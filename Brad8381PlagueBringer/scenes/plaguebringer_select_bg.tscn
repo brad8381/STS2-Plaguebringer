@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Texture2D" path="res://Brad8381PlagueBringer/images/character/plaguebringer_select_background.png" id="1_background"]
 [ext_resource type="Texture2D" path="res://Brad8381PlagueBringer/images/character/plaguebringer_combat.png" id="2_character"]
+
+[sub_resource type="Gradient" id="Gradient_character_glow"]
+offsets = PackedFloat32Array(0, 0.64, 1)
+colors = PackedColorArray(0, 0, 0, 0.72, 0, 0, 0, 0.30, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_character_glow"]
+gradient = SubResource("Gradient_character_glow")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="PlagueBringerSelectBg" type="Control"]
 layout_mode = 3
@@ -24,6 +36,16 @@ expand_mode = 1
 stretch_mode = 6
 mouse_filter = 2
 
+[node name="GreenWash" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.018, 0.075, 0.034, 0.28)
+mouse_filter = 2
+
 [node name="DarkWash" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -31,7 +53,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.005, 0.012, 0.009, 0.16)
+color = Color(0.005, 0.012, 0.009, 0.08)
+mouse_filter = 2
+
+[node name="CharacterGlow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1500.0
+offset_top = -590.0
+offset_right = -150.0
+offset_bottom = 590.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_character_glow")
+expand_mode = 1
+stretch_mode = 5
 mouse_filter = 2
 
 [node name="Character" type="TextureRect" parent="."]
@@ -41,9 +81,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1100.0
+offset_left = -1320.0
 offset_top = -520.0
-offset_right = -80.0
+offset_right = -300.0
 offset_bottom = 520.0
 grow_horizontal = 0
 grow_vertical = 2
