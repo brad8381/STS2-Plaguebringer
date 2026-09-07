@@ -22,10 +22,15 @@ public sealed class RustedNeedle : PlagueBringerRelic
 
     public override RelicRarity Rarity => RelicRarity.Common;
 
-    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
+    public override Task BeforeSideTurnStart(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
-        if (side == Owner.Creature.Side)
+        if (side == Owner.Creature.Side && participants.Contains(Owner.Creature))
             _usedThisTurn = false;
+
         return Task.CompletedTask;
     }
 
