@@ -16,8 +16,8 @@ public sealed class PlaguePower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Plague",
-            "At the start of this enemy's turn, take {Amount} damage that ignores Block, then increase Plague by 15%, rounded up.",
-            "At the start of this enemy's turn, take {Amount} damage that ignores Block, then increase Plague by 15%, rounded up."
+            "At the start of this creature's turn, take {Amount} damage that ignores Block, then increase Plague by 15%, rounded up.",
+            "At the start of this creature's turn, take {Amount} damage that ignores Block, then increase Plague by 15%, rounded up."
         );
 
     public override PowerType Type => PowerType.Debuff;
@@ -28,14 +28,20 @@ public sealed class PlaguePower : PlagueBringerPower
         IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
-        if (!participants.Contains(Owner) || !Owner.IsAlive || Amount <= 0)
+        if (!participants.Contains(Owner)) return;
+        await TriggerPlague(new ThrowingPlayerChoiceContext());
+    }
+
+    public async Task TriggerPlague(PlayerChoiceContext choiceContext)
+    {
+        if (!Owner.IsAlive || Amount <= 0)
             return;
 
         var stacks = Amount;
         MainFile.Logger.Debug($"Plague tick: target={Owner}, stacks={stacks}");
 
         await CreatureCmd.Damage(
-            new ThrowingPlayerChoiceContext(),
+            choiceContext,
             Owner,
             stacks,
             ValueProp.Unpowered | ValueProp.Unblockable,
@@ -59,7 +65,7 @@ public sealed class PlaguePower : PlagueBringerPower
         if (increase > 0)
         {
             await PowerCmd.ModifyAmount(
-                new ThrowingPlayerChoiceContext(),
+                choiceContext,
                 this,
                 increase,
                 null,
