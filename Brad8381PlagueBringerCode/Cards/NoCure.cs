@@ -10,7 +10,7 @@ public sealed class NoCure : PlagueBringerCard, IPlagueCard
 {
     public NoCure() : base(1, CardType.Power, CardRarity.Rare, TargetType.Self)
     {
-        WithVars(new DynamicVar("BonusGrowth", 1));
+        WithVars(new DynamicVar("BonusGrowthPercent", 10));
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
@@ -18,13 +18,13 @@ public sealed class NoCure : PlagueBringerCard, IPlagueCard
         await PowerCmd.Apply<NoCurePower>(
             choiceContext,
             Owner.Creature,
-            DynamicVars["BonusGrowth"].IntValue,
+            DynamicVars["BonusGrowthPercent"].IntValue,
             Owner.Creature,
             this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["BonusGrowth"].UpgradeValueBy(1m);
+        DynamicVars["BonusGrowthPercent"].UpgradeValueBy(10m);
     }
 }
