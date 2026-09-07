@@ -1,6 +1,7 @@
 using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
@@ -17,9 +18,13 @@ public sealed class SporeJar : PlagueBringerRelic
 
     public override RelicRarity Rarity => RelicRarity.Uncommon;
 
-    public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task BeforeSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
         if (side != Owner.Creature.Side || Owner.Creature.CombatState == null) return;
+
         Flash();
         foreach (var enemy in Owner.Creature.CombatState.GetOpponentsOf(Owner.Creature).Where(enemy => enemy.IsAlive).ToArray())
             await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, 1, Owner.Creature, null);
