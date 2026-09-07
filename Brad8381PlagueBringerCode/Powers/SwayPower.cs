@@ -12,13 +12,14 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
 
 public sealed class SwayPower : PlagueBringerPower
 {
-    public const int MaxEffectiveStacks = 3;
+    public const int MaxStacks = 6;
+    public const int MaxReductionStacks = 5;
 
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Sway",
-            "Each stack reduces this creature's Attack damage by 10%, up to 30%. Lose 1 Sway after this creature's turn.",
-            "Each stack reduces this creature's Attack damage by 10%, up to 30%. Lose 1 Sway after this creature's turn."
+            "Each stack reduces this creature's Attack damage by 10%, up to 50%. Maximum 6 Sway. Lose 1 Sway after this creature's turn.",
+            "Each stack reduces this creature's Attack damage by 10%, up to 50%. Maximum 6 Sway. Lose 1 Sway after this creature's turn."
         );
 
     public override string CustomPackedIconPath =>
@@ -40,8 +41,8 @@ public sealed class SwayPower : PlagueBringerPower
         if (dealer != Owner || !props.IsPoweredAttack())
             return 1m;
 
-        var stacks = Math.Min(Amount, MaxEffectiveStacks);
-        return 1m - (0.10m * stacks);
+        var effectiveStacks = Math.Min(Amount, MaxReductionStacks);
+        return 1m - (0.10m * effectiveStacks);
     }
 
     public override async Task AfterSideTurnEnd(
