@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chcuqylxbt4sp"
-path="res://.godot/imported/infected_scalpel.png-dfc6c7132e6173f016d75cd32ae54b7f.ctex"
+uid="uid://c5kouj1u1ilg"
+path="res://.godot/imported/plaguebringer_combat.png-8b298d623d06f6201a4343f8ecb82771.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Brad8381PlagueBringer/images/card_portraits/big/infected_scalpel.png"
-dest_files=["res://.godot/imported/infected_scalpel.png-dfc6c7132e6173f016d75cd32ae54b7f.ctex"]
+source_file="res://Brad8381PlagueBringer/images/character/plaguebringer_combat.png"
+dest_files=["res://.godot/imported/plaguebringer_combat.png-8b298d623d06f6201a4343f8ecb82771.ctex"]
 
 [params]
 
