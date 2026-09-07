@@ -12,23 +12,32 @@ public sealed class ConcentratedDose : PlagueBringerCard, IPlagueCard
 
     public ConcentratedDose() : base(-1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
-        WithVars(new DynamicVar("PlaguePerEnergy", 3));
+        WithVars(
+            new DynamicVar("PlaguePerEnergy", 4),
+            new DynamicVar("EnergyRefund", 0));
         WithKeywords(CardKeyword.Exhaust);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        if (play.Target is not { IsAlive: true } target) return;
+        if (play.Target is not { IsAlive: true } target)
+            return;
 
         var x = ResolveEnergyXValue();
-        if (x <= 0) return;
+        if (x <= 0)
+            return;
 
         var amount = x * DynamicVars["PlaguePerEnergy"].IntValue;
         await PowerCmd.Apply<PlaguePower>(choiceContext, target, amount, Owner.Creature, this);
+
+        var energyRefund = DynamicVars["EnergyRefund"].IntValue;
+        if (energyRefund > 0)
+            await PlayerCmd.GainEnergy(energyRefund, Owner);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars["PlaguePerEnergy"].UpgradeValueBy(1m);
+        DynamicVars["EnergyRefund"].UpgradeValueBy(1m);
     }
 }
