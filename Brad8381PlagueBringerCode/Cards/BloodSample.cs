@@ -1,18 +1,27 @@
+using BaseLib.Abstracts;
+using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Mechanics;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
 
-public sealed class BurnTheEvidence : PlagueBringerCard, IPlagueCard
+public sealed class BloodSample : PlagueBringerCard
 {
-    public BurnTheEvidence() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    public BloodSample() : base(0, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
-        WithVars(new DynamicVar("Plague", 4));
+        WithVars(new DynamicVar("Specimen", 1), new CardsVar(1));
     }
+
+    public override List<(string, string)>? Localization =>
+        new CardLoc(
+            "Blood Sample",
+            "Exhaust a card from your hand. Gain {Specimen:diff()} Specimen. Draw {Cards:diff()} card."
+        );
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
@@ -22,7 +31,7 @@ public sealed class BurnTheEvidence : PlagueBringerCard, IPlagueCard
 
         var prompt = new LocString("gameplay_ui", "CHOOSE_CARD_HEADER");
         var prefs = new CardSelectorPrefs(prompt, 1);
-        var selected = (await CardSelectCmd.FromHand(
+        CardModel? selected = (await CardSelectCmd.FromHand(
                 choiceContext,
                 Owner,
                 prefs,
@@ -34,21 +43,16 @@ public sealed class BurnTheEvidence : PlagueBringerCard, IPlagueCard
             return;
 
         await CardCmd.Exhaust(choiceContext, selected);
-
-        var combatState = CombatState;
-        if (combatState != null)
-        {
-            await PlagueCardUtils.ApplyPlagueToAllEnemies(
-                choiceContext,
-                combatState,
-                Owner.Creature,
-                DynamicVars["Plague"].IntValue,
-                this);
-        }
+        await SpecimenActions.Gain(
+            choiceContext,
+            Owner.Creature,
+            DynamicVars["Specimen"].IntValue,
+            this);
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Plague"].UpgradeValueBy(2m);
+        DynamicVars["Specimen"].UpgradeValueBy(1m);
     }
 }

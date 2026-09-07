@@ -11,7 +11,7 @@ public sealed class Fumigate : PlagueBringerCard, IPlagueCard
 {
     public Fumigate() : base(1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
     {
-        WithVars(new PowerVar<PlaguePower>("Plague", 1));
+        WithVars(new PowerVar<PlaguePower>("Plague", 3));
         WithKeywords(CardKeyword.Exhaust);
     }
 
@@ -24,6 +24,6 @@ public sealed class Fumigate : PlagueBringerCard, IPlagueCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Plague"].UpgradeValueBy(1m);
+        DynamicVars["Plague"].UpgradeValueBy(2m);
     }
 }
