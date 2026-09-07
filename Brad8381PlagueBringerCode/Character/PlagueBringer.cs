@@ -2,6 +2,8 @@ using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
 using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Extensions;
 using Godot;
+using MegaCrit.Sts2.Core.Animation;
+using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
@@ -20,10 +22,10 @@ public class PlagueBringer : PlaceholderCharacterModel
             Title: "The Plaguebringer",
             TitleObject: "the Plaguebringer",
             Description: "A physician with no patients left.\nSmall wounds. A sickness that only grows.",
-            PronounObject: "them",
-            PronounSubject: "they",
-            PronounPossessive: "theirs",
-            PossessiveAdjective: "their",
+            PronounObject: "him",
+            PronounSubject: "he",
+            PronounPossessive: "his",
+            PossessiveAdjective: "his",
             AromaPrinciple: "Clove, smoke, and something spoiled.",
             EndTurnPingAlive: "The sickness will not wait.",
             EndTurnPingDead: "Keep the censer burning...",
@@ -35,20 +37,28 @@ public class PlagueBringer : PlaceholderCharacterModel
         );
 
     public override Color NameColor => Color;
-    public override CharacterGender Gender => CharacterGender.Neutral;
+    public override CharacterGender Gender => CharacterGender.Masculine;
     public override int StartingHp => 70;
 
-    // Static custom combat sprite for now. This can later be replaced by an
-    // AnimatedSprite2D or Spine scene without changing the character model.
     public override string CustomVisualPath =>
         "res://Brad8381PlagueBringer/scenes/plaguebringer_character.tscn";
 
-    // Do not inherit Ironclad's full character-select artwork.
     public override string CustomCharacterSelectBg =>
         "res://Brad8381PlagueBringer/scenes/plaguebringer_select_bg.tscn";
 
-    // Keep a known-good vanilla transition until we make a custom one.
+    // Stop PlaceholderCharacterModel from borrowing Ironclad's campfire/merchant body.
+    public override string CustomRestSiteAnimPath =>
+        "res://Brad8381PlagueBringer/scenes/plaguebringer_rest_site.tscn";
+    public override string CustomMerchantAnimPath =>
+        "res://Brad8381PlagueBringer/scenes/plaguebringer_merchant.tscn";
+
     public override string CharacterTransitionSfx => "event:/sfx/ui/wipe_ironclad";
+
+    // Ability-specific attack/cast animation is a later pass. Hurt/death are wired now.
+    public override CreatureAnimator? SetupCustomAnimationStates(MegaSprite controller) =>
+        SetupAnimationState(controller, "idle", deadName: "die", hitName: "hurt");
+
+    public override float DeathAnimTime => 1.25f;
 
     public override IEnumerable<CardModel> StartingDeck => [
         ModelDb.Card<StrikePlagueBringer>(), ModelDb.Card<StrikePlagueBringer>(),

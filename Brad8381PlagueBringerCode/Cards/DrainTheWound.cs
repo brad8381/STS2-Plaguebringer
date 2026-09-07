@@ -6,30 +6,30 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
 
-public sealed class PestilentBlow : PlagueBringerCard, IPlagueCard
+public sealed class DrainTheWound : PlagueBringerCard, IPlagueCard
 {
-    public PestilentBlow() : base(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
+    public DrainTheWound() : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
         WithVars(new DynamicVar("Multiplier", 2));
-        WithKeywords(CardKeyword.Exhaust);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         if (play.Target is not { IsAlive: true } target) return;
-
         var plague = target.GetPower<PlaguePower>();
         if (plague == null || plague.Amount <= 0) return;
 
-        var multiplier = DynamicVars["Multiplier"].IntValue;
-        var extra = plague.Amount * (multiplier - 1);
-        if (extra > 0)
-            await PowerCmd.ModifyAmount(choiceContext, plague, extra, Owner.Creature, this);
+        var consumed = plague.Amount;
+        await PowerCmd.Remove(plague);
+        await DamageCmd.Attack(consumed * DynamicVars["Multiplier"].IntValue)
+            .FromCard(this)
+            .Targeting(target)
+            .WithHitFx("vfx/vfx_attack_slash")
+            .Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars["Multiplier"].UpgradeValueBy(1m);
-        RemoveKeyword(CardKeyword.Exhaust);
     }
 }

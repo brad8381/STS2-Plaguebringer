@@ -6,7 +6,7 @@
   "BRAD8381PLAGUEBRINGER-MIASMA_VIAL.description": "Apply {Plague} [gold]Plague[/gold] to ALL enemies.",
 
   "BRAD8381PLAGUEBRINGER-QUARANTINE_DRAUGHT.title": "Quarantine Draught",
-  "BRAD8381PLAGUEBRINGER-QUARANTINE_DRAUGHT.description": "Gain {Block} [gold]Block[/gold].",
+  "BRAD8381PLAGUEBRINGER-QUARANTINE_DRAUGHT.description": "Gain {BlockPerPlague} [gold]Block[/gold] for each [gold]Plague[/gold] on the target enemy.",
 
   "BRAD8381PLAGUEBRINGER-INCUBATION_SERUM.title": "Incubation Serum",
   "BRAD8381PLAGUEBRINGER-INCUBATION_SERUM.description": "Double [gold]Plague[/gold] on the target."
