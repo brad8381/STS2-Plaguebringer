@@ -1,16 +1,16 @@
+using System.Collections;
 using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Potions;
 using MegaCrit.Sts2.Core.Models.Events;
-using MegaCrit.Sts2.Core.Models.Potions;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Patches;
 
 /// <summary>
 /// The Future of Potions asks for three upgraded cards of one exact rarity/type.
-/// Vanilla may construct its private potion->card-type map before options are generated,
-/// so always replace that map for the Plaguebringer instead of only filling it when null.
+/// Keep the patch independent of PotionModel's namespace/type location on the beta
+/// branch by replacing the event's private dictionary through reflection.
 /// </summary>
 [HarmonyPatch(typeof(TheFutureOfPotions), "GenerateInitialOptions")]
 internal static class TheFutureOfPotionsPatch
@@ -19,16 +19,26 @@ internal static class TheFutureOfPotionsPatch
     private const int PreferredMinimum = RewardSize + 1;
 
     [HarmonyPrefix]
-    private static void Prefix(
-        TheFutureOfPotions __instance,
-        ref Dictionary<PotionModel, CardType>? ____cardTypes)
+    private static void Prefix(TheFutureOfPotions __instance)
     {
         var owner = __instance.Owner;
         if (owner == null || owner.Character.CardPool is not PlagueBringerCardPool)
             return;
 
+        var cardTypesField = AccessTools.Field(typeof(TheFutureOfPotions), "_cardTypes");
+        if (cardTypesField == null)
+        {
+            MainFile.Logger.Error("Future of Potions patch could not find _cardTypes field.");
+            return;
+        }
+
+        if (Activator.CreateInstance(cardTypesField.FieldType) is not IDictionary map)
+        {
+            MainFile.Logger.Error($"Future of Potions _cardTypes field is not an IDictionary: {cardTypesField.FieldType.FullName}");
+            return;
+        }
+
         var cards = owner.Character.CardPool.AllCards.ToArray();
-        var map = new Dictionary<PotionModel, CardType>();
 
         foreach (var potion in owner.Potions)
         {
@@ -62,7 +72,7 @@ internal static class TheFutureOfPotionsPatch
                 $"({counts[selectedType]} candidates)");
         }
 
-        ____cardTypes = map;
+        cardTypesField.SetValue(__instance, map);
     }
 
     private static CardRarity ToCardRarity(PotionRarity rarity) => rarity switch
