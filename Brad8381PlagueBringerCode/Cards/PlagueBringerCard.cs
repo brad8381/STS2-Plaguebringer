@@ -73,8 +73,16 @@ public abstract class PlagueBringerCard(
             "The first time each turn you remove [gold]Plague[/gold], gain {EnergyOnRemove} [gold]Energy[/gold].")
     };
 
-    public override List<(string, string)>? Localization =>
-        InlineLocalization.TryGetValue(GetType(), out var loc) ? loc : null;
+    public override List<(string, string)>? Localization
+    {
+        get
+        {
+            if (!InlineLocalization.TryGetValue(GetType(), out var loc) || loc is null)
+                return null;
+
+            return loc;
+        }
+    }
 
     // BaseLib uses CustomPortraitPath for the actual card portrait texture.
     // STS2's high-resolution individual portraits are 1000x760, so use the
