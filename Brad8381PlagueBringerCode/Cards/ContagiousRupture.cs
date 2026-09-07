@@ -1,3 +1,4 @@
+using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,6 +13,12 @@ public sealed class ContagiousRupture : PlagueBringerCard, IPlagueCard
         WithVars(new DynamicVar("MultiplierTenths", 15));
         WithKeywords(CardKeyword.Exhaust);
     }
+
+    public override List<(string, string)>? Localization =>
+        new CardLoc(
+            "Contagious Rupture",
+            "Remove ALL [gold]Plague[/gold] from the target. Deal {IfUpgraded:show:3|1.5} times that much damage to ALL enemies."
+        );
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
