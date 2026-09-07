@@ -1,11 +1,25 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Texture2D" path="res://Brad8381PlagueBringer/images/character/plaguebringer_select_background.png" id="1_background"]
 [ext_resource type="Texture2D" path="res://Brad8381PlagueBringer/images/character/plaguebringer_combat.png" id="2_character"]
+[ext_resource type="Script" path="res://Brad8381PlagueBringerCode/Character/PlagueBringerSelectSway.cs" id="3_sway"]
+[ext_resource type="Script" path="res://Brad8381PlagueBringerCode/Character/PlagueBringerSelectParticles.cs" id="4_particles"]
+
+[sub_resource type="Gradient" id="Gradient_green_aura"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.22, 0.72, 0.08, 0.22, 0.08, 0.34, 0.03, 0.11, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_green_aura"]
+gradient = SubResource("Gradient_green_aura")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_character_glow"]
 offsets = PackedFloat32Array(0, 0.64, 1)
-colors = PackedColorArray(0, 0, 0, 0.72, 0, 0, 0, 0.30, 0, 0, 0, 0)
+colors = PackedColorArray(0, 0, 0, 0.52, 0, 0, 0, 0.24, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_character_glow"]
 gradient = SubResource("Gradient_character_glow")
@@ -43,7 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.018, 0.075, 0.034, 0.28)
+color = Color(0.018, 0.075, 0.034, 0.32)
 mouse_filter = 2
 
 [node name="DarkWash" type="ColorRect" parent="."]
@@ -53,7 +67,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.005, 0.012, 0.009, 0.08)
+color = Color(0.005, 0.012, 0.009, 0.06)
+mouse_filter = 2
+
+[node name="Particles" type="Node2D" parent="."]
+script = ExtResource("4_particles")
+
+[node name="GreenAura" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1800.0
+offset_top = -650.0
+offset_right = -380.0
+offset_bottom = 650.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_green_aura")
+expand_mode = 1
+stretch_mode = 5
 mouse_filter = 2
 
 [node name="CharacterGlow" type="TextureRect" parent="."]
@@ -63,10 +98,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1500.0
-offset_top = -590.0
-offset_right = -150.0
-offset_bottom = 590.0
+offset_left = -1740.0
+offset_top = -600.0
+offset_right = -390.0
+offset_bottom = 600.0
 grow_horizontal = 0
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_character_glow")
@@ -81,9 +116,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1320.0
+offset_left = -1600.0
 offset_top = -520.0
-offset_right = -300.0
+offset_right = -580.0
 offset_bottom = 520.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -91,3 +126,4 @@ texture = ExtResource("2_character")
 expand_mode = 1
 stretch_mode = 5
 mouse_filter = 2
+script = ExtResource("3_sway")

@@ -3,9 +3,9 @@ using Godot;
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
 
 /// <summary>
-/// Visible idle motion for the temporary static combat sprite.
+/// Gives the character-select artwork a subtle breathing/sway loop.
 /// </summary>
-public partial class PlagueBringerIdle : Sprite2D
+public partial class PlagueBringerSelectSway : TextureRect
 {
     private Vector2 _basePosition;
     private Vector2 _baseScale;
@@ -18,6 +18,7 @@ public partial class PlagueBringerIdle : Sprite2D
         _basePosition = Position;
         _baseScale = Scale;
         _baseRotation = Rotation;
+        PivotOffset = Size * 0.5f;
         SetProcess(true);
     }
 
@@ -25,13 +26,13 @@ public partial class PlagueBringerIdle : Sprite2D
     {
         _time += delta;
 
-        var slow = Mathf.Sin((float)_time * 1.25f);
-        var fast = Mathf.Sin((float)_time * 2.05f + 0.7f);
+        var sway = Mathf.Sin((float)_time * 0.95f);
+        var breathe = Mathf.Sin((float)_time * 1.45f + 0.8f);
 
-        Position = _basePosition + new Vector2(slow * 2.5f, fast * 7.0f);
-        Rotation = _baseRotation + Mathf.DegToRad(slow * 1.15f);
+        Position = _basePosition + new Vector2(sway * 4f, breathe * 6f);
+        Rotation = _baseRotation + Mathf.DegToRad(sway * 0.75f);
 
-        var breathe = 1f + fast * 0.009f;
-        Scale = _baseScale * breathe;
+        var scaleFactor = 1f + breathe * 0.006f;
+        Scale = _baseScale * scaleFactor;
     }
 }

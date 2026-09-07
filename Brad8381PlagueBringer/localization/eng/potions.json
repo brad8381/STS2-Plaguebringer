@@ -1,0 +1,13 @@
+{
+  "BRAD8381PLAGUEBRINGER-PLAGUE_FLASK.title": "Plague Flask",
+  "BRAD8381PLAGUEBRINGER-PLAGUE_FLASK.description": "Apply {Plague} [gold]Plague[/gold].",
+
+  "BRAD8381PLAGUEBRINGER-MIASMA_VIAL.title": "Miasma Vial",
+  "BRAD8381PLAGUEBRINGER-MIASMA_VIAL.description": "Apply {Plague} [gold]Plague[/gold] to ALL enemies.",
+
+  "BRAD8381PLAGUEBRINGER-QUARANTINE_DRAUGHT.title": "Quarantine Draught",
+  "BRAD8381PLAGUEBRINGER-QUARANTINE_DRAUGHT.description": "Gain {Block} [gold]Block[/gold].",
+
+  "BRAD8381PLAGUEBRINGER-INCUBATION_SERUM.title": "Incubation Serum",
+  "BRAD8381PLAGUEBRINGER-INCUBATION_SERUM.description": "Double [gold]Plague[/gold] on the target."
+}

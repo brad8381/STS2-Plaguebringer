@@ -1,0 +1,33 @@
+using BaseLib.Utils;
+using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Potions;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+
+namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Potions;
+
+public sealed class PlagueFlask : PlagueBringerPotion
+{
+    public override PotionRarity Rarity => PotionRarity.Common;
+    public override PotionUsage Usage => PotionUsage.CombatOnly;
+    public override TargetType TargetType => TargetType.AnyEnemy;
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new PowerVar<PlaguePower>("Plague", 10)];
+
+    protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
+    {
+        if (target is not { IsAlive: true })
+            return;
+
+        await PowerCmd.Apply<PlaguePower>(
+            choiceContext,
+            target,
+            DynamicVars["Plague"].IntValue,
+            Owner.Creature,
+            null);
+    }
+}
