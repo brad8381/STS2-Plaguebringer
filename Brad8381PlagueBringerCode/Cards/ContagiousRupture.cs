@@ -16,6 +16,10 @@ public sealed class ContagiousRupture : PlagueBringerCard, IPlagueCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         if (play.Target is not { IsAlive: true } target) return;
+
+        var combatState = Owner.Creature.CombatState;
+        if (combatState == null) return;
+
         var plague = target.GetPower<PlaguePower>();
         if (plague == null || plague.Amount <= 0) return;
 
@@ -23,7 +27,7 @@ public sealed class ContagiousRupture : PlagueBringerCard, IPlagueCard
         await PowerCmd.Remove(plague);
         await DamageCmd.Attack(consumed * DynamicVars["Multiplier"].IntValue)
             .FromCard(this)
-            .TargetingAllOpponents(CombatState)
+            .TargetingAllOpponents(combatState)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
     }
