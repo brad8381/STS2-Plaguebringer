@@ -17,17 +17,22 @@ public sealed class BloodSample : PlagueBringerCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        var selected = (await CardSelectCmd.FromHand(
+        CardModel? selected = (await CardSelectCmd.FromHand(
             prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1),
             context: choiceContext,
             player: Owner,
-            filter: null,
+            filter: card => card != this,
             source: this)).FirstOrDefault();
 
-        if (selected != null)
-            await CardCmd.Exhaust(choiceContext, selected);
+        if (selected == null)
+            return;
 
-        await SpecimenActions.Gain(choiceContext, Owner.Creature, DynamicVars["Specimen"].IntValue, this);
+        await CardCmd.Exhaust(choiceContext, selected);
+        await SpecimenActions.Gain(
+            choiceContext,
+            Owner.Creature,
+            DynamicVars["Specimen"].IntValue,
+            this);
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 
