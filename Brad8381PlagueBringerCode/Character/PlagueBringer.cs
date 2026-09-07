@@ -15,15 +15,40 @@ public class PlagueBringer : PlaceholderCharacterModel
 
     public static readonly Color Color = new("c8c3b8");
 
+    public override List<(string, string)>? Localization =>
+        new CharacterLoc(
+            Title: "The Plaguebringer",
+            TitleObject: "the Plaguebringer",
+            Description: "A physician with no patients left.\nSmall wounds. A sickness that only grows.",
+            PronounObject: "them",
+            PronounSubject: "they",
+            PronounPossessive: "theirs",
+            PossessiveAdjective: "their",
+            AromaPrinciple: "Clove, smoke, and something spoiled.",
+            EndTurnPingAlive: "The sickness will not wait.",
+            EndTurnPingDead: "Keep the censer burning...",
+            EventDeathPrevention: "Not yet. There is still work to do.",
+            GoldMonologue: "Payment before treatment.",
+            CardsModifierTitle: "Plaguebringer Cards",
+            CardsModifierDescription: "Plaguebringer cards now appear in rewards and shops.",
+            ("unlockText", "Play a run with [pink]{Prerequisite}[/pink] to unlock this character.")
+        );
+
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Neutral;
     public override int StartingHp => 70;
 
-    // Use our own combat visual instead of PlaceholderCharacterModel's Ironclad body.
-    // Other secondary character assets can continue to fall back to Ironclad until
-    // we replace them individually.
+    // Static custom combat sprite for now. This can later be replaced by an
+    // AnimatedSprite2D or Spine scene without changing the character model.
     public override string CustomVisualPath =>
         "res://Brad8381PlagueBringer/scenes/plaguebringer_character.tscn";
+
+    // Do not inherit Ironclad's full character-select artwork.
+    public override string CustomCharacterSelectBg =>
+        "res://Brad8381PlagueBringer/scenes/plaguebringer_select_bg.tscn";
+
+    // Keep a known-good vanilla transition until we make a custom one.
+    public override string CharacterTransitionSfx => "event:/sfx/ui/wipe_ironclad";
 
     public override IEnumerable<CardModel> StartingDeck => [
         ModelDb.Card<StrikePlagueBringer>(), ModelDb.Card<StrikePlagueBringer>(),
