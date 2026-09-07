@@ -8,7 +8,29 @@
   "BRAD8381PLAGUEBRINGER-PLAGUE_VIAL.title": "Plague Vial",
   "BRAD8381PLAGUEBRINGER-PLAGUE_VIAL.description": "Apply {Plague:diff()} [gold]Plague[/gold].",
   "BRAD8381PLAGUEBRINGER-FUMIGATE.title": "Fumigate",
-  "BRAD8381PLAGUEBRINGER-FUMIGATE.description": "Apply {Plague:diff()} [gold]Plague[/gold] to ALL enemies.",
+  "BRAD8381PLAGUEBRINGER-FUMIGATE.description": "Apply {Plague:diff()} [gold]Plague[/gold] to ALL enemies.\n[gold]Exhaust[/gold].",
   "BRAD8381PLAGUEBRINGER-QUARANTINE.title": "Quarantine",
-  "BRAD8381PLAGUEBRINGER-QUARANTINE.description": "Gain {Block:diff()} [gold]Block[/gold]."
+  "BRAD8381PLAGUEBRINGER-QUARANTINE.description": "Gain {Block:diff()} [gold]Block[/gold].",
+
+  "BRAD8381PLAGUEBRINGER-INCISION.title": "Incision",
+  "BRAD8381PLAGUEBRINGER-INCISION.description": "Deal {Damage:diff()} damage.\nApply {Plague:diff()} [gold]Plague[/gold].",
+  "BRAD8381PLAGUEBRINGER-PROTECTIVE_MASK.title": "Protective Mask",
+  "BRAD8381PLAGUEBRINGER-PROTECTIVE_MASK.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "BRAD8381PLAGUEBRINGER-DISCARDED_GAUZE.title": "Discarded Gauze",
+  "BRAD8381PLAGUEBRINGER-DISCARDED_GAUZE.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Exhaust[/gold].",
+  "BRAD8381PLAGUEBRINGER-BLOOD_SAMPLE.title": "Blood Sample",
+  "BRAD8381PLAGUEBRINGER-BLOOD_SAMPLE.description": "Exhaust a card from your hand.\nGain {Specimen:diff()} [gold]Specimen[/gold]. Draw {Cards:diff()} card.",
+  "BRAD8381PLAGUEBRINGER-CONTAMINATED_NEEDLE.title": "Contaminated Needle",
+  "BRAD8381PLAGUEBRINGER-CONTAMINATED_NEEDLE.description": "Deal {Damage:diff()} damage. Apply {Plague:diff()} [gold]Plague[/gold].\n[gold]Exhaust[/gold].",
+  "BRAD8381PLAGUEBRINGER-UNSTEADY_STEP.title": "Sway",
+  "BRAD8381PLAGUEBRINGER-UNSTEADY_STEP.description": "Apply {Sway:diff()} [gold]Sway[/gold].\nDraw {Cards:diff()} card.",
+
+  "BRAD8381PLAGUEBRINGER-PESTILENT_BLOW.title": "Pestilent Blow",
+  "BRAD8381PLAGUEBRINGER-PESTILENT_BLOW.description": "Deal {Damage:diff()} damage.\nMultiply this enemy's current [gold]Plague[/gold] by {Multiplier:diff()}x.",
+  "BRAD8381PLAGUEBRINGER-BONE_SAW.title": "Bone Saw",
+  "BRAD8381PLAGUEBRINGER-BONE_SAW.description": "Deal {Damage:diff()} damage.\nIf you have a [gold]Specimen[/gold], spend 1 to deal {Damage:diff()} damage again.",
+  "BRAD8381PLAGUEBRINGER-EXPERIMENTAL_DOSE.title": "Experimental Dose",
+  "BRAD8381PLAGUEBRINGER-EXPERIMENTAL_DOSE.description": "Spend up to 3 [gold]Specimens[/gold].\nApply {PlaguePerSpecimen:diff()} [gold]Plague[/gold] per Specimen spent.",
+  "BRAD8381PLAGUEBRINGER-FIELD_RESEARCH.title": "Field Research",
+  "BRAD8381PLAGUEBRINGER-FIELD_RESEARCH.description": "Whenever you Exhaust a card, gain 1 [gold]Specimen[/gold]."
 }
