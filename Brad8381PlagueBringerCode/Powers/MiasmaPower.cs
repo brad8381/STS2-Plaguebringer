@@ -26,7 +26,10 @@ public sealed class MiasmaPower : PlagueBringerPower
     {
         if (!participants.Contains(Owner) || !Owner.IsAlive) return;
 
-        var enemies = Owner.CombatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray();
+        var ownerCombatState = Owner.CombatState;
+        if (ownerCombatState == null) return;
+
+        var enemies = ownerCombatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray();
         if (enemies.Length == 0) return;
 
         Flash();
