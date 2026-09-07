@@ -14,7 +14,7 @@ public sealed class DiscardedGauze : PlagueBringerCard
     }
 
     public override List<(string, string)>? Localization =>
-        new CardLoc("Discarded Gauze", "Gain {Block:diff()} [gold]Block[/gold]. Exhaust.");
+        new CardLoc("Discarded Gauze", "Gain {Block:diff()} [gold]Block[/gold].");
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
