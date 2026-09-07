@@ -10,8 +10,8 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
 
 public sealed class PlaguePower : PlagueBringerPower
 {
-    public override string CustomPackedIconPath => "res://Brad8381PlagueBringer/images/powers/plague_power.svg";
-    public override string CustomBigIconPath => "res://Brad8381PlagueBringer/images/powers/big/plague_power.svg";
+    public override string CustomPackedIconPath => "res://Brad8381PlagueBringer/images/powers/plague_power.png";
+    public override string CustomBigIconPath => "res://Brad8381PlagueBringer/images/powers/big/plague_power.png";
 
     public override List<(string, string)>? Localization =>
         new PowerLoc(
