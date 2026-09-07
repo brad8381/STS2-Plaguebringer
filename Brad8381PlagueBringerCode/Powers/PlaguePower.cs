@@ -58,9 +58,14 @@ public sealed class PlaguePower : PlagueBringerPower
             return;
 
         var nextAmount = Math.Ceiling(stacks * 1.15m);
-        var increase = nextAmount - stacks;
+        var bonusGrowth = Owner.CombatState?
+            .GetOpponentsOf(Owner)
+            .Where(opponent => opponent.IsAlive)
+            .Sum(opponent => opponent.GetPower<NoCurePower>()?.Amount ?? 0m) ?? 0m;
+        var increase = nextAmount - stacks + bonusGrowth;
 
-        MainFile.Logger.Debug($"Plague growth: {stacks} -> {nextAmount} (+{increase})");
+        MainFile.Logger.Debug(
+            $"Plague growth: {stacks} -> {stacks + increase} (+{increase}, No Cure +{bonusGrowth})");
 
         if (increase > 0)
         {
