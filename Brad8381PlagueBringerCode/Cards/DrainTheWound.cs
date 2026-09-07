@@ -1,4 +1,3 @@
-using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -15,14 +14,15 @@ public sealed class DrainTheWound : PlagueBringerCard, IPlagueCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        if (play.Target is not { IsAlive: true } target) return;
-        var plague = target.GetPower<PlaguePower>();
-        if (plague == null || plague.Amount <= 0) return;
+        if (play.Target is not { IsAlive: true } target)
+            return;
 
-        var consumed = plague.Amount;
-        await PowerCmd.Remove(plague);
+        var consumed = await PlagueCardUtils.RemoveAllPlague(choiceContext, target, this);
+        if (consumed <= 0)
+            return;
+
         await DamageCmd.Attack(consumed * DynamicVars["Multiplier"].IntValue)
-            .FromCard(this)
+            .FromCard(this, play)
             .Targeting(target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
