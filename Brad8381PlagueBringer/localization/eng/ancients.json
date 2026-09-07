@@ -1,3 +1,13 @@
 {
-  
+  "NEOW.talk.BRAD8381PLAGUEBRINGER-PLAGUE_BRINGER.0-0.char": "You called for a physician. I fear you are beyond my care.",
+  "NEOW.talk.BRAD8381PLAGUEBRINGER-PLAGUE_BRINGER.0-0.next": "Continue",
+  "NEOW.talk.BRAD8381PLAGUEBRINGER-PLAGUE_BRINGER.0-1.ancient": "[sine]...not... me... the Spire... is sick...[/sine]",
+
+  "NEOW.talk.BRAD8381PLAGUEBRINGER-PLAGUE_BRINGER.1-0r.ancient": "[sine]...again... physician... the sickness... grows...[/sine]",
+
+  "NEOW.talk.BRAD8381PLAGUEBRINGER-PLAGUE_BRINGER.2-0.ancient": "[sine]...what... do you seek...?[/sine]",
+  "NEOW.talk.BRAD8381PLAGUEBRINGER-PLAGUE_BRINGER.2-0.next": "Entreat",
+  "NEOW.talk.BRAD8381PLAGUEBRINGER-PLAGUE_BRINGER.2-1.char": "Something that survives long enough to spread.",
+  "NEOW.talk.BRAD8381PLAGUEBRINGER-PLAGUE_BRINGER.2-1.next": "Continue",
+  "NEOW.talk.BRAD8381PLAGUEBRINGER-PLAGUE_BRINGER.2-2.ancient": "[sine]...then... carry it... upward...[/sine]"
 }
