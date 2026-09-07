@@ -1,12 +1,6 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=2 format=3]
 
 [ext_resource type="Texture2D" path="res://Brad8381PlagueBringer/images/character/plaguebringer_combat.png" id="1_character"]
-
-[sub_resource type="Shader" id="Shader_plague_fog"]
-code = "shader_type canvas_item;\n\nfloat hash(vec2 p) {\n    p = fract(p * vec2(123.34, 345.45));\n    p += dot(p, p + 34.345);\n    return fract(p.x * p.y);\n}\n\nfloat noise(vec2 p) {\n    vec2 i = floor(p);\n    vec2 f = fract(p);\n    f = f * f * (3.0 - 2.0 * f);\n    float a = hash(i);\n    float b = hash(i + vec2(1.0, 0.0));\n    float c = hash(i + vec2(0.0, 1.0));\n    float d = hash(i + vec2(1.0, 1.0));\n    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n}\n\nfloat fbm(vec2 p) {\n    float value = 0.0;\n    float amplitude = 0.5;\n    for (int i = 0; i < 4; i++) {\n        value += amplitude * noise(p);\n        p = p * 2.03 + 17.1;\n        amplitude *= 0.5;\n    }\n    return value;\n}\n\nvoid fragment() {\n    vec2 uv = UV;\n    float t = TIME * 0.055;\n    float n1 = fbm(uv * vec2(3.2, 2.2) + vec2(t, -t * 0.35));\n    float n2 = fbm(uv * vec2(5.1, 3.0) + vec2(-t * 0.55, t * 0.2));\n    float mist = smoothstep(0.42, 0.80, n1 * 0.72 + n2 * 0.42);\n    float low_fog = smoothstep(0.12, 0.95, uv.y);\n    mist *= 0.45 + low_fog * 0.75;\n    vec3 dark = vec3(0.005, 0.012, 0.009);\n    vec3 plague = vec3(0.055, 0.19, 0.085);\n    vec3 colour = mix(dark, plague, mist);\n    float alpha = 0.28 + mist * 0.34;\n    COLOR = vec4(colour, alpha);\n}\n"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_plague_fog"]
-shader = SubResource("Shader_plague_fog")
 
 [node name="PlagueBringerSelectBg" type="Control"]
 layout_mode = 3
@@ -17,22 +11,45 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PlagueFog" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_plague_fog")
+[node name="Backdrop" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.012, 0.024, 0.020, 1)
+mouse_filter = 2
+
+[node name="RightGlow" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -540.0
+offset_right = 0.0
+offset_bottom = 540.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.035, 0.085, 0.055, 0.34)
 mouse_filter = 2
 
 [node name="Character" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 1110.0
-offset_top = 45.0
-offset_right = 1865.0
-offset_bottom = 1040.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -900.0
+offset_top = -500.0
+offset_right = -40.0
+offset_bottom = 500.0
+grow_horizontal = 0
+grow_vertical = 2
 texture = ExtResource("1_character")
 expand_mode = 1
 stretch_mode = 5
