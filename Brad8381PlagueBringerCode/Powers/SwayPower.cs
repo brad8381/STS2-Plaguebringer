@@ -17,19 +17,30 @@ public sealed class SwayPower : PlagueBringerPower
 
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
-    public override int DisplayAmount => Math.Min(Amount, MaxEffectiveStacks);
 
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props,
-        Creature? dealer, CardModel? cardSource)
+    public override decimal ModifyDamageMultiplicative(
+        Creature? target,
+        decimal amount,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource,
+        CardPlay? cardPlay)
     {
-        if (dealer != Owner || !props.IsPoweredAttack()) return 1m;
-        var stacks = Math.Min(Amount, MaxEffectiveStacks);
-        return 1m - 0.10m * stacks;
+        if (dealer != Owner || !props.IsPoweredAttack())
+            return 1m;
+
+        int stacks = Math.Min(Amount, MaxEffectiveStacks);
+        return 1m - (0.10m * stacks);
     }
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
-        if (side == CombatSide.Enemy && Owner.Side == CombatSide.Enemy)
-            await PowerCmd.TickDownDuration(this);
+        if (side != Owner.Side || !participants.Contains(Owner))
+            return;
+
+        await PowerCmd.TickDownDuration(this);
     }
 }
