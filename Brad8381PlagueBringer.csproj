@@ -119,19 +119,20 @@
     </Target>
     
     <Target Name="NeedGodotForPublish" BeforeTargets="Publish">
+        <Message Text="Using Godot/MegaDot executable: $(GodotPath)" Importance="high" />
         <Error Text=" Godot path must be set up before publishing; Godot not found at path '$(GodotPath)'. Check Directory.Build.props file."
                Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')"/>
     </Target>
 
     <Target Name="GodotImportAssets" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
-        <Message Text="Importing Godot assets before PCK export" Importance="high"/>
+        <Message Text="Importing Godot assets before PCK export with $(GodotPath)" Importance="high"/>
         <Exec Command="&quot;$(GodotPath)&quot; --headless --path &quot;$(MSBuildProjectDirectory)&quot; --import"
               EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
               ContinueOnError="false"/>
     </Target>
     
     <Target Name="GodotPublish" AfterTargets="Publish" DependsOnTargets="GodotImportAssets" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
-        <Message Text="Exporting Godot .pck to mods folder" Importance="high"/>
+        <Message Text="Exporting Godot .pck to mods folder with $(GodotPath)" Importance="high"/>
         <Exec Command="&quot;$(GodotPath)&quot; --headless --path &quot;$(MSBuildProjectDirectory)&quot; --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;"
               EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
               ContinueOnError="false"/>
