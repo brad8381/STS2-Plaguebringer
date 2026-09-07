@@ -29,8 +29,9 @@ public sealed class Triage : PlagueBringerCard, IPlagueCard
         await CreatureCmd.GainBlock(
             Owner.Creature,
             DynamicVars["BaseBlock"].IntValue + bonus,
-            ValueProp.Unpowered,
-            this);
+            ValueProp.Move,
+            play,
+            false);
     }
 
     protected override void OnUpgrade()
