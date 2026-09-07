@@ -22,10 +22,10 @@ public class PlagueBringer : PlaceholderCharacterModel
             Title: "The Plaguebringer",
             TitleObject: "the Plaguebringer",
             Description: "A physician with no patients left.\nSmall wounds. A sickness that only grows.",
-            PronounObject: "them",
-            PronounSubject: "they",
-            PronounPossessive: "theirs",
-            PossessiveAdjective: "their",
+            PronounObject: "him",
+            PronounSubject: "he",
+            PronounPossessive: "his",
+            PossessiveAdjective: "his",
             AromaPrinciple: "Clove, smoke, and something spoiled.",
             EndTurnPingAlive: "The sickness will not wait.",
             EndTurnPingDead: "Keep the censer burning...",
@@ -37,7 +37,7 @@ public class PlagueBringer : PlaceholderCharacterModel
         );
 
     public override Color NameColor => Color;
-    public override CharacterGender Gender => CharacterGender.Neutral;
+    public override CharacterGender Gender => CharacterGender.Masculine;
     public override int StartingHp => 70;
 
     public override string CustomVisualPath =>
@@ -46,12 +46,17 @@ public class PlagueBringer : PlaceholderCharacterModel
     public override string CustomCharacterSelectBg =>
         "res://Brad8381PlagueBringer/scenes/plaguebringer_select_bg.tscn";
 
+    // Stop PlaceholderCharacterModel from borrowing Ironclad's campfire/merchant body.
+    public override string CustomRestSiteAnimPath =>
+        "res://Brad8381PlagueBringer/scenes/plaguebringer_rest_site.tscn";
+    public override string CustomMerchantAnimPath =>
+        "res://Brad8381PlagueBringer/scenes/plaguebringer_merchant.tscn";
+
     public override string CharacterTransitionSfx => "event:/sfx/ui/wipe_ironclad";
 
-    // The combat scene supplies Godot animations named "idle" and "die".
-    // Attack/cast/hurt deliberately fall back to idle until the ability animation pass.
+    // Ability-specific attack/cast animation is a later pass. Hurt/death are wired now.
     public override CreatureAnimator? SetupCustomAnimationStates(MegaSprite controller) =>
-        SetupAnimationState(controller, "idle", deadName: "die");
+        SetupAnimationState(controller, "idle", deadName: "die", hitName: "hurt");
 
     public override float DeathAnimTime => 1.25f;
 

@@ -8,9 +8,8 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Patches;
 
 /// <summary>
 /// The Future of Potions asks for three upgraded cards of one exact rarity/type.
-/// Small custom pools can have too few matching cards, which leaves the reward screen
-/// with nothing usable. For the Plaguebringer, only let the event choose card types
-/// that have enough cards available.
+/// Vanilla may construct its private potion->card-type map before options are generated,
+/// so always replace that map for the Plaguebringer instead of only filling it when null.
 /// </summary>
 [HarmonyPatch(typeof(TheFutureOfPotions), "GenerateInitialOptions")]
 internal static class TheFutureOfPotionsPatch
@@ -24,7 +23,7 @@ internal static class TheFutureOfPotionsPatch
         ref Dictionary<PotionModel, CardType>? ____cardTypes)
     {
         var owner = __instance.Owner;
-        if (owner?.Character is not PlagueBringer || ____cardTypes != null)
+        if (owner == null || owner.Character.CardPool is not PlagueBringerCardPool)
             return;
 
         var cards = owner.Character.CardPool.AllCards.ToArray();
@@ -41,23 +40,15 @@ internal static class TheFutureOfPotionsPatch
                 type => type,
                 type => cards.Count(card => card.Rarity == rarity && card.Type == type));
 
-            // Prefer a little headroom above the event's three-card reward. This avoids
-            // exact-boundary failures if another game filter removes one candidate later.
             var validTypes = allowedTypes
                 .Where(type => counts[type] >= PreferredMinimum)
                 .ToList();
 
             if (validTypes.Count == 0)
-            {
-                validTypes = allowedTypes
-                    .Where(type => counts[type] >= RewardSize)
-                    .ToList();
-            }
+                validTypes = allowedTypes.Where(type => counts[type] >= RewardSize).ToList();
 
             if (validTypes.Count == 0)
             {
-                // Last-resort fallback: choose the type with the largest available pool.
-                // This keeps the event deterministic and avoids leaving a potion unmapped.
                 var bestCount = allowedTypes.Max(type => counts[type]);
                 validTypes = allowedTypes.Where(type => counts[type] == bestCount).ToList();
             }
@@ -66,7 +57,7 @@ internal static class TheFutureOfPotionsPatch
             map[potion] = selectedType;
 
             MainFile.Logger.Info(
-                $"Future of Potions: {potion.Id.Entry} -> {rarity} {selectedType} " +
+                $"Future of Potions safe mapping: {potion.Id.Entry} -> {rarity} {selectedType} " +
                 $"({counts[selectedType]} candidates)");
         }
 

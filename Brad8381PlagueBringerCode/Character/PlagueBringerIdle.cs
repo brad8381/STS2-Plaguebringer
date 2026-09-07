@@ -3,9 +3,11 @@ using Godot;
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
 
 /// <summary>
-/// Visible idle motion for the temporary static combat sprite.
+/// Subtle idle movement for the static Plaguebringer artwork.
+/// This is attached to the Visuals parent so combat animations can independently
+/// move/fade the Sprite child without fighting this script every frame.
 /// </summary>
-public partial class PlagueBringerIdle : Sprite2D
+public partial class PlagueBringerIdle : Node2D
 {
     private Vector2 _basePosition;
     private Vector2 _baseScale;

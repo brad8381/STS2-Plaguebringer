@@ -11,30 +11,34 @@ public sealed class RelapsePower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Relapse",
-            "At the start of your turn, trigger Plague on ALL enemies.",
-            "At the start of your turn, trigger Plague on ALL enemies."
+            "At the start of your turn, trigger Plague on ALL enemies once for each stack of Relapse.",
+            "At the start of your turn, trigger Plague on ALL enemies once for each stack of Relapse."
         );
 
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     public override async Task AfterSideTurnStart(
         CombatSide side,
         IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
-        if (!participants.Contains(Owner) || !Owner.IsAlive) return;
+        if (!participants.Contains(Owner) || !Owner.IsAlive || Amount <= 0) return;
 
         var ownerCombatState = Owner.CombatState;
         if (ownerCombatState == null) return;
 
         Flash();
         var choiceContext = new ThrowingPlayerChoiceContext();
-        foreach (var enemy in ownerCombatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray())
+
+        for (var trigger = 0; trigger < Amount; trigger++)
         {
-            var plague = enemy.GetPower<PlaguePower>();
-            if (plague != null && plague.Amount > 0)
-                await plague.TriggerPlague(choiceContext);
+            foreach (var enemy in ownerCombatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray())
+            {
+                var plague = enemy.GetPower<PlaguePower>();
+                if (plague != null && plague.Amount > 0)
+                    await plague.TriggerPlague(choiceContext);
+            }
         }
     }
 }
