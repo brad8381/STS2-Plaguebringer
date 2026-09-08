@@ -46,7 +46,6 @@ public class PlagueBringer : PlaceholderCharacterModel
     public override string CustomCharacterSelectBg =>
         "res://Brad8381PlagueBringer/scenes/plaguebringer_select_bg.tscn";
 
-    // Stop PlaceholderCharacterModel from borrowing Ironclad's campfire/merchant body.
     public override string CustomRestSiteAnimPath =>
         "res://Brad8381PlagueBringer/scenes/plaguebringer_rest_site.tscn";
     public override string CustomMerchantAnimPath =>
@@ -54,9 +53,14 @@ public class PlagueBringer : PlaceholderCharacterModel
 
     public override string CharacterTransitionSfx => "event:/sfx/ui/wipe_ironclad";
 
-    // Ability-specific attack/cast animation is a later pass. Hurt/death are wired now.
     public override CreatureAnimator? SetupCustomAnimationStates(MegaSprite controller) =>
-        SetupAnimationState(controller, "idle", deadName: "die", hitName: "hurt");
+        SetupAnimationState(
+            controller,
+            idleName: "idle",
+            deadName: "die",
+            hitName: "hurt",
+            attackName: "attack",
+            castName: "cast");
 
     public override float DeathAnimTime => 1.25f;
 
