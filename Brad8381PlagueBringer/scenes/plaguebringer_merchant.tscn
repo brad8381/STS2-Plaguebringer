@@ -5,6 +5,6 @@
 
 [node name="PlagueBringerMerchant" type="Sprite2D"]
 texture = ExtResource("1_texture")
-position = Vector2(0, -145)
-scale = Vector2(0.22, 0.22)
+position = Vector2(0, -170)
+scale = Vector2(0.28, 0.28)
 script = ExtResource("2_idle")
