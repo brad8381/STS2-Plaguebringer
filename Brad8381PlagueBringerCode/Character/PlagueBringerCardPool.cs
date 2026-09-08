@@ -1,4 +1,4 @@
-using BaseLib.Abstracts;
+﻿using BaseLib.Abstracts;
 using Godot;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
@@ -11,9 +11,9 @@ public class PlagueBringerCardPool : CustomCardPoolModel
     // Keeping this on a known-good game resource also prevents Neow reward generation
     // from failing when it builds energy-related hover tips.
     public override string BigEnergyIconPath =>
-        "res://images/atlases/ui_atlas.sprites/card/energy_ironclad.tres";
+        "res://Brad8381PlagueBringer/images/charui/energy_orb.png";
     public override string TextEnergyIconPath =>
-        "res://images/atlases/ui_atlas.sprites/card/energy_ironclad.tres";
+        "res://Brad8381PlagueBringer/images/charui/energy_orb.png";
 
     /* These HSV values will determine the color of your card back.
     They are applied as a shader onto an already colored image,
@@ -28,3 +28,4 @@ public class PlagueBringerCardPool : CustomCardPoolModel
 
     public override bool IsColorless => false;
 }
+

@@ -1,4 +1,4 @@
-using BaseLib.Abstracts;
+﻿using BaseLib.Abstracts;
 using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Mechanics;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -16,9 +16,9 @@ public sealed class FieldResearchPower : PlagueBringerPower
         );
 
     public override string CustomPackedIconPath =>
-        "res://Brad8381PlagueBringer/images/powers/field_research_power.svg";
+        "res://Brad8381PlagueBringer/images/powers/field_research_power.png";
     public override string CustomBigIconPath =>
-        "res://Brad8381PlagueBringer/images/powers/big/field_research_power.svg";
+        "res://Brad8381PlagueBringer/images/powers/big/field_research_power.png";
 
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -35,3 +35,4 @@ public sealed class FieldResearchPower : PlagueBringerPower
         await SpecimenActions.Gain(choiceContext, Owner, Amount, null);
     }
 }
+

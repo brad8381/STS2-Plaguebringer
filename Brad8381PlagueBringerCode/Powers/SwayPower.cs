@@ -1,4 +1,4 @@
-using BaseLib.Abstracts;
+﻿using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -23,9 +23,9 @@ public sealed class SwayPower : PlagueBringerPower
         );
 
     public override string CustomPackedIconPath =>
-        "res://Brad8381PlagueBringer/images/powers/sway_power.svg";
+        "res://Brad8381PlagueBringer/images/powers/sway_power.png";
     public override string CustomBigIconPath =>
-        "res://Brad8381PlagueBringer/images/powers/big/sway_power.svg";
+        "res://Brad8381PlagueBringer/images/powers/big/sway_power.png";
 
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -56,3 +56,4 @@ public sealed class SwayPower : PlagueBringerPower
         await PowerCmd.TickDownDuration(this);
     }
 }
+

@@ -1,4 +1,4 @@
-using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
+﻿using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
 using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
 using Godot;
 using HarmonyLib;
@@ -51,7 +51,7 @@ public static class SpecimenUiPatch
             {
                 ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
                 StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
-                Texture = GD.Load<Texture2D>("res://Brad8381PlagueBringer/images/charui/specimen_counter.svg"),
+                Texture = GD.Load<Texture2D>("res://Brad8381PlagueBringer/images/charui/specimen_counter.png"),
                 MouseFilter = Control.MouseFilterEnum.Ignore
             };
 
@@ -112,3 +112,4 @@ public static class SpecimenUiPatch
         counter.Position = new Vector2(energy.Size.X + 8f, (energy.Size.Y - counter.Size.Y) / 2f);
     }
 }
+
