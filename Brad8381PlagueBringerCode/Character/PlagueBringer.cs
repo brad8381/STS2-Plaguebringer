@@ -51,6 +51,9 @@ public class PlagueBringer : PlaceholderCharacterModel
     public override string CustomMerchantAnimPath =>
         "res://Brad8381PlagueBringer/scenes/plaguebringer_merchant.tscn";
 
+    public override string CustomEnergyCounterPath =>
+        "res://Brad8381PlagueBringer/scenes/plaguebringer_energy_counter.tscn";
+
     public override string CharacterTransitionSfx => "event:/sfx/ui/wipe_ironclad";
 
     public override CreatureAnimator? SetupCustomAnimationStates(MegaSprite controller) =>

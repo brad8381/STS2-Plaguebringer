@@ -47,6 +47,7 @@
         <Compile Remove="materials/**" />
         <Compile Remove="shaders/**" />
         <Compile Remove="images/**" />
+        <Compile Remove="backups/**" />
         <EmbeddedResource Remove="Brad8381PlagueBringer/**" />
         <EmbeddedResource Remove="materials/**" />
         <EmbeddedResource Remove="shaders/**" />

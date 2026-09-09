@@ -2,11 +2,6 @@ using Godot;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
 
-/// <summary>
-/// Subtle idle movement for the static Plaguebringer artwork.
-/// This is attached to the Visuals parent so combat animations can independently
-/// move/fade the Sprite child without fighting this script every frame.
-/// </summary>
 public partial class PlagueBringerIdle : Node2D
 {
     private Vector2 _basePosition;
@@ -14,12 +9,37 @@ public partial class PlagueBringerIdle : Node2D
     private float _baseRotation;
     private double _time;
 
+    private Sprite2D? _sprite;
+    private AnimationPlayer? _animationPlayer;
+
+    private Texture2D? _idleTexture;
+    private Texture2D? _attackTexture;
+    private Texture2D? _castTexture;
+
     public override void _Ready()
     {
         ProcessMode = ProcessModeEnum.Always;
+
         _basePosition = Position;
         _baseScale = Scale;
         _baseRotation = Rotation;
+
+        _sprite = GetNodeOrNull<Sprite2D>("Sprite");
+        _animationPlayer =
+            GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
+
+        _idleTexture = GD.Load<Texture2D>(
+            "res://Brad8381PlagueBringer/images/character/idle_pose.png");
+
+        _attackTexture = GD.Load<Texture2D>(
+            "res://Brad8381PlagueBringer/images/character/attack_pose.png");
+
+        _castTexture = GD.Load<Texture2D>(
+            "res://Brad8381PlagueBringer/images/character/cast_pose.png");
+
+        if (_sprite != null && _idleTexture != null)
+            _sprite.Texture = _idleTexture;
+
         SetProcess(true);
     }
 
@@ -27,13 +47,36 @@ public partial class PlagueBringerIdle : Node2D
     {
         _time += delta;
 
-        var slow = Mathf.Sin((float)_time * 1.25f);
-        var fast = Mathf.Sin((float)_time * 2.05f + 0.7f);
+        var sway =
+            Mathf.Sin((float)_time * 1.05f);
 
-        Position = _basePosition + new Vector2(slow * 2.5f, fast * 7.0f);
-        Rotation = _baseRotation + Mathf.DegToRad(slow * 1.15f);
+        Position =
+            _basePosition +
+            new Vector2(sway * 3.5f, 0f);
 
-        var breathe = 1f + fast * 0.009f;
-        Scale = _baseScale * breathe;
+        Rotation =
+            _baseRotation +
+            Mathf.DegToRad(sway * 0.35f);
+
+        Scale = _baseScale;
+
+        if (_sprite == null)
+            return;
+
+        var animation =
+            _animationPlayer?.CurrentAnimation.ToString() ?? "";
+
+        Texture2D? wanted = animation switch
+        {
+            "attack" => _attackTexture,
+            "cast" => _castTexture,
+            _ => _idleTexture
+        };
+
+        if (wanted != null &&
+            _sprite.Texture != wanted)
+        {
+            _sprite.Texture = wanted;
+        }
     }
 }

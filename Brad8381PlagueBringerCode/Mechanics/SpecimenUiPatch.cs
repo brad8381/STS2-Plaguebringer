@@ -1,4 +1,4 @@
-﻿using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
+using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Character;
 using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
 using Godot;
 using HarmonyLib;
@@ -15,7 +15,7 @@ public static class SpecimenUiPatch
 {
     private const string CounterName = "PlagueBringerSpecimenCounter";
     private const string Tooltip =
-        "Specimen\nA persistent combat resource gained mainly from Exhausting cards. Persists between turns, up to 6. Lost at the end of combat.";
+        "Specimen\nA persistent combat resource. Persists between turns, up to +6. It can become negative. At the end of combat, lose HP equal to negative Specimen.";
 
     [HarmonyPostfix]
     public static void Postfix(NCombatUi __instance, CombatState state)
@@ -51,7 +51,7 @@ public static class SpecimenUiPatch
             {
                 ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
                 StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
-                Texture = GD.Load<Texture2D>("res://Brad8381PlagueBringer/images/charui/specimen_counter.png"),
+                Texture = GD.Load<Texture2D>("res://Brad8381PlagueBringer/images/charui/specimen_hud.png"),
                 MouseFilter = Control.MouseFilterEnum.Ignore
             };
 
@@ -75,7 +75,18 @@ public static class SpecimenUiPatch
             energy.ClipContents = false;
             energy.AddChild(counter);
 
-            void Refresh() => label.Text = SpecimenActions.Count(player.Creature).ToString();
+            void Refresh()
+            {
+                var amount = SpecimenActions.Count(player.Creature);
+
+                label.Text = amount.ToString();
+
+                label.AddThemeColorOverride(
+                    "font_color",
+                    amount < 0
+                        ? new Color("ef6666")
+                        : new Color("f2eee4"));
+            }
             Refresh();
 
             Action<PowerModel> applied = power =>

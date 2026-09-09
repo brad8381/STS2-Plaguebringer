@@ -16,13 +16,14 @@ public sealed class ConcentratedDose : PlagueBringerCard, IPlagueCard
         WithVars(
             new DynamicVar("PlaguePerEnergy", 4),
             new DynamicVar("EnergyRefund", 0));
+
         WithKeywords(CardKeyword.Exhaust);
     }
 
     public override List<(string, string)>? Localization =>
         new CardLoc(
             "Concentrated Dose",
-            "Apply {PlaguePerEnergy:diff()} [gold]Plague[/gold] for each [gold]Energy[/gold] spent.{IfUpgraded:show:\nGain 1 [gold]Energy[/gold].|}"
+            "X times: Apply {PlaguePerEnergy:diff()} [gold]Plague[/gold].{IfUpgraded:show:\nGain 1 [gold]Energy[/gold].|}"
         );
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
@@ -31,15 +32,31 @@ public sealed class ConcentratedDose : PlagueBringerCard, IPlagueCard
             return;
 
         var x = ResolveEnergyXValue();
+
         if (x <= 0)
             return;
 
-        var amount = x * DynamicVars["PlaguePerEnergy"].IntValue;
-        await PowerCmd.Apply<PlaguePower>(choiceContext, target, amount, Owner.Creature, this);
+        var plaguePerEnergy =
+            DynamicVars["PlaguePerEnergy"].IntValue;
 
-        var energyRefund = DynamicVars["EnergyRefund"].IntValue;
-        if (energyRefund > 0)
-            await PlayerCmd.GainEnergy(energyRefund, Owner);
+        for (var i = 0; i < x; i++)
+        {
+            if (!target.IsAlive)
+                break;
+
+            await PowerCmd.Apply<PlaguePower>(
+                choiceContext,
+                target,
+                plaguePerEnergy,
+                Owner.Creature,
+                this);
+        }
+
+        var refund =
+            DynamicVars["EnergyRefund"].IntValue;
+
+        if (refund > 0)
+            await PlayerCmd.GainEnergy(refund, Owner);
     }
 
     protected override void OnUpgrade()
