@@ -9,7 +9,7 @@ namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
 
 public sealed class ContagiousCut : PlagueBringerCard, IPlagueCard
 {
-    public ContagiousCut() : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+    public ContagiousCut() : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
     {
         WithDamage(7);
         WithVars(new PowerVar<PlaguePower>("Plague", 2));
@@ -17,15 +17,28 @@ public sealed class ContagiousCut : PlagueBringerCard, IPlagueCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        if (play.Target is not { IsAlive: true }) return;
+        var combatState = CombatState;
+        if (combatState == null)
+            return;
 
-        var combatState = Owner.Creature.CombatState;
-        if (combatState == null) return;
+        await DamageCmd.Attack(DynamicVars.Damage.IntValue)
+            .FromCard(this, play)
+            .TargetingAllOpponents(combatState)
+            .WithHitFx("vfx/vfx_attack_slash")
+            .Execute(choiceContext);
 
-        await CommonActions.CardAttack(this, play).Execute(choiceContext);
-
-        foreach (var enemy in combatState.GetOpponentsOf(Owner.Creature).Where(enemy => enemy.IsAlive).ToArray())
-            await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+        foreach (var enemy in combatState
+                     .GetOpponentsOf(Owner.Creature)
+                     .Where(enemy => enemy.IsAlive)
+                     .ToArray())
+        {
+            await PowerCmd.Apply<PlaguePower>(
+                choiceContext,
+                enemy,
+                DynamicVars["Plague"].IntValue,
+                Owner.Creature,
+                this);
+        }
     }
 
     protected override void OnUpgrade()

@@ -20,6 +20,6 @@ public sealed class IsolationWard : PlagueBringerCard, IPlagueCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["BlockOnPlague"].UpgradeValueBy(2m);
+        AddKeyword(CardKeyword.Innate);
     }
 }

@@ -16,7 +16,7 @@ public sealed class PlagueFlask : PlagueBringerPotion
     public override TargetType TargetType => TargetType.AnyEnemy;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new PowerVar<PlaguePower>("Plague", 10)];
+        [new PowerVar<PlaguePower>("Plague", 6)];
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {

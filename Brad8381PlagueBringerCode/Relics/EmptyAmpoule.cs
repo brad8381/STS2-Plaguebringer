@@ -1,40 +1,61 @@
 using BaseLib.Abstracts;
-using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
+using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Mechanics;
 using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Relics;
 
 public sealed class EmptyAmpoule : PlagueBringerRelic
 {
+    private bool _gainedFromExhaustThisTurn;
+
     public override List<(string, string)>? Localization =>
         new RelicLoc(
             "Empty Ampoule",
-            "At the end of your turn, if no enemy has [gold]Plague[/gold], apply 20 [gold]Plague[/gold] to an enemy.",
+            "At the start of combat, gain 1 Specimen. The first time each turn you Exhaust a card, gain 1 Specimen.",
             "Empty does not mean clean."
         );
 
     public override RelicRarity Rarity => RelicRarity.Rare;
 
-    public override async Task BeforeSideTurnEnd(
+    public override async Task BeforeHandDraw(
+        Player player,
         PlayerChoiceContext choiceContext,
-        CombatSide side,
-        IEnumerable<Creature> participants)
+        ICombatState combatState)
     {
-        if (side != Owner.Creature.Side || Owner.Creature.CombatState == null) return;
-
-        var enemies = Owner.Creature.CombatState
-            .GetOpponentsOf(Owner.Creature)
-            .Where(enemy => enemy.IsAlive)
-            .ToArray();
-
-        if (enemies.Length == 0 || enemies.Any(enemy => (enemy.GetPower<PlaguePower>()?.Amount ?? 0) > 0))
+        if (player != Owner || Owner.PlayerCombatState is not { TurnNumber: 1 })
             return;
 
         Flash();
-        await PowerCmd.Apply<PlaguePower>(choiceContext, enemies[0], 20, Owner.Creature, null);
+        await SpecimenActions.Gain(choiceContext, Owner.Creature, 1, null);
+    }
+
+    public override Task BeforeSideTurnStart(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IReadOnlyList<Creature> participants,
+        ICombatState combatState)
+    {
+        if (side == Owner.Creature.Side && participants.Contains(Owner.Creature))
+            _gainedFromExhaustThisTurn = false;
+
+        return Task.CompletedTask;
+    }
+
+    public override async Task AfterCardExhausted(
+        PlayerChoiceContext choiceContext,
+        CardModel card,
+        bool causedByEthereal)
+    {
+        if (_gainedFromExhaustThisTurn || card.Owner.Creature != Owner.Creature)
+            return;
+
+        _gainedFromExhaustThisTurn = true;
+        Flash();
+        await SpecimenActions.Gain(choiceContext, Owner.Creature, 1, null);
     }
 }

@@ -11,21 +11,31 @@ public sealed class Pandemic : PlagueBringerCard, IPlagueCard
 {
     public Pandemic() : base(2, CardType.Skill, CardRarity.Rare, TargetType.AllEnemies)
     {
-        WithVars(new PowerVar<PlaguePower>("Plague", 4));
+        WithVars(new PowerVar<PlaguePower>("Plague", 3));
         WithKeywords(CardKeyword.Exhaust);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        if (CombatState == null) return;
+        var combatState = CombatState;
+        if (combatState == null)
+            return;
 
-        foreach (var enemy in CombatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray())
-            await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+        foreach (var enemy in combatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray())
+        {
+            await PowerCmd.Apply<PlaguePower>(
+                choiceContext,
+                enemy,
+                DynamicVars["Plague"].IntValue,
+                Owner.Creature,
+                this);
+        }
+
+        await PlagueCardUtils.TriggerAllEnemies(choiceContext, combatState, Owner.Creature);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Plague"].UpgradeValueBy(2m);
-        RemoveKeyword(CardKeyword.Exhaust);
+        DynamicVars["Plague"].UpgradeValueBy(1m);
     }
 }

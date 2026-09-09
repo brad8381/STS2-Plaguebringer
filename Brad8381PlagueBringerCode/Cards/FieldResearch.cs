@@ -32,6 +32,6 @@ public sealed class FieldResearch : PlagueBringerCard
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        AddKeyword(CardKeyword.Innate);
     }
 }

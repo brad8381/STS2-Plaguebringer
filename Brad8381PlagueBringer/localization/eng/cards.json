@@ -10,7 +10,7 @@
   "BRAD8381PLAGUEBRINGER-FUMIGATE.title": "Fumigate",
   "BRAD8381PLAGUEBRINGER-FUMIGATE.description": "Apply {Plague:diff()} [gold]Plague[/gold] to ALL enemies.",
   "BRAD8381PLAGUEBRINGER-QUARANTINE.title": "Quarantine",
-  "BRAD8381PLAGUEBRINGER-QUARANTINE.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "BRAD8381PLAGUEBRINGER-QUARANTINE.description": "Gain {Block:diff()} [gold]Block[/gold].\nApply {Sway:diff()} Sway to ALL enemies with [gold]Plague[/gold].",
   "BRAD8381PLAGUEBRINGER-INHALE_SPICES.title": "Inhale Spices",
   "BRAD8381PLAGUEBRINGER-INHALE_SPICES.description": "Choose one: Gain [gold]Block[/gold] equal to total [gold]Plague[/gold] on all enemies, or heal 10% of it, rounded up.",
   "BRAD8381PLAGUEBRINGER-INHALE_SPICES_BLOCK_CHOICE.title": "Take Cover",
@@ -18,7 +18,7 @@
   "BRAD8381PLAGUEBRINGER-INHALE_SPICES_HEAL_CHOICE.title": "Inhale",
   "BRAD8381PLAGUEBRINGER-INHALE_SPICES_HEAL_CHOICE.description": "Heal 10% of total [gold]Plague[/gold] on all enemies, rounded up.",
   "BRAD8381PLAGUEBRINGER-PANDEMIC.title": "Pandemic",
-  "BRAD8381PLAGUEBRINGER-PANDEMIC.description": "Apply {Plague:diff()} [gold]Plague[/gold] to ALL enemies.",
+  "BRAD8381PLAGUEBRINGER-PANDEMIC.description": "Apply {Plague:diff()} [gold]Plague[/gold] to ALL enemies, then trigger [gold]Plague[/gold] on ALL enemies.",
   "BRAD8381PLAGUEBRINGER-PATIENT_ZERO.title": "Patient Zero",
   "BRAD8381PLAGUEBRINGER-PATIENT_ZERO.description": "Apply {Plague:diff()} [gold]Plague[/gold].",
   "BRAD8381PLAGUEBRINGER-PESTILENCE.title": "Pestilence",
@@ -53,8 +53,8 @@
   "BRAD8381PLAGUEBRINGER-RELAPSE.title": "Relapse",
   "BRAD8381PLAGUEBRINGER-RELAPSE.description": "At the start of your turn, trigger [gold]Plague[/gold] on ALL enemies once for each Relapse.",
 
-  "BRAD8381PLAGUEBRINGER-SEPTIC_JAB.title": "Septic Jab",
-  "BRAD8381PLAGUEBRINGER-SEPTIC_JAB.description": "Deal {Damage:diff()} damage.\nApply {Plague:diff()} [gold]Plague[/gold].",
+  "BRAD8381PLAGUEBRINGER-SEPTIC_JAB.title": "Sample Extraction",
+  "BRAD8381PLAGUEBRINGER-SEPTIC_JAB.description": "Deal {Damage:diff()} damage.\nIf the target has [gold]Plague[/gold], gain {Specimen} Specimen.",
   "BRAD8381PLAGUEBRINGER-CENSER_HOOK.title": "Censer Hook",
   "BRAD8381PLAGUEBRINGER-CENSER_HOOK.description": "Deal {Damage:diff()} damage.\nIf the target already has [gold]Plague[/gold], apply {Plague:diff()} more.",
   "BRAD8381PLAGUEBRINGER-DRAIN_THE_WOUND.title": "Drain the Wound",
@@ -62,7 +62,7 @@
   "BRAD8381PLAGUEBRINGER-SEPTIC_LANCE.title": "Septic Lance",
   "BRAD8381PLAGUEBRINGER-SEPTIC_LANCE.description": "Deal {Damage:diff()} damage.\nApply {Plague:diff()} [gold]Plague[/gold].",
   "BRAD8381PLAGUEBRINGER-CONTAGIOUS_CUT.title": "Contagious Cut",
-  "BRAD8381PLAGUEBRINGER-CONTAGIOUS_CUT.description": "Deal {Damage:diff()} damage.\nApply {Plague:diff()} [gold]Plague[/gold] to ALL enemies.",
+  "BRAD8381PLAGUEBRINGER-CONTAGIOUS_CUT.description": "Deal {Damage:diff()} damage to ALL enemies.\nApply {Plague:diff()} [gold]Plague[/gold] to ALL enemies.",
   "BRAD8381PLAGUEBRINGER-RUPTURING_BLOW.title": "Rupturing Blow",
   "BRAD8381PLAGUEBRINGER-RUPTURING_BLOW.description": "Deal {Damage:diff()} damage.\nTrigger the target's [gold]Plague[/gold].",
   "BRAD8381PLAGUEBRINGER-VIRULENT_CUTS.title": "Virulent Cuts",
@@ -82,5 +82,12 @@
   "BRAD8381PLAGUEBRINGER-LAST_PATIENT.title": "Last Patient",
   "BRAD8381PLAGUEBRINGER-LAST_PATIENT.description": "At the start of your turn, if no enemy has [gold]Plague[/gold], apply {Plague:diff()} [gold]Plague[/gold] to an enemy.",
   "BRAD8381PLAGUEBRINGER-CONTAGION_ENGINE.title": "Contagion Engine",
-  "BRAD8381PLAGUEBRINGER-CONTAGION_ENGINE.description": "At the start of your turn, apply {Plague:diff()} [gold]Plague[/gold] to ALL enemies."
+  "BRAD8381PLAGUEBRINGER-CONTAGION_ENGINE.description": "At the start of your turn, apply {Plague:diff()} [gold]Plague[/gold] to ALL enemies.",
+
+  "BRAD8381PLAGUEBRINGER-CULTURE_TRANSFER.title": "Culture Transfer",
+  "BRAD8381PLAGUEBRINGER-CULTURE_TRANSFER.description": "Spend {SpecimenCost} Specimen.\nApply {Plague:diff()} [gold]Plague[/gold].",
+  "BRAD8381PLAGUEBRINGER-EMERGENCY_PROCEDURE.title": "Emergency Procedure",
+  "BRAD8381PLAGUEBRINGER-EMERGENCY_PROCEDURE.description": "Spend {SpecimenCost} Specimens.\nGain {Energy} [gold]Energy[/gold]. Draw {Cards:diff()} cards.",
+  "BRAD8381PLAGUEBRINGER-PATHOLOGY_REPORT.title": "Pathology Report",
+  "BRAD8381PLAGUEBRINGER-PATHOLOGY_REPORT.description": "Spend up to {SpecimenCap} Specimens. For each spent, draw 1 card and apply {PlaguePerSpecimen} [gold]Plague[/gold] to ALL enemies."
 }

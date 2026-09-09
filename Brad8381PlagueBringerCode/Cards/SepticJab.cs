@@ -1,5 +1,5 @@
 using BaseLib.Utils;
-using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Powers;
+using Brad8381PlagueBringer.Brad8381PlagueBringerCode.Mechanics;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,25 +7,35 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace Brad8381PlagueBringer.Brad8381PlagueBringerCode.Cards;
 
-public sealed class SepticJab : PlagueBringerCard, IPlagueCard
+public sealed class SepticJab : PlagueBringerCard
 {
     public SepticJab() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
         WithDamage(6);
-        WithVars(new PowerVar<PlaguePower>("Plague", 1));
+        WithVars(new DynamicVar("Specimen", 1));
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        if (play.Target is not { IsAlive: true } target) return;
+        if (play.Target is not { IsAlive: true } target)
+            return;
+
+        var wasInfected = PlagueCardUtils.GetPlague(target) > 0;
+
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        if (target.IsAlive)
-            await PowerCmd.Apply<PlaguePower>(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+
+        if (wasInfected)
+        {
+            await SpecimenActions.Gain(
+                choiceContext,
+                Owner.Creature,
+                DynamicVars["Specimen"].IntValue,
+                this);
+        }
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2m);
-        DynamicVars["Plague"].UpgradeValueBy(1m);
+        DynamicVars.Damage.UpgradeValueBy(3m);
     }
 }
