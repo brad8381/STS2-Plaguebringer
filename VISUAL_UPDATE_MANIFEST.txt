@@ -1,0 +1,23 @@
+Plaguebringer visual update pack
+Repo-relative paths are already included.
+
+Card art:
+relapse.png
+last_patient.png
+pestilence.png
+field_research.png
+pandemic.png
+contagious_rupture.png
+airborne_cultures.png
+final_incision.png
+
+UI:
+energy_orb.png
+specimen_counter.png
+
+Character poses:
+idle_pose.png
+attack_pose.png
+cast_pose.png
+rest_pose.png
+select_pose.png

@@ -1,0 +1,51 @@
+{
+  "NEOW.talk.PB-PLAGUE_BRINGER.0-0.char": "You called for a physician. I fear you are beyond my care.",
+  "NEOW.talk.PB-PLAGUE_BRINGER.0-0.next": "Continue",
+  "NEOW.talk.PB-PLAGUE_BRINGER.0-1.ancient": "[sine]...not... me... the Spire... is sick...[/sine]",
+  "NEOW.talk.PB-PLAGUE_BRINGER.1-0r.ancient": "[sine]...again... physician... the sickness... grows...[/sine]",
+  "NEOW.talk.PB-PLAGUE_BRINGER.2-0.ancient": "[sine]...what... do you seek...?[/sine]",
+  "NEOW.talk.PB-PLAGUE_BRINGER.2-0.next": "Entreat",
+  "NEOW.talk.PB-PLAGUE_BRINGER.2-1.char": "Something that survives long enough to spread.",
+  "NEOW.talk.PB-PLAGUE_BRINGER.2-1.next": "Continue",
+  "NEOW.talk.PB-PLAGUE_BRINGER.2-2.ancient": "[sine]...then... carry it... upward...[/sine]",
+
+  "THE_ARCHITECT.talk.PB-PLAGUE_BRINGER.0-0r.char": "A structure this old should have collapsed from infection long ago.",
+  "THE_ARCHITECT.talk.PB-PLAGUE_BRINGER.0-0r.next": "Continue",
+  "THE_ARCHITECT.talk.PB-PLAGUE_BRINGER.0-1r.ancient": "Stone remembers every sickness carried across it.",
+  "THE_ARCHITECT.talk.PB-PLAGUE_BRINGER.0-attack": "Then let me open the wound.",
+
+  "DARV.talk.PB-PLAGUE_BRINGER.0-0r.char": "You look remarkably healthy. I distrust that.",
+  "DARV.talk.PB-PLAGUE_BRINGER.0-0r.next": "Continue",
+  "DARV.talk.PB-PLAGUE_BRINGER.0-1r.ancient": "Health is only the interval between symptoms.",
+  "DARV.talk.PB-PLAGUE_BRINGER.0-attack": "Let us shorten the interval.",
+
+  "PAEL.talk.PB-PLAGUE_BRINGER.0-0r.char": "I have treated fevers kinder than this place.",
+  "PAEL.talk.PB-PLAGUE_BRINGER.0-0r.next": "Continue",
+  "PAEL.talk.PB-PLAGUE_BRINGER.0-1r.ancient": "Kindness has never cured the Spire.",
+  "PAEL.talk.PB-PLAGUE_BRINGER.0-attack": "Neither has restraint.",
+
+  "TANX.talk.PB-PLAGUE_BRINGER.0-0r.char": "Another collector. Tell me what disease you prize most.",
+  "TANX.talk.PB-PLAGUE_BRINGER.0-0r.next": "Continue",
+  "TANX.talk.PB-PLAGUE_BRINGER.0-1r.ancient": "The one that teaches its host to endure.",
+  "TANX.talk.PB-PLAGUE_BRINGER.0-attack": "Then endure this.",
+
+  "VAKUU.talk.PB-PLAGUE_BRINGER.0-0r.char": "The air around you is sterile. Unnaturally so.",
+  "VAKUU.talk.PB-PLAGUE_BRINGER.0-0r.next": "Continue",
+  "VAKUU.talk.PB-PLAGUE_BRINGER.0-1r.ancient": "Purity is merely another kind of poison.",
+  "VAKUU.talk.PB-PLAGUE_BRINGER.0-attack": "I prefer mine honest.",
+
+  "OROBAS.talk.PB-PLAGUE_BRINGER.0-0r.char": "I can smell old blood beneath the incense.",
+  "OROBAS.talk.PB-PLAGUE_BRINGER.0-0r.next": "Continue",
+  "OROBAS.talk.PB-PLAGUE_BRINGER.0-1r.ancient": "And I can smell the graves behind your mask.",
+  "OROBAS.talk.PB-PLAGUE_BRINGER.0-attack": "Then we understand one another.",
+
+  "NONUPEIPE.talk.PB-PLAGUE_BRINGER.0-0r.char": "Do not mistake the mask for fear of contagion.",
+  "NONUPEIPE.talk.PB-PLAGUE_BRINGER.0-0r.next": "Continue",
+  "NONUPEIPE.talk.PB-PLAGUE_BRINGER.0-1r.ancient": "No. It is fear of recognition.",
+  "NONUPEIPE.talk.PB-PLAGUE_BRINGER.0-attack": "Recognition is enough.",
+
+  "TEZCATARA.talk.PB-PLAGUE_BRINGER.0-0r.char": "Your symptoms are fascinating. Terminal, but fascinating.",
+  "TEZCATARA.talk.PB-PLAGUE_BRINGER.0-0r.next": "Continue",
+  "TEZCATARA.talk.PB-PLAGUE_BRINGER.0-1r.ancient": "You speak as though you are not infected too.",
+  "TEZCATARA.talk.PB-PLAGUE_BRINGER.0-attack": "Every physician is eventually a patient."
+}

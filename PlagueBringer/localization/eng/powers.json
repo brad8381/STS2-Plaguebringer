@@ -1,0 +1,4 @@
+{
+  "PB-PLAGUE_POWER.title": "Plague",
+  "PB-PLAGUE_POWER.description": "At the start of this enemy's turn, take {Amount} damage that ignores Block, then increase Plague by 15%, rounded up."
+}

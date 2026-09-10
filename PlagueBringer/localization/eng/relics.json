@@ -1,0 +1,9 @@
+{
+  "PB-SEALED_CENSER.title": "Sealed Censer",
+  "PB-SEALED_CENSER.description": "At the start of combat, apply 1 [gold]Plague[/gold] to ALL enemies.",
+  "PB-SEALED_CENSER.flavor": "The seal was a courtesy.",
+  "PB-OPEN_CENSER.title": "Open Censer",
+  "PB-OPEN_CENSER.description": "At the start of combat, apply 1 [gold]Plague[/gold] to ALL enemies. After drawing your opening hand, choose 1 of the first 3 Plague cards in your draw pile to put into your hand.",
+  "PB-OPEN_CENSER.flavor": "There is no putting it back.",
+  "PB-OPEN_CENSER.selectionScreenPrompt": "Choose a Plague card to put into your Hand."
+}

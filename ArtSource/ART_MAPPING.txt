@@ -1,0 +1,975 @@
+﻿PLAGUEBRINGER ART SOURCE INDEX
+==============================
+
+ArtSource is the canonical central location for all artwork.
+
+Runtime assets:
+PlagueBringer/images/
+
+SOURCE : ArtSource/card_portraits/accelerated_infection.png
+RUNTIME: PlagueBringer/images/card_portraits/accelerated_infection.png
+
+SOURCE : ArtSource/card_portraits/airborne_cultures.png
+RUNTIME: PlagueBringer/images/card_portraits/airborne_cultures.png
+
+SOURCE : ArtSource/card_portraits/autopsy.png
+RUNTIME: PlagueBringer/images/card_portraits/autopsy.png
+
+SOURCE : ArtSource/card_portraits/beta/accelerated_infection.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/accelerated_infection.png
+
+SOURCE : ArtSource/card_portraits/beta/airborne_cultures.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/airborne_cultures.png
+
+SOURCE : ArtSource/card_portraits/beta/autopsy.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/autopsy.png
+
+SOURCE : ArtSource/card_portraits/beta/black_lancet.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/black_lancet.png
+
+SOURCE : ArtSource/card_portraits/beta/black_tonic.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/black_tonic.png
+
+SOURCE : ArtSource/card_portraits/beta/blood_sample.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/blood_sample.png
+
+SOURCE : ArtSource/card_portraits/beta/bloodletting.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/bloodletting.png
+
+SOURCE : ArtSource/card_portraits/beta/bone_saw.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/bone_saw.png
+
+SOURCE : ArtSource/card_portraits/beta/burn_the_evidence.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/burn_the_evidence.png
+
+SOURCE : ArtSource/card_portraits/beta/card.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/card.png
+
+SOURCE : ArtSource/card_portraits/beta/carrion_cloud.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/carrion_cloud.png
+
+SOURCE : ArtSource/card_portraits/beta/catalytic_strain.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/catalytic_strain.png
+
+SOURCE : ArtSource/card_portraits/beta/censer_hook.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/censer_hook.png
+
+SOURCE : ArtSource/card_portraits/beta/clean_cut.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/clean_cut.png
+
+SOURCE : ArtSource/card_portraits/beta/clinical_reserve.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/clinical_reserve.png
+
+SOURCE : ArtSource/card_portraits/beta/concentrated_dose.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/concentrated_dose.png
+
+SOURCE : ArtSource/card_portraits/beta/contagion_engine.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/contagion_engine.png
+
+SOURCE : ArtSource/card_portraits/beta/contagious_cut.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/contagious_cut.png
+
+SOURCE : ArtSource/card_portraits/beta/contagious_rupture.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/contagious_rupture.png
+
+SOURCE : ArtSource/card_portraits/beta/contaminated_gauze.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/contaminated_gauze.png
+
+SOURCE : ArtSource/card_portraits/beta/contaminated_instruments.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/contaminated_instruments.png
+
+SOURCE : ArtSource/card_portraits/beta/contaminated_needle.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/contaminated_needle.png
+
+SOURCE : ArtSource/card_portraits/beta/cross_contamination.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/cross_contamination.png
+
+SOURCE : ArtSource/card_portraits/beta/culture_transfer.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/culture_transfer.png
+
+SOURCE : ArtSource/card_portraits/beta/defend_plague_bringer.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/defend_plague_bringer.png
+
+SOURCE : ArtSource/card_portraits/beta/discarded_gauze.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/discarded_gauze.png
+
+SOURCE : ArtSource/card_portraits/beta/drain_the_wound.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/drain_the_wound.png
+
+SOURCE : ArtSource/card_portraits/beta/emergency_procedure.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/emergency_procedure.png
+
+SOURCE : ArtSource/card_portraits/beta/experimental_dose.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/experimental_dose.png
+
+SOURCE : ArtSource/card_portraits/beta/field_dressing.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/field_dressing.png
+
+SOURCE : ArtSource/card_portraits/beta/field_research.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/field_research.png
+
+SOURCE : ArtSource/card_portraits/beta/final_incision.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/final_incision.png
+
+SOURCE : ArtSource/card_portraits/beta/flea_bite.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/flea_bite.png
+
+SOURCE : ArtSource/card_portraits/beta/fumigate.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/fumigate.png
+
+SOURCE : ArtSource/card_portraits/beta/harvest_tissue.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/harvest_tissue.png
+
+SOURCE : ArtSource/card_portraits/beta/incubation.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/incubation.png
+
+SOURCE : ArtSource/card_portraits/beta/infected_scalpel.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/infected_scalpel.png
+
+SOURCE : ArtSource/card_portraits/beta/inhale_spices.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/inhale_spices.png
+
+SOURCE : ArtSource/card_portraits/beta/inhale_spices_block_choice.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/inhale_spices_block_choice.png
+
+SOURCE : ArtSource/card_portraits/beta/inhale_spices_heal_choice.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/inhale_spices_heal_choice.png
+
+SOURCE : ArtSource/card_portraits/beta/isolation_ward.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/isolation_ward.png
+
+SOURCE : ArtSource/card_portraits/beta/last_patient.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/last_patient.png
+
+SOURCE : ArtSource/card_portraits/beta/miasma.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/miasma.png
+
+SOURCE : ArtSource/card_portraits/beta/mutation.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/mutation.png
+
+SOURCE : ArtSource/card_portraits/beta/no_cure.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/no_cure.png
+
+SOURCE : ArtSource/card_portraits/beta/outbreak.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/outbreak.png
+
+SOURCE : ArtSource/card_portraits/beta/overdose.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/overdose.png
+
+SOURCE : ArtSource/card_portraits/beta/pandemic.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/pandemic.png
+
+SOURCE : ArtSource/card_portraits/beta/pathology_report.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/pathology_report.png
+
+SOURCE : ArtSource/card_portraits/beta/patient_zero.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/patient_zero.png
+
+SOURCE : ArtSource/card_portraits/beta/pestilence.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/pestilence.png
+
+SOURCE : ArtSource/card_portraits/beta/pestilent_blow.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/pestilent_blow.png
+
+SOURCE : ArtSource/card_portraits/beta/pestilent_cloud.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/pestilent_cloud.png
+
+SOURCE : ArtSource/card_portraits/beta/plague_vial.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/plague_vial.png
+
+SOURCE : ArtSource/card_portraits/beta/quarantine.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/quarantine.png
+
+SOURCE : ArtSource/card_portraits/beta/quarantine_protocol.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/quarantine_protocol.png
+
+SOURCE : ArtSource/card_portraits/beta/reclaim_supplies.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/reclaim_supplies.png
+
+SOURCE : ArtSource/card_portraits/beta/reinfection.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/reinfection.png
+
+SOURCE : ArtSource/card_portraits/beta/relapse.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/relapse.png
+
+SOURCE : ArtSource/card_portraits/beta/rupturing_blow.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/rupturing_blow.png
+
+SOURCE : ArtSource/card_portraits/beta/septic_cut.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/septic_cut.png
+
+SOURCE : ArtSource/card_portraits/beta/septic_execution.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/septic_execution.png
+
+SOURCE : ArtSource/card_portraits/beta/septic_jab.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/septic_jab.png
+
+SOURCE : ArtSource/card_portraits/beta/septic_lance.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/septic_lance.png
+
+SOURCE : ArtSource/card_portraits/beta/septic_reflex.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/septic_reflex.png
+
+SOURCE : ArtSource/card_portraits/beta/septic_reserve.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/septic_reserve.png
+
+SOURCE : ArtSource/card_portraits/beta/spent_sample.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/spent_sample.png
+
+SOURCE : ArtSource/card_portraits/beta/strike_plague_bringer.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/strike_plague_bringer.png
+
+SOURCE : ArtSource/card_portraits/beta/surgical_sweep.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/surgical_sweep.png
+
+SOURCE : ArtSource/card_portraits/beta/symptom_check.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/symptom_check.png
+
+SOURCE : ArtSource/card_portraits/beta/terminal_diagnosis.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/terminal_diagnosis.png
+
+SOURCE : ArtSource/card_portraits/beta/triage.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/triage.png
+
+SOURCE : ArtSource/card_portraits/beta/unsteady_step.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/unsteady_step.png
+
+SOURCE : ArtSource/card_portraits/beta/virulent_cuts.png
+RUNTIME: PlagueBringer/images/card_portraits/beta/virulent_cuts.png
+
+SOURCE : ArtSource/card_portraits/big/accelerated_infection.png
+RUNTIME: PlagueBringer/images/card_portraits/big/accelerated_infection.png
+
+SOURCE : ArtSource/card_portraits/big/airborne_cultures.png
+RUNTIME: PlagueBringer/images/card_portraits/big/airborne_cultures.png
+
+SOURCE : ArtSource/card_portraits/big/autopsy.png
+RUNTIME: PlagueBringer/images/card_portraits/big/autopsy.png
+
+SOURCE : ArtSource/card_portraits/big/black_lancet.png
+RUNTIME: PlagueBringer/images/card_portraits/big/black_lancet.png
+
+SOURCE : ArtSource/card_portraits/big/black_tonic.png
+RUNTIME: PlagueBringer/images/card_portraits/big/black_tonic.png
+
+SOURCE : ArtSource/card_portraits/big/blood_sample.png
+RUNTIME: PlagueBringer/images/card_portraits/big/blood_sample.png
+
+SOURCE : ArtSource/card_portraits/big/bloodletting.png
+RUNTIME: PlagueBringer/images/card_portraits/big/bloodletting.png
+
+SOURCE : ArtSource/card_portraits/big/bone_saw.png
+RUNTIME: PlagueBringer/images/card_portraits/big/bone_saw.png
+
+SOURCE : ArtSource/card_portraits/big/burn_the_evidence.png
+RUNTIME: PlagueBringer/images/card_portraits/big/burn_the_evidence.png
+
+SOURCE : ArtSource/card_portraits/big/card.png
+RUNTIME: PlagueBringer/images/card_portraits/big/card.png
+
+SOURCE : ArtSource/card_portraits/big/carrion_cloud.png
+RUNTIME: PlagueBringer/images/card_portraits/big/carrion_cloud.png
+
+SOURCE : ArtSource/card_portraits/big/catalytic_strain.png
+RUNTIME: PlagueBringer/images/card_portraits/big/catalytic_strain.png
+
+SOURCE : ArtSource/card_portraits/big/censer_hook.png
+RUNTIME: PlagueBringer/images/card_portraits/big/censer_hook.png
+
+SOURCE : ArtSource/card_portraits/big/clean_cut.png
+RUNTIME: PlagueBringer/images/card_portraits/big/clean_cut.png
+
+SOURCE : ArtSource/card_portraits/big/clinical_reserve.png
+RUNTIME: PlagueBringer/images/card_portraits/big/clinical_reserve.png
+
+SOURCE : ArtSource/card_portraits/big/concentrated_dose.png
+RUNTIME: PlagueBringer/images/card_portraits/big/concentrated_dose.png
+
+SOURCE : ArtSource/card_portraits/big/contagion_engine.png
+RUNTIME: PlagueBringer/images/card_portraits/big/contagion_engine.png
+
+SOURCE : ArtSource/card_portraits/big/contagious_cut.png
+RUNTIME: PlagueBringer/images/card_portraits/big/contagious_cut.png
+
+SOURCE : ArtSource/card_portraits/big/contagious_rupture.png
+RUNTIME: PlagueBringer/images/card_portraits/big/contagious_rupture.png
+
+SOURCE : ArtSource/card_portraits/big/contaminated_gauze.png
+RUNTIME: PlagueBringer/images/card_portraits/big/contaminated_gauze.png
+
+SOURCE : ArtSource/card_portraits/big/contaminated_instruments.png
+RUNTIME: PlagueBringer/images/card_portraits/big/contaminated_instruments.png
+
+SOURCE : ArtSource/card_portraits/big/contaminated_needle.png
+RUNTIME: PlagueBringer/images/card_portraits/big/contaminated_needle.png
+
+SOURCE : ArtSource/card_portraits/big/cross_contamination.png
+RUNTIME: PlagueBringer/images/card_portraits/big/cross_contamination.png
+
+SOURCE : ArtSource/card_portraits/big/culture_transfer.png
+RUNTIME: PlagueBringer/images/card_portraits/big/culture_transfer.png
+
+SOURCE : ArtSource/card_portraits/big/defend_plague_bringer.png
+RUNTIME: PlagueBringer/images/card_portraits/big/defend_plague_bringer.png
+
+SOURCE : ArtSource/card_portraits/big/discarded_gauze.png
+RUNTIME: PlagueBringer/images/card_portraits/big/discarded_gauze.png
+
+SOURCE : ArtSource/card_portraits/big/drain_the_wound.png
+RUNTIME: PlagueBringer/images/card_portraits/big/drain_the_wound.png
+
+SOURCE : ArtSource/card_portraits/big/emergency_procedure.png
+RUNTIME: PlagueBringer/images/card_portraits/big/emergency_procedure.png
+
+SOURCE : ArtSource/card_portraits/big/experimental_dose.png
+RUNTIME: PlagueBringer/images/card_portraits/big/experimental_dose.png
+
+SOURCE : ArtSource/card_portraits/big/field_dressing.png
+RUNTIME: PlagueBringer/images/card_portraits/big/field_dressing.png
+
+SOURCE : ArtSource/card_portraits/big/field_research.png
+RUNTIME: PlagueBringer/images/card_portraits/big/field_research.png
+
+SOURCE : ArtSource/card_portraits/big/final_incision.png
+RUNTIME: PlagueBringer/images/card_portraits/big/final_incision.png
+
+SOURCE : ArtSource/card_portraits/big/flea_bite.png
+RUNTIME: PlagueBringer/images/card_portraits/big/flea_bite.png
+
+SOURCE : ArtSource/card_portraits/big/fumigate.png
+RUNTIME: PlagueBringer/images/card_portraits/big/fumigate.png
+
+SOURCE : ArtSource/card_portraits/big/harvest_tissue.png
+RUNTIME: PlagueBringer/images/card_portraits/big/harvest_tissue.png
+
+SOURCE : ArtSource/card_portraits/big/incubation.png
+RUNTIME: PlagueBringer/images/card_portraits/big/incubation.png
+
+SOURCE : ArtSource/card_portraits/big/infected_scalpel.png
+RUNTIME: PlagueBringer/images/card_portraits/big/infected_scalpel.png
+
+SOURCE : ArtSource/card_portraits/big/inhale_spices.png
+RUNTIME: PlagueBringer/images/card_portraits/big/inhale_spices.png
+
+SOURCE : ArtSource/card_portraits/big/inhale_spices_block_choice.png
+RUNTIME: PlagueBringer/images/card_portraits/big/inhale_spices_block_choice.png
+
+SOURCE : ArtSource/card_portraits/big/inhale_spices_heal_choice.png
+RUNTIME: PlagueBringer/images/card_portraits/big/inhale_spices_heal_choice.png
+
+SOURCE : ArtSource/card_portraits/big/isolation_ward.png
+RUNTIME: PlagueBringer/images/card_portraits/big/isolation_ward.png
+
+SOURCE : ArtSource/card_portraits/big/last_patient.png
+RUNTIME: PlagueBringer/images/card_portraits/big/last_patient.png
+
+SOURCE : ArtSource/card_portraits/big/miasma.png
+RUNTIME: PlagueBringer/images/card_portraits/big/miasma.png
+
+SOURCE : ArtSource/card_portraits/big/mutation.png
+RUNTIME: PlagueBringer/images/card_portraits/big/mutation.png
+
+SOURCE : ArtSource/card_portraits/big/no_cure.png
+RUNTIME: PlagueBringer/images/card_portraits/big/no_cure.png
+
+SOURCE : ArtSource/card_portraits/big/outbreak.png
+RUNTIME: PlagueBringer/images/card_portraits/big/outbreak.png
+
+SOURCE : ArtSource/card_portraits/big/overdose.png
+RUNTIME: PlagueBringer/images/card_portraits/big/overdose.png
+
+SOURCE : ArtSource/card_portraits/big/pandemic.png
+RUNTIME: PlagueBringer/images/card_portraits/big/pandemic.png
+
+SOURCE : ArtSource/card_portraits/big/pathology_report.png
+RUNTIME: PlagueBringer/images/card_portraits/big/pathology_report.png
+
+SOURCE : ArtSource/card_portraits/big/patient_zero.png
+RUNTIME: PlagueBringer/images/card_portraits/big/patient_zero.png
+
+SOURCE : ArtSource/card_portraits/big/pestilence.png
+RUNTIME: PlagueBringer/images/card_portraits/big/pestilence.png
+
+SOURCE : ArtSource/card_portraits/big/pestilent_blow.png
+RUNTIME: PlagueBringer/images/card_portraits/big/pestilent_blow.png
+
+SOURCE : ArtSource/card_portraits/big/pestilent_cloud.png
+RUNTIME: PlagueBringer/images/card_portraits/big/pestilent_cloud.png
+
+SOURCE : ArtSource/card_portraits/big/plague_vial.png
+RUNTIME: PlagueBringer/images/card_portraits/big/plague_vial.png
+
+SOURCE : ArtSource/card_portraits/big/quarantine.png
+RUNTIME: PlagueBringer/images/card_portraits/big/quarantine.png
+
+SOURCE : ArtSource/card_portraits/big/quarantine_protocol.png
+RUNTIME: PlagueBringer/images/card_portraits/big/quarantine_protocol.png
+
+SOURCE : ArtSource/card_portraits/big/reclaim_supplies.png
+RUNTIME: PlagueBringer/images/card_portraits/big/reclaim_supplies.png
+
+SOURCE : ArtSource/card_portraits/big/reinfection.png
+RUNTIME: PlagueBringer/images/card_portraits/big/reinfection.png
+
+SOURCE : ArtSource/card_portraits/big/relapse.png
+RUNTIME: PlagueBringer/images/card_portraits/big/relapse.png
+
+SOURCE : ArtSource/card_portraits/big/rupturing_blow.png
+RUNTIME: PlagueBringer/images/card_portraits/big/rupturing_blow.png
+
+SOURCE : ArtSource/card_portraits/big/septic_cut.png
+RUNTIME: PlagueBringer/images/card_portraits/big/septic_cut.png
+
+SOURCE : ArtSource/card_portraits/big/septic_execution.png
+RUNTIME: PlagueBringer/images/card_portraits/big/septic_execution.png
+
+SOURCE : ArtSource/card_portraits/big/septic_jab.png
+RUNTIME: PlagueBringer/images/card_portraits/big/septic_jab.png
+
+SOURCE : ArtSource/card_portraits/big/septic_lance.png
+RUNTIME: PlagueBringer/images/card_portraits/big/septic_lance.png
+
+SOURCE : ArtSource/card_portraits/big/septic_reflex.png
+RUNTIME: PlagueBringer/images/card_portraits/big/septic_reflex.png
+
+SOURCE : ArtSource/card_portraits/big/septic_reserve.png
+RUNTIME: PlagueBringer/images/card_portraits/big/septic_reserve.png
+
+SOURCE : ArtSource/card_portraits/big/spent_sample.png
+RUNTIME: PlagueBringer/images/card_portraits/big/spent_sample.png
+
+SOURCE : ArtSource/card_portraits/big/strike_plague_bringer.png
+RUNTIME: PlagueBringer/images/card_portraits/big/strike_plague_bringer.png
+
+SOURCE : ArtSource/card_portraits/big/surgical_sweep.png
+RUNTIME: PlagueBringer/images/card_portraits/big/surgical_sweep.png
+
+SOURCE : ArtSource/card_portraits/big/symptom_check.png
+RUNTIME: PlagueBringer/images/card_portraits/big/symptom_check.png
+
+SOURCE : ArtSource/card_portraits/big/terminal_diagnosis.png
+RUNTIME: PlagueBringer/images/card_portraits/big/terminal_diagnosis.png
+
+SOURCE : ArtSource/card_portraits/big/triage.png
+RUNTIME: PlagueBringer/images/card_portraits/big/triage.png
+
+SOURCE : ArtSource/card_portraits/big/unsteady_step.png
+RUNTIME: PlagueBringer/images/card_portraits/big/unsteady_step.png
+
+SOURCE : ArtSource/card_portraits/big/virulent_cuts.png
+RUNTIME: PlagueBringer/images/card_portraits/big/virulent_cuts.png
+
+SOURCE : ArtSource/card_portraits/black_lancet.png
+RUNTIME: PlagueBringer/images/card_portraits/black_lancet.png
+
+SOURCE : ArtSource/card_portraits/black_tonic.png
+RUNTIME: PlagueBringer/images/card_portraits/black_tonic.png
+
+SOURCE : ArtSource/card_portraits/blood_sample.png
+RUNTIME: PlagueBringer/images/card_portraits/blood_sample.png
+
+SOURCE : ArtSource/card_portraits/bloodletting.png
+RUNTIME: PlagueBringer/images/card_portraits/bloodletting.png
+
+SOURCE : ArtSource/card_portraits/bone_saw.png
+RUNTIME: PlagueBringer/images/card_portraits/bone_saw.png
+
+SOURCE : ArtSource/card_portraits/burn_the_evidence.png
+RUNTIME: PlagueBringer/images/card_portraits/burn_the_evidence.png
+
+SOURCE : ArtSource/card_portraits/card.png
+RUNTIME: PlagueBringer/images/card_portraits/card.png
+
+SOURCE : ArtSource/card_portraits/carrion_cloud.png
+RUNTIME: PlagueBringer/images/card_portraits/carrion_cloud.png
+
+SOURCE : ArtSource/card_portraits/catalytic_strain.png
+RUNTIME: PlagueBringer/images/card_portraits/catalytic_strain.png
+
+SOURCE : ArtSource/card_portraits/censer_hook.png
+RUNTIME: PlagueBringer/images/card_portraits/censer_hook.png
+
+SOURCE : ArtSource/card_portraits/clean_cut.png
+RUNTIME: PlagueBringer/images/card_portraits/clean_cut.png
+
+SOURCE : ArtSource/card_portraits/clinical_reserve.png
+RUNTIME: PlagueBringer/images/card_portraits/clinical_reserve.png
+
+SOURCE : ArtSource/card_portraits/concentrated_dose.png
+RUNTIME: PlagueBringer/images/card_portraits/concentrated_dose.png
+
+SOURCE : ArtSource/card_portraits/contagion_engine.png
+RUNTIME: PlagueBringer/images/card_portraits/contagion_engine.png
+
+SOURCE : ArtSource/card_portraits/contagious_cut.png
+RUNTIME: PlagueBringer/images/card_portraits/contagious_cut.png
+
+SOURCE : ArtSource/card_portraits/contagious_rupture.png
+RUNTIME: PlagueBringer/images/card_portraits/contagious_rupture.png
+
+SOURCE : ArtSource/card_portraits/contaminated_gauze.png
+RUNTIME: PlagueBringer/images/card_portraits/contaminated_gauze.png
+
+SOURCE : ArtSource/card_portraits/contaminated_instruments.png
+RUNTIME: PlagueBringer/images/card_portraits/contaminated_instruments.png
+
+SOURCE : ArtSource/card_portraits/contaminated_needle.png
+RUNTIME: PlagueBringer/images/card_portraits/contaminated_needle.png
+
+SOURCE : ArtSource/card_portraits/cross_contamination.png
+RUNTIME: PlagueBringer/images/card_portraits/cross_contamination.png
+
+SOURCE : ArtSource/card_portraits/culture_transfer.png
+RUNTIME: PlagueBringer/images/card_portraits/culture_transfer.png
+
+SOURCE : ArtSource/card_portraits/defend_plague_bringer.png
+RUNTIME: PlagueBringer/images/card_portraits/defend_plague_bringer.png
+
+SOURCE : ArtSource/card_portraits/discarded_gauze.png
+RUNTIME: PlagueBringer/images/card_portraits/discarded_gauze.png
+
+SOURCE : ArtSource/card_portraits/drain_the_wound.png
+RUNTIME: PlagueBringer/images/card_portraits/drain_the_wound.png
+
+SOURCE : ArtSource/card_portraits/emergency_procedure.png
+RUNTIME: PlagueBringer/images/card_portraits/emergency_procedure.png
+
+SOURCE : ArtSource/card_portraits/experimental_dose.png
+RUNTIME: PlagueBringer/images/card_portraits/experimental_dose.png
+
+SOURCE : ArtSource/card_portraits/field_dressing.png
+RUNTIME: PlagueBringer/images/card_portraits/field_dressing.png
+
+SOURCE : ArtSource/card_portraits/field_research.png
+RUNTIME: PlagueBringer/images/card_portraits/field_research.png
+
+SOURCE : ArtSource/card_portraits/final_incision.png
+RUNTIME: PlagueBringer/images/card_portraits/final_incision.png
+
+SOURCE : ArtSource/card_portraits/flea_bite.png
+RUNTIME: PlagueBringer/images/card_portraits/flea_bite.png
+
+SOURCE : ArtSource/card_portraits/fumigate.png
+RUNTIME: PlagueBringer/images/card_portraits/fumigate.png
+
+SOURCE : ArtSource/card_portraits/harvest_tissue.png
+RUNTIME: PlagueBringer/images/card_portraits/harvest_tissue.png
+
+SOURCE : ArtSource/card_portraits/incubation.png
+RUNTIME: PlagueBringer/images/card_portraits/incubation.png
+
+SOURCE : ArtSource/card_portraits/infected_scalpel.png
+RUNTIME: PlagueBringer/images/card_portraits/infected_scalpel.png
+
+SOURCE : ArtSource/card_portraits/inhale_spices.png
+RUNTIME: PlagueBringer/images/card_portraits/inhale_spices.png
+
+SOURCE : ArtSource/card_portraits/inhale_spices_block_choice.png
+RUNTIME: PlagueBringer/images/card_portraits/inhale_spices_block_choice.png
+
+SOURCE : ArtSource/card_portraits/inhale_spices_heal_choice.png
+RUNTIME: PlagueBringer/images/card_portraits/inhale_spices_heal_choice.png
+
+SOURCE : ArtSource/card_portraits/isolation_ward.png
+RUNTIME: PlagueBringer/images/card_portraits/isolation_ward.png
+
+SOURCE : ArtSource/card_portraits/last_patient.png
+RUNTIME: PlagueBringer/images/card_portraits/last_patient.png
+
+SOURCE : ArtSource/card_portraits/miasma.png
+RUNTIME: PlagueBringer/images/card_portraits/miasma.png
+
+SOURCE : ArtSource/card_portraits/mutation.png
+RUNTIME: PlagueBringer/images/card_portraits/mutation.png
+
+SOURCE : ArtSource/card_portraits/no_cure.png
+RUNTIME: PlagueBringer/images/card_portraits/no_cure.png
+
+SOURCE : ArtSource/card_portraits/outbreak.png
+RUNTIME: PlagueBringer/images/card_portraits/outbreak.png
+
+SOURCE : ArtSource/card_portraits/overdose.png
+RUNTIME: PlagueBringer/images/card_portraits/overdose.png
+
+SOURCE : ArtSource/card_portraits/pandemic.png
+RUNTIME: PlagueBringer/images/card_portraits/pandemic.png
+
+SOURCE : ArtSource/card_portraits/pathology_report.png
+RUNTIME: PlagueBringer/images/card_portraits/pathology_report.png
+
+SOURCE : ArtSource/card_portraits/patient_zero.png
+RUNTIME: PlagueBringer/images/card_portraits/patient_zero.png
+
+SOURCE : ArtSource/card_portraits/pestilence.png
+RUNTIME: PlagueBringer/images/card_portraits/pestilence.png
+
+SOURCE : ArtSource/card_portraits/pestilent_blow.png
+RUNTIME: PlagueBringer/images/card_portraits/pestilent_blow.png
+
+SOURCE : ArtSource/card_portraits/pestilent_cloud.png
+RUNTIME: PlagueBringer/images/card_portraits/pestilent_cloud.png
+
+SOURCE : ArtSource/card_portraits/plague_vial.png
+RUNTIME: PlagueBringer/images/card_portraits/plague_vial.png
+
+SOURCE : ArtSource/card_portraits/quarantine.png
+RUNTIME: PlagueBringer/images/card_portraits/quarantine.png
+
+SOURCE : ArtSource/card_portraits/quarantine_protocol.png
+RUNTIME: PlagueBringer/images/card_portraits/quarantine_protocol.png
+
+SOURCE : ArtSource/card_portraits/reclaim_supplies.png
+RUNTIME: PlagueBringer/images/card_portraits/reclaim_supplies.png
+
+SOURCE : ArtSource/card_portraits/reinfection.png
+RUNTIME: PlagueBringer/images/card_portraits/reinfection.png
+
+SOURCE : ArtSource/card_portraits/relapse.png
+RUNTIME: PlagueBringer/images/card_portraits/relapse.png
+
+SOURCE : ArtSource/card_portraits/rupturing_blow.png
+RUNTIME: PlagueBringer/images/card_portraits/rupturing_blow.png
+
+SOURCE : ArtSource/card_portraits/sample_extraction.png
+RUNTIME: PlagueBringer/images/card_portraits/sample_extraction.png
+
+SOURCE : ArtSource/card_portraits/septic_cut.png
+RUNTIME: PlagueBringer/images/card_portraits/septic_cut.png
+
+SOURCE : ArtSource/card_portraits/septic_execution.png
+RUNTIME: PlagueBringer/images/card_portraits/septic_execution.png
+
+SOURCE : ArtSource/card_portraits/septic_jab.png
+RUNTIME: PlagueBringer/images/card_portraits/septic_jab.png
+
+SOURCE : ArtSource/card_portraits/septic_lance.png
+RUNTIME: PlagueBringer/images/card_portraits/septic_lance.png
+
+SOURCE : ArtSource/card_portraits/septic_reflex.png
+RUNTIME: PlagueBringer/images/card_portraits/septic_reflex.png
+
+SOURCE : ArtSource/card_portraits/septic_reserve.png
+RUNTIME: PlagueBringer/images/card_portraits/septic_reserve.png
+
+SOURCE : ArtSource/card_portraits/spent_sample.png
+RUNTIME: PlagueBringer/images/card_portraits/spent_sample.png
+
+SOURCE : ArtSource/card_portraits/strike_plague_bringer.png
+RUNTIME: PlagueBringer/images/card_portraits/strike_plague_bringer.png
+
+SOURCE : ArtSource/card_portraits/surgical_sweep.png
+RUNTIME: PlagueBringer/images/card_portraits/surgical_sweep.png
+
+SOURCE : ArtSource/card_portraits/symptom_check.png
+RUNTIME: PlagueBringer/images/card_portraits/symptom_check.png
+
+SOURCE : ArtSource/card_portraits/terminal_diagnosis.png
+RUNTIME: PlagueBringer/images/card_portraits/terminal_diagnosis.png
+
+SOURCE : ArtSource/card_portraits/triage.png
+RUNTIME: PlagueBringer/images/card_portraits/triage.png
+
+SOURCE : ArtSource/card_portraits/unsteady_step.png
+RUNTIME: PlagueBringer/images/card_portraits/unsteady_step.png
+
+SOURCE : ArtSource/card_portraits/virulent_cuts.png
+RUNTIME: PlagueBringer/images/card_portraits/virulent_cuts.png
+
+SOURCE : ArtSource/character/attack_pose.png
+RUNTIME: PlagueBringer/images/character/attack_pose.png
+
+SOURCE : ArtSource/character/cast_pose.png
+RUNTIME: PlagueBringer/images/character/cast_pose.png
+
+SOURCE : ArtSource/character/character_select_pose.png
+RUNTIME: PlagueBringer/images/character/character_select_pose.png
+
+SOURCE : ArtSource/character/death_pose.png
+RUNTIME: PlagueBringer/images/character/death_pose.png
+
+SOURCE : ArtSource/character/idle_pose.png
+RUNTIME: PlagueBringer/images/character/idle_pose.png
+
+SOURCE : ArtSource/character/merchant_pose.png
+RUNTIME: PlagueBringer/images/character/merchant_pose.png
+
+SOURCE : ArtSource/character/plaguebringer_combat.png
+RUNTIME: PlagueBringer/images/character/plaguebringer_combat.png
+
+SOURCE : ArtSource/character/plaguebringer_rest_site_background.png
+RUNTIME: PlagueBringer/images/character/plaguebringer_rest_site_background.png
+
+SOURCE : ArtSource/character/plaguebringer_select_background.png
+RUNTIME: PlagueBringer/images/character/plaguebringer_select_background.png
+
+SOURCE : ArtSource/character/plaguebringer_select_head.png
+RUNTIME: PlagueBringer/images/character/plaguebringer_select_head.png
+
+SOURCE : ArtSource/character/rest_pose.png
+RUNTIME: PlagueBringer/images/character/rest_pose.png
+
+SOURCE : ArtSource/character/select_pose.png
+RUNTIME: PlagueBringer/images/character/select_pose.png
+
+SOURCE : ArtSource/charui/char_select_char_name.png
+RUNTIME: PlagueBringer/images/charui/char_select_char_name.png
+
+SOURCE : ArtSource/charui/char_select_char_name_locked.png
+RUNTIME: PlagueBringer/images/charui/char_select_char_name_locked.png
+
+SOURCE : ArtSource/charui/character_icon_char_name.png
+RUNTIME: PlagueBringer/images/charui/character_icon_char_name.png
+
+SOURCE : ArtSource/charui/energy_big.png
+RUNTIME: PlagueBringer/images/charui/energy_big.png
+
+SOURCE : ArtSource/charui/energy_counter.png
+RUNTIME: PlagueBringer/images/charui/energy_counter.png
+
+SOURCE : ArtSource/charui/energy_orb.png
+RUNTIME: PlagueBringer/images/charui/energy_orb.png
+
+SOURCE : ArtSource/charui/energy_text.png
+RUNTIME: PlagueBringer/images/charui/energy_text.png
+
+SOURCE : ArtSource/charui/map_marker_char_name.png
+RUNTIME: PlagueBringer/images/charui/map_marker_char_name.png
+
+SOURCE : ArtSource/charui/specimen_counter.png
+RUNTIME: PlagueBringer/images/charui/specimen_counter.png
+
+SOURCE : ArtSource/charui/specimen_counter.svg
+RUNTIME: PlagueBringer/images/charui/specimen_counter.svg
+
+SOURCE : ArtSource/charui/specimen_hud.png
+RUNTIME: PlagueBringer/images/charui/specimen_hud.png
+
+SOURCE : ArtSource/potions/incubation_serum.png
+RUNTIME: PlagueBringer/images/potions/incubation_serum.png
+
+SOURCE : ArtSource/potions/miasma_vial.png
+RUNTIME: PlagueBringer/images/potions/miasma_vial.png
+
+SOURCE : ArtSource/potions/outline/incubation_serum.png
+RUNTIME: PlagueBringer/images/potions/outline/incubation_serum.png
+
+SOURCE : ArtSource/potions/outline/miasma_vial.png
+RUNTIME: PlagueBringer/images/potions/outline/miasma_vial.png
+
+SOURCE : ArtSource/potions/outline/plague_flask.png
+RUNTIME: PlagueBringer/images/potions/outline/plague_flask.png
+
+SOURCE : ArtSource/potions/outline/potion.png
+RUNTIME: PlagueBringer/images/potions/outline/potion.png
+
+SOURCE : ArtSource/potions/outline/quarantine_draught.png
+RUNTIME: PlagueBringer/images/potions/outline/quarantine_draught.png
+
+SOURCE : ArtSource/potions/outline/specimen_potion.png
+RUNTIME: PlagueBringer/images/potions/outline/specimen_potion.png
+
+SOURCE : ArtSource/potions/plague_flask.png
+RUNTIME: PlagueBringer/images/potions/plague_flask.png
+
+SOURCE : ArtSource/potions/potion.png
+RUNTIME: PlagueBringer/images/potions/potion.png
+
+SOURCE : ArtSource/potions/quarantine_draught.png
+RUNTIME: PlagueBringer/images/potions/quarantine_draught.png
+
+SOURCE : ArtSource/potions/specimen_potion.png
+RUNTIME: PlagueBringer/images/potions/specimen_potion.png
+
+SOURCE : ArtSource/powers/airborne_cultures_power.png
+RUNTIME: PlagueBringer/images/powers/airborne_cultures_power.png
+
+SOURCE : ArtSource/powers/big/airborne_cultures_power.png
+RUNTIME: PlagueBringer/images/powers/big/airborne_cultures_power.png
+
+SOURCE : ArtSource/powers/big/carrion_cloud_power.png
+RUNTIME: PlagueBringer/images/powers/big/carrion_cloud_power.png
+
+SOURCE : ArtSource/powers/big/catalytic_strain_power.png
+RUNTIME: PlagueBringer/images/powers/big/catalytic_strain_power.png
+
+SOURCE : ArtSource/powers/big/contaminated_instruments_power.png
+RUNTIME: PlagueBringer/images/powers/big/contaminated_instruments_power.png
+
+SOURCE : ArtSource/powers/big/field_research_power.png
+RUNTIME: PlagueBringer/images/powers/big/field_research_power.png
+
+SOURCE : ArtSource/powers/big/field_research_power.svg
+RUNTIME: PlagueBringer/images/powers/big/field_research_power.svg
+
+SOURCE : ArtSource/powers/big/isolation_ward_power.png
+RUNTIME: PlagueBringer/images/powers/big/isolation_ward_power.png
+
+SOURCE : ArtSource/powers/big/last_patient_power.png
+RUNTIME: PlagueBringer/images/powers/big/last_patient_power.png
+
+SOURCE : ArtSource/powers/big/miasma_power.png
+RUNTIME: PlagueBringer/images/powers/big/miasma_power.png
+
+SOURCE : ArtSource/powers/big/mutation_power.png
+RUNTIME: PlagueBringer/images/powers/big/mutation_power.png
+
+SOURCE : ArtSource/powers/big/no_cure_power.png
+RUNTIME: PlagueBringer/images/powers/big/no_cure_power.png
+
+SOURCE : ArtSource/powers/big/plague_power.png
+RUNTIME: PlagueBringer/images/powers/big/plague_power.png
+
+SOURCE : ArtSource/powers/big/power.png
+RUNTIME: PlagueBringer/images/powers/big/power.png
+
+SOURCE : ArtSource/powers/big/relapse_power.png
+RUNTIME: PlagueBringer/images/powers/big/relapse_power.png
+
+SOURCE : ArtSource/powers/big/retain_energy_next_turn_power.png
+RUNTIME: PlagueBringer/images/powers/big/retain_energy_next_turn_power.png
+
+SOURCE : ArtSource/powers/big/septic_reserve_power.png
+RUNTIME: PlagueBringer/images/powers/big/septic_reserve_power.png
+
+SOURCE : ArtSource/powers/big/specimen_power.png
+RUNTIME: PlagueBringer/images/powers/big/specimen_power.png
+
+SOURCE : ArtSource/powers/big/specimen_power.svg
+RUNTIME: PlagueBringer/images/powers/big/specimen_power.svg
+
+SOURCE : ArtSource/powers/big/sway_power.png
+RUNTIME: PlagueBringer/images/powers/big/sway_power.png
+
+SOURCE : ArtSource/powers/big/sway_power.svg
+RUNTIME: PlagueBringer/images/powers/big/sway_power.svg
+
+SOURCE : ArtSource/powers/big/virulent_cuts_power.png
+RUNTIME: PlagueBringer/images/powers/big/virulent_cuts_power.png
+
+SOURCE : ArtSource/powers/carrion_cloud_power.png
+RUNTIME: PlagueBringer/images/powers/carrion_cloud_power.png
+
+SOURCE : ArtSource/powers/catalytic_strain_power.png
+RUNTIME: PlagueBringer/images/powers/catalytic_strain_power.png
+
+SOURCE : ArtSource/powers/contaminated_instruments_power.png
+RUNTIME: PlagueBringer/images/powers/contaminated_instruments_power.png
+
+SOURCE : ArtSource/powers/field_research_power.png
+RUNTIME: PlagueBringer/images/powers/field_research_power.png
+
+SOURCE : ArtSource/powers/field_research_power.svg
+RUNTIME: PlagueBringer/images/powers/field_research_power.svg
+
+SOURCE : ArtSource/powers/isolation_ward_power.png
+RUNTIME: PlagueBringer/images/powers/isolation_ward_power.png
+
+SOURCE : ArtSource/powers/last_patient_power.png
+RUNTIME: PlagueBringer/images/powers/last_patient_power.png
+
+SOURCE : ArtSource/powers/miasma_power.png
+RUNTIME: PlagueBringer/images/powers/miasma_power.png
+
+SOURCE : ArtSource/powers/mutation_power.png
+RUNTIME: PlagueBringer/images/powers/mutation_power.png
+
+SOURCE : ArtSource/powers/no_cure_power.png
+RUNTIME: PlagueBringer/images/powers/no_cure_power.png
+
+SOURCE : ArtSource/powers/plague_power.png
+RUNTIME: PlagueBringer/images/powers/plague_power.png
+
+SOURCE : ArtSource/powers/power.png
+RUNTIME: PlagueBringer/images/powers/power.png
+
+SOURCE : ArtSource/powers/relapse_power.png
+RUNTIME: PlagueBringer/images/powers/relapse_power.png
+
+SOURCE : ArtSource/powers/retain_energy_next_turn_power.png
+RUNTIME: PlagueBringer/images/powers/retain_energy_next_turn_power.png
+
+SOURCE : ArtSource/powers/septic_reserve_power.png
+RUNTIME: PlagueBringer/images/powers/septic_reserve_power.png
+
+SOURCE : ArtSource/powers/specimen_power.png
+RUNTIME: PlagueBringer/images/powers/specimen_power.png
+
+SOURCE : ArtSource/powers/specimen_power.svg
+RUNTIME: PlagueBringer/images/powers/specimen_power.svg
+
+SOURCE : ArtSource/powers/sway_power.png
+RUNTIME: PlagueBringer/images/powers/sway_power.png
+
+SOURCE : ArtSource/powers/sway_power.svg
+RUNTIME: PlagueBringer/images/powers/sway_power.svg
+
+SOURCE : ArtSource/powers/virulent_cuts_power.png
+RUNTIME: PlagueBringer/images/powers/virulent_cuts_power.png
+
+SOURCE : ArtSource/relics/big/empty_ampoule.png
+RUNTIME: PlagueBringer/images/relics/big/empty_ampoule.png
+
+SOURCE : ArtSource/relics/big/open_censer.png
+RUNTIME: PlagueBringer/images/relics/big/open_censer.png
+
+SOURCE : ArtSource/relics/big/quarantine_mask.png
+RUNTIME: PlagueBringer/images/relics/big/quarantine_mask.png
+
+SOURCE : ArtSource/relics/big/relic.png
+RUNTIME: PlagueBringer/images/relics/big/relic.png
+
+SOURCE : ArtSource/relics/big/rusted_needle.png
+RUNTIME: PlagueBringer/images/relics/big/rusted_needle.png
+
+SOURCE : ArtSource/relics/big/sealed_censer.png
+RUNTIME: PlagueBringer/images/relics/big/sealed_censer.png
+
+SOURCE : ArtSource/relics/big/spore_jar.png
+RUNTIME: PlagueBringer/images/relics/big/spore_jar.png
+
+SOURCE : ArtSource/relics/empty_ampoule.png
+RUNTIME: PlagueBringer/images/relics/empty_ampoule.png
+
+SOURCE : ArtSource/relics/empty_ampoule_outline.png
+RUNTIME: PlagueBringer/images/relics/empty_ampoule_outline.png
+
+SOURCE : ArtSource/relics/open_censer.png
+RUNTIME: PlagueBringer/images/relics/open_censer.png
+
+SOURCE : ArtSource/relics/open_censer_outline.png
+RUNTIME: PlagueBringer/images/relics/open_censer_outline.png
+
+SOURCE : ArtSource/relics/quarantine_mask.png
+RUNTIME: PlagueBringer/images/relics/quarantine_mask.png
+
+SOURCE : ArtSource/relics/quarantine_mask_outline.png
+RUNTIME: PlagueBringer/images/relics/quarantine_mask_outline.png
+
+SOURCE : ArtSource/relics/relic.png
+RUNTIME: PlagueBringer/images/relics/relic.png
+
+SOURCE : ArtSource/relics/relic_outline.png
+RUNTIME: PlagueBringer/images/relics/relic_outline.png
+
+SOURCE : ArtSource/relics/rusted_needle.png
+RUNTIME: PlagueBringer/images/relics/rusted_needle.png
+
+SOURCE : ArtSource/relics/rusted_needle_outline.png
+RUNTIME: PlagueBringer/images/relics/rusted_needle_outline.png
+
+SOURCE : ArtSource/relics/sealed_censer.png
+RUNTIME: PlagueBringer/images/relics/sealed_censer.png
+
+SOURCE : ArtSource/relics/sealed_censer_outline.png
+RUNTIME: PlagueBringer/images/relics/sealed_censer_outline.png
+
+SOURCE : ArtSource/relics/spore_jar.png
+RUNTIME: PlagueBringer/images/relics/spore_jar.png
+
+SOURCE : ArtSource/relics/spore_jar_outline.png
+RUNTIME: PlagueBringer/images/relics/spore_jar_outline.png
+
+SOURCE : ArtSource/mod_image.png
+RUNTIME: PlagueBringer/mod_image.png
+
+Legacy art is stored in ArtSource/legacy and is NOT deployed.

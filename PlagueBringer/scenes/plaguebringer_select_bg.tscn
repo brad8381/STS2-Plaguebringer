@@ -1,0 +1,216 @@
+[gd_scene load_steps=19 format=3]
+
+[ext_resource type="Texture2D" path="res://PlagueBringer/images/character/plaguebringer_select_background.png" id="1_background"]
+[ext_resource type="Texture2D" path="res://PlagueBringer/images/character/character_select_pose.png" id="2_character"]
+[ext_resource type="Script" path="res://PlagueBringerCode/Character/PlagueBringerSelectSway.cs" id="3_sway"]
+[ext_resource type="Script" path="res://PlagueBringerCode/Character/PlagueBringerSelectParticles.cs" id="4_particles"]
+[ext_resource type="Script" path="res://PlagueBringerCode/Character/PlagueBringerSelectLight.cs" id="5_light"]
+[ext_resource type="Shader" path="res://PlagueBringer/silent_stink/vfx_stepped_shader_fire_add.tres" id="stink_shader"]
+[ext_resource type="Texture2D" path="res://PlagueBringer/silent_stink/tileable_noise_1.png" id="stink_noise1"]
+[ext_resource type="Texture2D" path="res://PlagueBringer/silent_stink/light.png" id="stink_light"]
+[ext_resource type="Texture2D" path="res://PlagueBringer/silent_stink/tileable_noise_2.png" id="stink_noise2"]
+[ext_resource type="Texture2D" path="res://PlagueBringer/silent_stink/wave_noise_round.png" id="stink_wave"]
+
+[sub_resource type="Gradient" id="Gradient_green_aura"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.22, 0.72, 0.08, 0.22, 0.08, 0.34, 0.03, 0.11, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_green_aura"]
+gradient = SubResource("Gradient_green_aura")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_character_glow"]
+offsets = PackedFloat32Array(0, 0.64, 1)
+colors = PackedColorArray(0, 0, 0, 0.52, 0, 0, 0, 0.24, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_character_glow"]
+gradient = SubResource("Gradient_character_glow")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_moving_light"]
+offsets = PackedFloat32Array(0, 0.38, 0.72, 1)
+colors = PackedColorArray(0.18, 0.52, 0.09, 0.17, 0.08, 0.30, 0.035, 0.09, 0.02, 0.08, 0.015, 0.025, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_moving_light"]
+gradient = SubResource("Gradient_moving_light")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_moving_light"]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_stink"]
+shader = ExtResource("stink_shader")
+
+shader_parameter/OuterColor = Color(0.08, 0.16, 0.025, 0.42)
+shader_parameter/InnerColorStep = Vector2(0.975, 0.99)
+
+shader_parameter/Noise2Strength = 1.0
+shader_parameter/Noise2Scaling = Vector2(0.5, 0.5)
+shader_parameter/Noise2Panning = Vector2(0.05, 0.05)
+shader_parameter/Noise2Texture = ExtResource("stink_noise1")
+
+shader_parameter/Noise1Strength = 1.0
+shader_parameter/Noise1Scaling = Vector2(0.5, 0.5)
+shader_parameter/Noise1Panning = Vector2(0.1, 0.1)
+shader_parameter/Noise1Texture = ExtResource("stink_noise1")
+
+shader_parameter/InvertNoiseMask = true
+shader_parameter/NoiseMaskScale = Vector2(1, 2)
+shader_parameter/NoiseMaskOffset = Vector2(0, -0.63)
+shader_parameter/NoiseMask = ExtResource("stink_light")
+
+shader_parameter/Distortion2Scale = Vector2(1, 1)
+shader_parameter/Distortion2Panning = Vector2(0.045, 0.05)
+shader_parameter/Distortion2Texture = ExtResource("stink_light")
+shader_parameter/Distortion2Strength = 0.1
+
+shader_parameter/Distortion1Scale = Vector2(1, 1)
+shader_parameter/Distortion1Panning = Vector2(0.06, 0.05)
+shader_parameter/Distortion1Texture = ExtResource("stink_noise1")
+shader_parameter/Distortion1Strength = 0.095
+
+shader_parameter/DistortionMaskScale = Vector2(1, 1.2)
+shader_parameter/DistortionMaskOffset = Vector2(0, -0.025)
+shader_parameter/DistortionMask = ExtResource("stink_noise2")
+
+shader_parameter/InnerColor = Color(0, 0, 0, 1)
+shader_parameter/OuterStep = Vector2(0.285, 0.99)
+
+[node name="PlagueBringerSelectBg" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Backdrop" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_background")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="GreenWash" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.008, 0.035, 0.016, 0.58)
+mouse_filter = 2
+
+[node name="DarkWash" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.005, 0.012, 0.009, 0.06)
+mouse_filter = 2
+
+[node name="Particles" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_particles")
+
+[node name="GreenAura" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1800.0
+offset_top = -650.0
+offset_right = -380.0
+offset_bottom = 650.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_green_aura")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="CharacterGlow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1740.0
+offset_top = -600.0
+offset_right = -390.0
+offset_bottom = 600.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_character_glow")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="stink_lines" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_stink")
+position = Vector2(1005, 678)
+scale = Vector2(9.76582, 4.88672)
+texture = ExtResource("stink_wave")
+
+[node name="Character" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1820.0
+offset_top = -500.0
+offset_right = -470.0
+offset_bottom = 900.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_character")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+script = ExtResource("3_sway")
+
+[node name="MovingLight" type="TextureRect" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_moving_light")
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1940.0
+offset_top = -650.0
+offset_right = -500.0
+offset_bottom = 650.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_moving_light")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+script = ExtResource("5_light")

@@ -1,0 +1,53 @@
+using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
+using PB.Cards;
+using PB.Powers;
+
+namespace PB.Relics;
+
+public sealed class OpenCenser : PlagueBringerRelic
+{
+    public override List<(string, string)>? Localization =>
+        new RelicLoc(
+            "Open Censer",
+            "At the start of combat, apply 1 [gold]Plague[/gold] to ALL enemies. After drawing your opening hand, choose 1 of the first 3 Plague cards in your draw pile to put into your hand.",
+            "There is no putting it back.",
+            ("selectionScreenPrompt", "Choose a Plague card to put into your Hand.")
+        );
+
+    public override RelicRarity Rarity => RelicRarity.Starter;
+
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext,
+        ICombatState combatState)
+    {
+        if (player != Owner || Owner.PlayerCombatState is not { TurnNumber: 1 }) return;
+        Flash();
+        foreach (var enemy in combatState.GetOpponentsOf(Owner.Creature).Where(enemy => enemy.IsAlive).ToArray())
+            await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, 1, Owner.Creature, null);
+    }
+
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player != Owner || Owner.PlayerCombatState is not { TurnNumber: 1 }) return;
+        var drawPile = PileType.Draw.GetPile(Owner);
+        var candidates = drawPile.Cards.Where(card => card is IPlagueCard).Take(3).ToList();
+        if (candidates.Count == 0) return;
+
+        var prompt = new LocString("relics", "BRAD8381PLAGUEBRINGER-OPEN_CENSER.selectionScreenPrompt");
+        var chosen = await CardSelectCmd.FromSimpleGrid(choiceContext, candidates, Owner,
+            new CardSelectorPrefs(prompt, 1));
+        foreach (var card in chosen)
+        {
+            if (drawPile.Cards.Contains(card))
+                await CardPileCmd.Add(card, PileType.Hand);
+        }
+        MainFile.Logger.Debug($"Open Censer selection: owner={Owner}, candidates={candidates.Count}");
+    }
+}
