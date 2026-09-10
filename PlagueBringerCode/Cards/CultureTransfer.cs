@@ -41,7 +41,7 @@ public sealed class CultureTransfer : PlagueBringerCard, IPlagueCard
         if (spent < cost)
             return;
 
-        await PowerCmd.Apply<PlaguePower>(
+        await PB.Mechanics.PlagueActions.Apply(
             choiceContext,
             target,
             DynamicVars["Plague"].IntValue,

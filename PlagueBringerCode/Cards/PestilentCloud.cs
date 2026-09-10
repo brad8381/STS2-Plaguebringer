@@ -23,7 +23,7 @@ public sealed class PestilentCloud : PlagueBringerCard, IPlagueCard
 
         foreach (var enemy in CombatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray())
         {
-            await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+            await PB.Mechanics.PlagueActions.Apply(choiceContext, enemy, DynamicVars["Plague"].IntValue, Owner.Creature, this);
             await PowerCmd.Apply<WeakPower>(choiceContext, enemy, DynamicVars["Weak"].IntValue, Owner.Creature, this);
         }
     }

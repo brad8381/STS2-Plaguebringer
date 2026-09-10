@@ -23,7 +23,7 @@ public sealed class FleaBite : PlagueBringerCard, IPlagueCard
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
 
         if (wasInfected && target.IsAlive)
-            await PowerCmd.Apply<PlaguePower>(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+            await PB.Mechanics.PlagueActions.Apply(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

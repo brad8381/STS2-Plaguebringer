@@ -37,6 +37,6 @@ public sealed class CarrionCloudPower : PlagueBringerPower
 
         Flash();
         foreach (var enemy in Owner.CombatState.GetOpponentsOf(Owner).Where(enemy => enemy.IsAlive).ToArray())
-            await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, spread, Owner, null);
+            await PB.Mechanics.PlagueActions.Apply(choiceContext, enemy, spread, Owner, null);
     }
 }

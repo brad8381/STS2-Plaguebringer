@@ -23,7 +23,7 @@ public sealed class Pandemic : PlagueBringerCard, IPlagueCard
 
         foreach (var enemy in combatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray())
         {
-            await PowerCmd.Apply<PlaguePower>(
+            await PB.Mechanics.PlagueActions.Apply(
                 choiceContext,
                 enemy,
                 DynamicVars["Plague"].IntValue,

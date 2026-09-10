@@ -27,6 +27,6 @@ public sealed class LastPatientPower : PlagueBringerPower
 
         Flash();
         var choiceContext = new ThrowingPlayerChoiceContext();
-        await PowerCmd.Apply<PlaguePower>(choiceContext, enemies[0], Amount, Owner, null);
+        await PB.Mechanics.PlagueActions.Apply(choiceContext, enemies[0], Amount, Owner, null);
     }
 }

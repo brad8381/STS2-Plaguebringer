@@ -19,7 +19,7 @@ public sealed class BlackTonic : PlagueBringerCard, IPlagueCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await PowerCmd.Apply<PlaguePower>(choiceContext, Owner.Creature, DynamicVars["SelfPlague"].IntValue, Owner.Creature, this);
+        await PB.Mechanics.PlagueActions.Apply(choiceContext, Owner.Creature, DynamicVars["SelfPlague"].IntValue, Owner.Creature, this);
         await PlayerCmd.GainEnergy(DynamicVars["Energy"].IntValue, Owner);
         await PowerCmd.Apply<RetainEnergyNextTurnPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }

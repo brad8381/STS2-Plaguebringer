@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Texture2D" path="res://PlagueBringer/images/character/plaguebringer_combat.png" id="1_texture"]
-[ext_resource type="Script" path="res://PlagueBringerCode/Character/PlagueBringerIdle.cs" id="2_idle"]
+[ext_resource type="Texture2D" path="res://PlagueBringer/images/character/merchant.png" id="1_texture"]
 
 [node name="PlagueBringerMerchant" type="Sprite2D"]
 texture = ExtResource("1_texture")
 position = Vector2(0, -170)
 scale = Vector2(0.28, 0.28)
-script = ExtResource("2_idle")

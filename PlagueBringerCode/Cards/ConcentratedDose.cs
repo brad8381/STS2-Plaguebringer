@@ -44,7 +44,7 @@ public sealed class ConcentratedDose : PlagueBringerCard, IPlagueCard
             if (!target.IsAlive)
                 break;
 
-            await PowerCmd.Apply<PlaguePower>(
+            await PB.Mechanics.PlagueActions.Apply(
                 choiceContext,
                 target,
                 plaguePerEnergy,

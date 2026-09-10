@@ -20,7 +20,7 @@ public sealed class SepticLance : PlagueBringerCard, IPlagueCard
         if (play.Target is not { IsAlive: true } target) return;
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
         if (target.IsAlive)
-            await PowerCmd.Apply<PlaguePower>(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+            await PB.Mechanics.PlagueActions.Apply(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

@@ -24,7 +24,7 @@ public sealed class Overdose : PlagueBringerCard, IPlagueCard
         var amount = DynamicVars["Plague"].IntValue +
                      (alreadyInfected ? DynamicVars["BonusPlague"].IntValue : 0);
 
-        await PowerCmd.Apply<PlaguePower>(
+        await PB.Mechanics.PlagueActions.Apply(
             choiceContext,
             target,
             amount,

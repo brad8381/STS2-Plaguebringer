@@ -28,6 +28,6 @@ public sealed class SporeJar : PlagueBringerRelic
 
         Flash();
         foreach (var enemy in Owner.Creature.CombatState.GetOpponentsOf(Owner.Creature).Where(enemy => enemy.IsAlive).ToArray())
-            await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, 1, Owner.Creature, null);
+            await PB.Mechanics.PlagueActions.Apply(choiceContext, enemy, 1, Owner.Creature, null);
     }
 }

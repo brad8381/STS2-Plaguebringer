@@ -19,7 +19,7 @@ public sealed class Fumigate : PlagueBringerCard, IPlagueCard
     {
         if (CombatState == null) return;
         foreach (var enemy in CombatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray())
-            await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+            await PB.Mechanics.PlagueActions.Apply(choiceContext, enemy, DynamicVars["Plague"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

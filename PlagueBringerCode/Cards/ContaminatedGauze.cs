@@ -22,7 +22,7 @@ public sealed class ContaminatedGauze : PlagueBringerCard, IPlagueCard
         if (CombatState == null || CombatState.HittableEnemies.Count == 0) return;
         var target = CombatState.RunState.Rng.CombatTargets.NextItem(CombatState.HittableEnemies);
         if (target != null)
-            await PowerCmd.Apply<PlaguePower>(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+            await PB.Mechanics.PlagueActions.Apply(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

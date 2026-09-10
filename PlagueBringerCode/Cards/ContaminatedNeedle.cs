@@ -30,7 +30,7 @@ public sealed class ContaminatedNeedle : PlagueBringerCard, IPlagueCard
 
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
         if (target.IsAlive)
-            await PowerCmd.Apply<PlaguePower>(
+            await PB.Mechanics.PlagueActions.Apply(
                 choiceContext,
                 target,
                 DynamicVars["Plague"].IntValue,

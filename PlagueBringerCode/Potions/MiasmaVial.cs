@@ -24,15 +24,18 @@ public sealed class MiasmaVial : PlagueBringerPotion
         if (combatState == null)
             return;
 
-        var enemies = combatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray();
-        if (enemies.Length == 0)
-            return;
+        var enemies = combatState.HittableEnemies
+            .Where(enemy => enemy.IsAlive)
+            .ToArray();
 
-        await PowerCmd.Apply<PlaguePower>(
-            choiceContext,
-            enemies,
-            DynamicVars["Plague"].IntValue,
-            Owner.Creature,
-            null);
+        foreach (var enemy in enemies)
+        {
+            await PB.Mechanics.PlagueActions.Apply(
+                choiceContext,
+                enemy,
+                DynamicVars["Plague"].IntValue,
+                Owner.Creature,
+                null);
+        }
     }
 }

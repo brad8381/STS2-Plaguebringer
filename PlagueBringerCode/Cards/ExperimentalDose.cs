@@ -34,7 +34,7 @@ public sealed class ExperimentalDose : PlagueBringerCard, IPlagueCard
         if (spent <= 0)
             return;
 
-        await PowerCmd.Apply<PlaguePower>(
+        await PB.Mechanics.PlagueActions.Apply(
             choiceContext,
             target,
             spent * DynamicVars["PlaguePerSpecimen"].IntValue,

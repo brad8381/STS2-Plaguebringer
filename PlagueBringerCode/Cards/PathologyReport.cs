@@ -49,7 +49,7 @@ public sealed class PathologyReport : PlagueBringerCard, IPlagueCard
         var plague = spent * DynamicVars["PlaguePerSpecimen"].IntValue;
         foreach (var enemy in combatState.HittableEnemies.Where(enemy => enemy.IsAlive).ToArray())
         {
-            await PowerCmd.Apply<PlaguePower>(
+            await PB.Mechanics.PlagueActions.Apply(
                 choiceContext,
                 enemy,
                 plague,

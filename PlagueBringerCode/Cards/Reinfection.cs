@@ -20,7 +20,7 @@ public sealed class Reinfection : PlagueBringerCard, IPlagueCard
 
         if (PlagueCardUtils.GetPlague(target) <= 0)
         {
-            await PowerCmd.Apply<PlaguePower>(
+            await PB.Mechanics.PlagueActions.Apply(
                 choiceContext,
                 target,
                 DynamicVars["Plague"].IntValue,

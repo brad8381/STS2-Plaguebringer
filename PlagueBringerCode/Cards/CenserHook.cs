@@ -25,7 +25,7 @@ public sealed class CenserHook : PlagueBringerCard, IPlagueCard
 
         if (infected && target.IsAlive)
         {
-            await PowerCmd.Apply<PlaguePower>(
+            await PB.Mechanics.PlagueActions.Apply(
                 choiceContext,
                 target,
                 DynamicVars["Plague"].IntValue,

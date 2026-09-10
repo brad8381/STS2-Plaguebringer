@@ -11,17 +11,25 @@ public sealed class PlagueVial : PlagueBringerCard, IPlagueCard
 {
     public PlagueVial() : base(1, CardType.Skill, CardRarity.Basic, TargetType.AnyEnemy)
     {
-        WithVars(new PowerVar<PlaguePower>("Plague", 2));
+        WithVars(new PowerVar<PlaguePower>("Plague", 4));
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        if (play.Target is not { IsAlive: true } target) return;
-        await PowerCmd.Apply<PlaguePower>(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+        if (play.Target is not { IsAlive: true } target)
+            return;
+
+        await PB.Mechanics.PlagueActions.Apply(
+            choiceContext,
+            target,
+            DynamicVars["Plague"].IntValue,
+            Owner.Creature,
+            this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Plague"].UpgradeValueBy(1m);
+        DynamicVars["Plague"].UpgradeValueBy(2m);
+        EnergyCost.UpgradeBy(-1);
     }
 }

@@ -23,7 +23,7 @@ public sealed class PlagueFlask : PlagueBringerPotion
         if (target is not { IsAlive: true })
             return;
 
-        await PowerCmd.Apply<PlaguePower>(
+        await PB.Mechanics.PlagueActions.Apply(
             choiceContext,
             target,
             DynamicVars["Plague"].IntValue,

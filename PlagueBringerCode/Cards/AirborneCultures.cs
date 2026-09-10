@@ -8,7 +8,7 @@ namespace PB.Cards;
 
 public sealed class AirborneCultures : PlagueBringerCard, IPlagueCard
 {
-    public AirborneCultures() : base(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+    public AirborneCultures() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
         WithVars(new PowerVar<AirborneCulturesPower>("Plague", 1));
     }
@@ -23,3 +23,4 @@ public sealed class AirborneCultures : PlagueBringerCard, IPlagueCard
         EnergyCost.UpgradeBy(-1);
     }
 }
+

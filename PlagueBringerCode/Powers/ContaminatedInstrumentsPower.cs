@@ -29,6 +29,6 @@ public sealed class ContaminatedInstrumentsPower : PlagueBringerPower
 
         Flash();
         foreach (var enemy in Owner.CombatState.GetOpponentsOf(Owner).Where(enemy => enemy.IsAlive).ToArray())
-            await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, Amount, Owner, card);
+            await PB.Mechanics.PlagueActions.Apply(choiceContext, enemy, Amount, Owner, card);
     }
 }

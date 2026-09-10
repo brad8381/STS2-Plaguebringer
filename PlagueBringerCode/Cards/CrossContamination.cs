@@ -24,7 +24,7 @@ public sealed class CrossContamination : PlagueBringerCard, IPlagueCard
         if (spread <= 0) return;
 
         foreach (var enemy in CombatState.HittableEnemies.Where(enemy => enemy.IsAlive && enemy != target).ToArray())
-            await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, spread, Owner.Creature, this);
+            await PB.Mechanics.PlagueActions.Apply(choiceContext, enemy, (int)spread, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
@@ -32,3 +32,4 @@ public sealed class CrossContamination : PlagueBringerCard, IPlagueCard
         DynamicVars["Percent"].UpgradeValueBy(25m);
     }
 }
+

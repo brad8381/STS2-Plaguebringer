@@ -48,6 +48,6 @@ public sealed class RustedNeedle : PlagueBringerRelic
 
         _usedThisTurn = true;
         Flash();
-        await PowerCmd.Apply<PlaguePower>(choiceContext, target, 1, Owner.Creature, cardSource);
+        await PB.Mechanics.PlagueActions.Apply(choiceContext, target, 1, Owner.Creature, cardSource);
     }
 }

@@ -85,7 +85,7 @@ internal static class PlagueCardUtils
             return;
 
         foreach (var enemy in combatState.GetOpponentsOf(owner).Where(enemy => enemy.IsAlive).ToArray())
-            await PowerCmd.Apply<PlaguePower>(choiceContext, enemy, amount, owner, source);
+            await PB.Mechanics.PlagueActions.Apply(choiceContext, enemy, amount, owner, source);
     }
 
     private static async Task NotifyPlagueRemoved(

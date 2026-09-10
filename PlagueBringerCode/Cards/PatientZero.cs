@@ -19,7 +19,7 @@ public sealed class PatientZero : PlagueBringerCard, IPlagueCard
     {
         if (play.Target is not { IsAlive: true } target) return;
 
-        await PowerCmd.Apply<PlaguePower>(
+        await PB.Mechanics.PlagueActions.Apply(
             choiceContext,
             target,
             DynamicVars["Plague"].IntValue,

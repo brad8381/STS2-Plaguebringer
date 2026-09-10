@@ -29,6 +29,6 @@ public sealed class VirulentCutsPower : PlagueBringerPower
         CardModel? cardSource)
     {
         if (dealer == Owner && props.IsPoweredAttack() && result.UnblockedDamage > 0 && target.IsAlive)
-            await PowerCmd.Apply<PlaguePower>(choiceContext, target, Amount, Owner, cardSource);
+            await PB.Mechanics.PlagueActions.Apply(choiceContext, target, Amount, Owner, cardSource);
     }
 }

@@ -32,7 +32,7 @@ public sealed class ContagiousCut : PlagueBringerCard, IPlagueCard
                      .Where(enemy => enemy.IsAlive)
                      .ToArray())
         {
-            await PowerCmd.Apply<PlaguePower>(
+            await PB.Mechanics.PlagueActions.Apply(
                 choiceContext,
                 enemy,
                 DynamicVars["Plague"].IntValue,

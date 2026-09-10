@@ -21,7 +21,7 @@ public sealed class TerminalDiagnosis : PlagueBringerCard, IPlagueCard
     {
         if (play.Target is not { IsAlive: true } target) return;
 
-        await PowerCmd.Apply<PlaguePower>(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+        await PB.Mechanics.PlagueActions.Apply(choiceContext, target, DynamicVars["Plague"].IntValue, Owner.Creature, this);
 
         var plague = target.GetPower<PlaguePower>();
         if (plague == null || plague.Amount <= 0) return;
