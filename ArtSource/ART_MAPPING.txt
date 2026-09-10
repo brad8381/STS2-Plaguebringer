@@ -6,8 +6,6 @@ ArtSource is the canonical central location for all artwork.
 Runtime assets:
 Brad8381PlagueBringer/images/
 
-------------------------------------------------------------
-
 SOURCE : ArtSource/card_portraits/accelerated_infection.png
 RUNTIME: Brad8381PlagueBringer/images/card_portraits/accelerated_infection.png
 
@@ -677,78 +675,6 @@ RUNTIME: Brad8381PlagueBringer/images/card_portraits/unsteady_step.png
 SOURCE : ArtSource/card_portraits/virulent_cuts.png
 RUNTIME: Brad8381PlagueBringer/images/card_portraits/virulent_cuts.png
 
-SOURCE : ArtSource/Cards/contaminated_gauze.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/contaminated_gauze.png
-
-SOURCE : ArtSource/Cards/contaminated_instruments.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/contaminated_instruments.png
-
-SOURCE : ArtSource/Cards/contaminated_needle.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/contaminated_needle.png
-
-SOURCE : ArtSource/Cards/culture_transfer.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/culture_transfer.png
-
-SOURCE : ArtSource/Cards/discarded_gauze.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/discarded_gauze.png
-
-SOURCE : ArtSource/Cards/drain_the_wound.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/drain_the_wound.png
-
-SOURCE : ArtSource/Cards/experimental_dose.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/experimental_dose.png
-
-SOURCE : ArtSource/Cards/fumigate.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/fumigate.png
-
-SOURCE : ArtSource/Cards/incubation.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/incubation.png
-
-SOURCE : ArtSource/Cards/pandemic.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/pandemic.png
-
-SOURCE : ArtSource/Cards/pathology_report.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/pathology_report.png
-
-SOURCE : ArtSource/Cards/pestilent_blow.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/pestilent_blow.png
-
-SOURCE : ArtSource/Cards/quarantine.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/quarantine.png
-
-SOURCE : ArtSource/Cards/quarantine_protocol.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/quarantine_protocol.png
-
-SOURCE : ArtSource/Cards/reclaim_supplies.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/reclaim_supplies.png
-
-SOURCE : ArtSource/Cards/rupturing_blow.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/rupturing_blow.png
-
-SOURCE : ArtSource/Cards/sample_extraction.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/sample_extraction.png
-
-SOURCE : ArtSource/Cards/septic_cut.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/septic_cut.png
-
-SOURCE : ArtSource/Cards/septic_lance.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/septic_lance.png
-
-SOURCE : ArtSource/Cards/septic_reflex.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/septic_reflex.png
-
-SOURCE : ArtSource/Cards/spent_sample.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/spent_sample.png
-
-SOURCE : ArtSource/Cards/surgical_sweep.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/surgical_sweep.png
-
-SOURCE : ArtSource/Cards/terminal_diagnosis.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/terminal_diagnosis.png
-
-SOURCE : ArtSource/Cards/virulent_cuts.png
-RUNTIME: Brad8381PlagueBringer/images/Cards/virulent_cuts.png
-
 SOURCE : ArtSource/character/attack_pose.png
 RUNTIME: Brad8381PlagueBringer/images/character/attack_pose.png
 
@@ -817,33 +743,6 @@ RUNTIME: Brad8381PlagueBringer/images/charui/specimen_counter.svg
 
 SOURCE : ArtSource/charui/specimen_hud.png
 RUNTIME: Brad8381PlagueBringer/images/charui/specimen_hud.png
-
-SOURCE : ArtSource/mod_image.png
-RUNTIME: Brad8381PlagueBringer/mod_image.png
-
-SOURCE : ArtSource/open_brass_censer_with_green_smoke.png
-RUNTIME: Brad8381PlagueBringer/images/open_brass_censer_with_green_smoke.png
-
-SOURCE : ArtSource/plague_doctor_amidst_swirling_shadows.png
-RUNTIME: Brad8381PlagueBringer/images/plague_doctor_amidst_swirling_shadows.png
-
-SOURCE : ArtSource/plague_doctor_and_herbal_mist.png
-RUNTIME: Brad8381PlagueBringer/images/plague_doctor_and_herbal_mist.png
-
-SOURCE : ArtSource/plague_doctor_in_toxic_smoke.png
-RUNTIME: Brad8381PlagueBringer/images/plague_doctor_in_toxic_smoke.png
-
-SOURCE : ArtSource/plague_doctor_s_censer_strike.png
-RUNTIME: Brad8381PlagueBringer/images/plague_doctor_s_censer_strike.png
-
-SOURCE : ArtSource/plague_doctor_s_miasma_shield.png
-RUNTIME: Brad8381PlagueBringer/images/plague_doctor_s_miasma_shield.png
-
-SOURCE : ArtSource/plague_doctor_s_poisonous_vial.png
-RUNTIME: Brad8381PlagueBringer/images/plague_doctor_s_poisonous_vial.png
-
-SOURCE : ArtSource/plague_doctor_s_toxic_blade_strike.png
-RUNTIME: Brad8381PlagueBringer/images/plague_doctor_s_toxic_blade_strike.png
 
 SOURCE : ArtSource/potions/incubation_serum.png
 RUNTIME: Brad8381PlagueBringer/images/potions/incubation_serum.png
@@ -1070,20 +969,7 @@ RUNTIME: Brad8381PlagueBringer/images/relics/spore_jar.png
 SOURCE : ArtSource/relics/spore_jar_outline.png
 RUNTIME: Brad8381PlagueBringer/images/relics/spore_jar_outline.png
 
-SOURCE : ArtSource/sealed_bronze_censer_relic.png
-RUNTIME: Brad8381PlagueBringer/images/sealed_bronze_censer_relic.png
+SOURCE : ArtSource/mod_image.png
+RUNTIME: Brad8381PlagueBringer/mod_image.png
 
-SOURCE : ArtSource/tattered_plague_doctor_with_censer_staff.png
-RUNTIME: Brad8381PlagueBringer/images/tattered_plague_doctor_with_censer_staff.png
-
-------------------------------------------------------------
-
-DEPLOY
-------
-Run:
-.\ArtSource\Deploy-Art.ps1
-
-SYNC BACK FROM CURRENT MOD
---------------------------
-Run:
-.\ArtSource\Sync-ArtSource.ps1
+Legacy art is stored in ArtSource/legacy and is NOT deployed.

@@ -4,80 +4,89 @@ $RuntimeImages = Join-Path $RepoRoot "Brad8381PlagueBringer\images"
 $ArtSource     = $PSScriptRoot
 $MappingFile  = Join-Path $ArtSource "ART_MAPPING.txt"
 
+$Folders = @(
+    "card_portraits",
+    "character",
+    "charui",
+    "potions",
+    "powers",
+    "relics"
+)
+
 Write-Host "Syncing runtime art into ArtSource..."
 
-# Copy every runtime image directory into ArtSource, preserving structure
-Get-ChildItem $RuntimeImages -Recurse -File |
-    Where-Object {
-        $_.Extension -in ".png", ".jpg", ".jpeg", ".webp", ".svg"
-    } |
-    ForEach-Object {
+foreach ($folder in $Folders) {
 
-        $relative = $_.FullName.Substring($RuntimeImages.Length).TrimStart("\")
-        $dest = Join-Path $ArtSource $relative
-        $destDir = Split-Path $dest -Parent
+    $src = Join-Path $RuntimeImages $folder
+    $dst = Join-Path $ArtSource $folder
 
-        New-Item -ItemType Directory -Path $destDir -Force | Out-Null
-        Copy-Item $_.FullName $dest -Force
+    if (-not (Test-Path $src)) {
+        continue
     }
 
-# Copy mod thumbnail too
+    New-Item -ItemType Directory -Path $dst -Force | Out-Null
+
+    Get-ChildItem $src -Recurse -File |
+        Where-Object {
+            $_.Extension -in ".png", ".jpg", ".jpeg", ".webp", ".svg"
+        } |
+        ForEach-Object {
+
+            $relative = $_.FullName.Substring($src.Length).TrimStart("\")
+            $dest = Join-Path $dst $relative
+            $destDir = Split-Path $dest -Parent
+
+            New-Item -ItemType Directory -Path $destDir -Force | Out-Null
+            Copy-Item $_.FullName $dest -Force
+        }
+}
+
 $ModImage = Join-Path $RepoRoot "Brad8381PlagueBringer\mod_image.png"
 
 if (Test-Path $ModImage) {
     Copy-Item $ModImage (Join-Path $ArtSource "mod_image.png") -Force
 }
 
-# Generate complete mapping/index
-$lines = @()
+$lines = @(
+    "PLAGUEBRINGER ART SOURCE INDEX",
+    "==============================",
+    "",
+    "ArtSource is the canonical central location for all artwork.",
+    "",
+    "Runtime assets:",
+    "Brad8381PlagueBringer/images/",
+    ""
+)
 
-$lines += "PLAGUEBRINGER ART SOURCE INDEX"
-$lines += "=============================="
-$lines += ""
-$lines += "ArtSource is the canonical central location for all artwork."
-$lines += ""
-$lines += "Runtime assets:"
-$lines += "Brad8381PlagueBringer/images/"
-$lines += ""
-$lines += "------------------------------------------------------------"
-$lines += ""
+foreach ($folder in $Folders) {
 
-Get-ChildItem $ArtSource -Recurse -File |
-    Where-Object {
-        $_.Extension -in ".png", ".jpg", ".jpeg", ".webp", ".svg"
-    } |
-    Sort-Object FullName |
-    ForEach-Object {
+    $sourceFolder = Join-Path $ArtSource $folder
 
-        $relative = $_.FullName.Substring($ArtSource.Length).TrimStart("\")
-
-        if ($relative -eq "mod_image.png") {
-            $runtime = "Brad8381PlagueBringer/mod_image.png"
-        }
-        else {
-            $runtime = "Brad8381PlagueBringer/images/$($relative.Replace('\','/'))"
-        }
-
-        $lines += "SOURCE : ArtSource/$($relative.Replace('\','/'))"
-        $lines += "RUNTIME: $runtime"
-        $lines += ""
+    if (-not (Test-Path $sourceFolder)) {
+        continue
     }
 
-$lines += "------------------------------------------------------------"
+    Get-ChildItem $sourceFolder -Recurse -File |
+        Where-Object {
+            $_.Extension -in ".png", ".jpg", ".jpeg", ".webp", ".svg"
+        } |
+        Sort-Object FullName |
+        ForEach-Object {
+
+            $relative = $_.FullName.Substring($ArtSource.Length).TrimStart("\")
+            $unix = $relative.Replace("\", "/")
+
+            $lines += "SOURCE : ArtSource/$unix"
+            $lines += "RUNTIME: Brad8381PlagueBringer/images/$unix"
+            $lines += ""
+        }
+}
+
+$lines += "SOURCE : ArtSource/mod_image.png"
+$lines += "RUNTIME: Brad8381PlagueBringer/mod_image.png"
 $lines += ""
-$lines += "DEPLOY"
-$lines += "------"
-$lines += "Run:"
-$lines += ".\ArtSource\Deploy-Art.ps1"
-$lines += ""
-$lines += "SYNC BACK FROM CURRENT MOD"
-$lines += "--------------------------"
-$lines += "Run:"
-$lines += ".\ArtSource\Sync-ArtSource.ps1"
+$lines += "Legacy art is stored in ArtSource/legacy and is NOT deployed."
 
 Set-Content $MappingFile $lines -Encoding UTF8
 
-Write-Host ""
 Write-Host "ArtSource synchronized."
-Write-Host "Mapping generated:"
-Write-Host $MappingFile
