@@ -18,10 +18,10 @@ public sealed class CultureTransfer : PlagueBringerCard, IPlagueCard
             new PowerVar<PlaguePower>("Plague", 7));
     }
 
-    // Reuse the old Miasma portrait rather than adding new art.
-    public override string CustomPortraitPath => "miasma.png".CardImagePath();
-    public override string PortraitPath => "miasma.png".CardImagePath();
-    public override string BetaPortraitPath => "beta/miasma.png".CardImagePath();
+    // Use the card's dedicated generated portrait.
+    public override string CustomPortraitPath => "culture_transfer.png".CardImagePath();
+    public override string PortraitPath => "culture_transfer.png".CardImagePath();
+    public override string BetaPortraitPath => "beta/culture_transfer.png".CardImagePath();
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

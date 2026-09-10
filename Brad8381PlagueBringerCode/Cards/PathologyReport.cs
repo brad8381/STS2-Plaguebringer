@@ -19,10 +19,10 @@ public sealed class PathologyReport : PlagueBringerCard, IPlagueCard
         WithKeywords(CardKeyword.Exhaust);
     }
 
-    // Reuse the existing Field Research placeholder portrait.
-    public override string CustomPortraitPath => "field_research.png".CardImagePath();
-    public override string PortraitPath => "field_research.png".CardImagePath();
-    public override string BetaPortraitPath => "beta/field_research.png".CardImagePath();
+    // Use the card's dedicated generated portrait.
+    public override string CustomPortraitPath => "pathology_report.png".CardImagePath();
+    public override string PortraitPath => "pathology_report.png".CardImagePath();
+    public override string BetaPortraitPath => "beta/pathology_report.png".CardImagePath();
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

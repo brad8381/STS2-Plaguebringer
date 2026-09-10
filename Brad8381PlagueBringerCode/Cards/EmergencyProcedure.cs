@@ -19,10 +19,10 @@ public sealed class EmergencyProcedure : PlagueBringerCard
         WithKeywords(CardKeyword.Exhaust);
     }
 
-    // Reuse one of the existing duplicate specimen portraits.
-    public override string CustomPortraitPath => "experimental_dose.png".CardImagePath();
-    public override string PortraitPath => "experimental_dose.png".CardImagePath();
-    public override string BetaPortraitPath => "beta/experimental_dose.png".CardImagePath();
+    // Use the card's dedicated generated portrait.
+    public override string CustomPortraitPath => "emergency_procedure.png".CardImagePath();
+    public override string PortraitPath => "emergency_procedure.png".CardImagePath();
+    public override string BetaPortraitPath => "beta/emergency_procedure.png".CardImagePath();
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

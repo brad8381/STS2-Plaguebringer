@@ -1,17 +1,69 @@
-Approved PlagueBringer art pack
+PLAGUEBRINGER ART MAPPING
+=========================
 
-Strike = censer strike
-Defend = miasma shield
-Infected Scalpel = toxic blade strike
-Plague Vial = poisonous vial
-Fumigate = toxic smoke
-Quarantine = swirling shadows
-Inhale Spices = herbal mist
-Inhale block choice = miasma shield
-Inhale heal choice = herbal mist
-Open Censer = open brass censer
-Sealed Censer = sealed bronze censer
-Character UI/default art = tattered plague doctor with censer staff
+MASTER SOURCE ART
+-----------------
+ArtSource/Cards/
 
-Cards: 1000x760 normal, 606x852 big. Beta copies included.
-Relics: 128x128 normal, 256x256 big, transparent outline files included.
+All card artwork should be edited/replaced here first.
+
+DEPLOYED CARD ART
+-----------------
+Brad8381PlagueBringer/images/card_portraits/
+
+To deploy/update:
+
+Copy-Item .\ArtSource\Cards\*.png `
+    .\Brad8381PlagueBringer\images\card_portraits\ `
+    -Force
+
+
+CARD ART
+========
+
+contaminated_gauze.png       -> Contaminated Gauze
+contaminated_instruments.png -> Contaminated Instruments
+contaminated_needle.png      -> Contaminated Needle
+culture_transfer.png         -> Culture Transfer
+discarded_gauze.png          -> Discarded Gauze
+drain_the_wound.png          -> Drain the Wound
+experimental_dose.png        -> Experimental Dose
+fumigate.png                 -> Fumigate
+incubation.png               -> Incubation
+pandemic.png                 -> Pandemic
+pathology_report.png         -> Pathology Report
+pestilent_blow.png           -> Pestilent Blow
+quarantine.png               -> Quarantine
+quarantine_protocol.png      -> Quarantine Protocol
+reclaim_supplies.png         -> Reclaim Supplies
+rupturing_blow.png           -> Rupturing Blow
+sample_extraction.png        -> Sample Extraction
+septic_cut.png               -> Septic Cut
+septic_lance.png             -> Septic Lance
+septic_reflex.png            -> Septic Reflex
+spent_sample.png             -> Spent Sample
+surgical_sweep.png           -> Surgical Sweep
+terminal_diagnosis.png       -> Terminal Diagnosis
+virulent_cuts.png            -> Virulent Cuts
+
+
+OTHER ART
+=========
+
+Open Censer
+ArtSource/open_brass_censer_with_green_smoke.png
+
+Sealed Censer
+ArtSource/sealed_bronze_censer_relic.png
+
+Character
+ArtSource/tattered_plague_doctor_with_censer_staff.png
+
+
+NOTES
+=====
+ArtSource = canonical/master artwork.
+Brad8381PlagueBringer/images = runtime/deployed game assets.
+
+Do not edit deployed card portraits directly.
+Update ArtSource first, then copy into the runtime directory.
