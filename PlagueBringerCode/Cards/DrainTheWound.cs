@@ -1,3 +1,4 @@
+using PB.Compatibility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,8 +22,13 @@ public sealed class DrainTheWound : PlagueBringerCard, IPlagueCard
         if (consumed <= 0)
             return;
 
-        await DamageCmd.Attack(consumed * DynamicVars["Multiplier"].IntValue)
-            .FromCard(this)
+        var attack = GameCompat.FromCard(
+            DamageCmd.Attack(
+                consumed * DynamicVars["Multiplier"].IntValue),
+            this,
+            play);
+
+        await attack
             .Targeting(target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);

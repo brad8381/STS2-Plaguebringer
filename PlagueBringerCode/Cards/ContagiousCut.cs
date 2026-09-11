@@ -1,5 +1,6 @@
 using BaseLib.Utils;
 using PB.Powers;
+using PB.Compatibility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,8 +22,12 @@ public sealed class ContagiousCut : PlagueBringerCard, IPlagueCard
         if (combatState == null)
             return;
 
-        await DamageCmd.Attack(DynamicVars.Damage.IntValue)
-            .FromCard(this)
+        var attack = GameCompat.FromCard(
+            DamageCmd.Attack(DynamicVars.Damage.IntValue),
+            this,
+            play);
+
+        await attack
             .TargetingAllOpponents(combatState)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);

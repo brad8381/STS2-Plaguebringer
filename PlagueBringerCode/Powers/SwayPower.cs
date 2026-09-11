@@ -31,20 +31,6 @@ public sealed class SwayPower : PlagueBringerPower
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override decimal ModifyDamageMultiplicative(
-        Creature? target,
-        decimal amount,
-        ValueProp props,
-        Creature? dealer,
-        CardModel? cardSource)
-    {
-        if (dealer != Owner || !props.IsPoweredAttack())
-            return 1m;
-
-        var effectiveStacks = Math.Min(Amount, MaxReductionStacks);
-        return 1m - (0.10m * effectiveStacks);
-    }
-
     public override async Task AfterDamageGiven(
         PlayerChoiceContext choiceContext,
         Creature? dealer,
@@ -53,24 +39,18 @@ public sealed class SwayPower : PlagueBringerPower
         Creature target,
         CardModel? cardSource)
     {
-        // Only trigger when this Sway-covered creature is the target.
         if (target != Owner)
             return;
 
-        // Must have an attacker.
         if (dealer == null)
             return;
 
-        // Don't trigger from allies/self damage.
         if (dealer.Side == Owner.Side)
             return;
 
-        // Only actual Attack damage.
-        // Prevents Plague and other indirect damage from generating Block.
         if (!props.IsPoweredAttack())
             return;
 
-        // Must actually deal HP damage.
         if (result.UnblockedDamage <= 0)
             return;
 

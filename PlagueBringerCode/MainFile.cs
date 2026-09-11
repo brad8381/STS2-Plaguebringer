@@ -26,7 +26,8 @@ public partial class MainFile : Node
     public static void Initialize()
     {
         Logger.Info($"Loading Plaguebringer {typeof(MainFile).Assembly.GetName().Version}; BaseLib {typeof(BaseLib.Abstracts.CustomCardModel).Assembly.GetName().Version}");
-
+        Logger.Info($"STS2 API detected: {(PB.Compatibility.GameCompat.IsBetaApi ? "Public Beta" : "Main")}");
+        
         RegisterContentModels();
 
         _harmony ??= new Harmony(ModId);

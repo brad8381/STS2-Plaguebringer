@@ -1,3 +1,4 @@
+using PB.Compatibility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -25,22 +26,28 @@ public sealed class SurgicalSweep : PlagueBringerCard, IPlagueCard
             .Where(enemy => enemy.IsAlive && PlagueCardUtils.GetPlague(enemy) > 0)
             .ToArray();
 
-        await DamageCmd.Attack(DynamicVars.Damage.IntValue)
-            .FromCard(this)
+        var attack = GameCompat.FromCard(
+            DamageCmd.Attack(DynamicVars.Damage.IntValue),
+            this,
+            play);
+
+        await attack
             .TargetingAllOpponents(combatState)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
 
         var bonus = DynamicVars["InfectedBonusDamage"].IntValue;
+
         foreach (var enemy in infected.Where(enemy => enemy.IsAlive))
         {
-            await CreatureCmd.Damage(
+            await GameCompat.Damage(
                 choiceContext,
                 enemy,
                 bonus,
                 ValueProp.Unpowered,
                 Owner.Creature,
-                this);
+                this,
+                play);
         }
     }
 

@@ -1,4 +1,5 @@
 using BaseLib.Abstracts;
+using PB.Compatibility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -36,8 +37,12 @@ public sealed class ContagiousRupture : PlagueBringerCard, IPlagueCard
         var multiplier = DynamicVars["MultiplierTenths"].IntValue / 10m;
         var damage = Math.Ceiling(consumed * multiplier);
 
-        await DamageCmd.Attack(damage)
-            .FromCard(this)
+        var attack = GameCompat.FromCard(
+            DamageCmd.Attack(damage),
+            this,
+            play);
+
+        await attack
             .TargetingAllOpponents(combatState)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);

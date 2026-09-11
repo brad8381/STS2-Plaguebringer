@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.ValueProps;
+using PB.Compatibility;
 
 namespace PB.Powers;
 
@@ -39,14 +40,15 @@ public sealed class PlaguePower : PlagueBringerPower
 
         var stacks = Amount;
         MainFile.Logger.Debug($"Plague tick: target={Owner}, stacks={stacks}");
-
-        await CreatureCmd.Damage(
-            choiceContext,
-            Owner,
-            stacks,
-            ValueProp.Unpowered | ValueProp.Unblockable,
-            null,
-            null);
+    
+    await GameCompat.Damage(
+        choiceContext,
+        Owner,
+        stacks,
+        ValueProp.Unpowered | ValueProp.Unblockable,
+        null,
+        null,
+        null);
 
         if (!Owner.IsAlive)
         {
