@@ -26,7 +26,7 @@ public sealed class SurgicalSweep : PlagueBringerCard, IPlagueCard
             .ToArray();
 
         await DamageCmd.Attack(DynamicVars.Damage.IntValue)
-            .FromCard(this, play)
+            .FromCard(this)
             .TargetingAllOpponents(combatState)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
@@ -39,8 +39,8 @@ public sealed class SurgicalSweep : PlagueBringerCard, IPlagueCard
                 enemy,
                 bonus,
                 ValueProp.Unpowered,
-                this,
-                play);
+                Owner.Creature,
+                this);
         }
     }
 

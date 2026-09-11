@@ -22,7 +22,7 @@ public sealed class DrainTheWound : PlagueBringerCard, IPlagueCard
             return;
 
         await DamageCmd.Attack(consumed * DynamicVars["Multiplier"].IntValue)
-            .FromCard(this, play)
+            .FromCard(this)
             .Targeting(target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);

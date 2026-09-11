@@ -37,7 +37,7 @@ public sealed class ContagiousRupture : PlagueBringerCard, IPlagueCard
         var damage = Math.Ceiling(consumed * multiplier);
 
         await DamageCmd.Attack(damage)
-            .FromCard(this, play)
+            .FromCard(this)
             .TargetingAllOpponents(combatState)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);

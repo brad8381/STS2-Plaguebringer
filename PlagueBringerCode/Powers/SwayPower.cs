@@ -36,8 +36,7 @@ public sealed class SwayPower : PlagueBringerPower
         decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+        CardModel? cardSource)
     {
         if (dealer != Owner || !props.IsPoweredAttack())
             return 1m;

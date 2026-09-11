@@ -22,7 +22,7 @@ public sealed class ContagiousCut : PlagueBringerCard, IPlagueCard
             return;
 
         await DamageCmd.Attack(DynamicVars.Damage.IntValue)
-            .FromCard(this, play)
+            .FromCard(this)
             .TargetingAllOpponents(combatState)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
