@@ -1,0 +1,15 @@
+{
+  "title": "The Plaguebringer",
+  "description": "I always really liked playing The Silent with Poison, so that was the main inspiration for this character.\n\nThe Plaguebringer is built around a similar slower, stacking damage mechanic with a plague doctor theme. Infect enemies, build the sickness over time, and use defensive and utility cards to survive while the infection gets worse.\n\nI've tried to give the character a few different ways to build so you aren't forced into the same playstyle every run.\n\n[b]FEATURES[/b]\n- Custom playable character\n- Full custom card pool\n- Plague mechanic\n- Specimen secondary resource\n- Sway and Off Balance debuffs\n- Custom relics and powers\n- Multiple build paths including Plague, Specimens, Exhaust and surgical attacks\n\n[b]MECHANICS[/b]\n[b]Plague[/b] - Deals damage equal to its stacks at the start of the affected creature's turn, ignores Block, then grows by 15%, rounded up.\n[b]Specimen[/b] - A persistent secondary resource used by its own cards and build paths.\n[b]Sway[/b] - Reduces enemy Attack damage by 10% per stack, up to 5 stacks.\n[b]Off Balance[/b] - Applying Sway also applies an equal amount of Off Balance for that turn. Attackers gain Block when they hit an Off Balance enemy.\n\n[b]FEEDBACK & TESTING[/b]\nThe mod is still being actively balanced and bug tested.\n\nFeedback is very welcome. If something feels too strong, too weak or broken, please let me know. I'm happy to listen to suggestions and incorporate improvements where they fit.\n\nThere will be more fixes, balance changes and improvements as the mod develops.\n\nRequires BaseLib.\n\n[b]AI DISCLOSURE[/b]\nSome artwork in this mod was generated using OpenAI/ChatGPT. AI tools were also used to assist with programming and debugging.\n\n[b]SOURCE[/b]\n[url=https://github.com/brad8381/STS2-Plaguebringer]GitHub - STS2 Plaguebringer[/url]",
+  "visibility": "public",
+  "changeNote": "v0.1.1\n\n- Reworked Sway to 10% Attack damage reduction per stack, max 5 stacks / 50%\n- Added Off Balance as a separate temporary effect when Sway is applied; attackers gain Block when hitting an Off Balance enemy\n- Moved Pestilent Blow to Rare; 1.5x Plague normally and 3x when upgraded\n- Black Tonic now costs 0 Energy, gains 2 Energy (3 upgraded), applies 1 self-Plague, retains unused Energy and Exhausts\n- Plague Vial+ now costs 0 Energy while remaining at 4 Plague\n- Fixed Contagion Engine to trigger at the start of your turn and display the correct live amount\n- Fixed Cross Immunity localization and upgrade text\n- Improved and standardized power/debuff tooltips with clearer live values\n- Updated Sway tooltip to explain Off Balance\n- Fixed merchant/shop character sizing\n- Reduced packaged PCK size by excluding source/debug files\n- General balance, UI and polish fixes",
+  "tags": [
+    "Character",
+    "Cards",
+    "Relics"
+  ],
+  "dependencies": [
+    3737335127
+  ],
+  "contentDescriptors": []
+}
