@@ -47,6 +47,6 @@ internal static class SwayDamageCompatibilityPatch
             sway.Amount,
             SwayPower.MaxReductionStacks);
 
-        __result = 1m - (0.12m * effectiveStacks);
+        __result = 1m - (0.10m * effectiveStacks);
     }
 }
