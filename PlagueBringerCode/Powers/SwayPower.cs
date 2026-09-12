@@ -18,8 +18,8 @@ public sealed class SwayPower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Sway",
-            "Each stack reduces this creature's Attack damage by 10%, up to 60%. When this creature is hit by an Attack, the attacker gains 1 Block per Sway. Maximum 6 Sway. Lose 1 Sway after this creature's turn.",
-            "Each stack reduces this creature's Attack damage by 10%, up to 60%. When this creature is hit by an Attack, the attacker gains 1 Block per Sway. Maximum 6 Sway. Lose 1 Sway after this creature's turn."
+            "Attack damage -10% per Sway. Attackers gain 1 Block per Sway when they hit this creature. Lose 1 Sway after its turn. Max 6.",
+            "Attack damage -10% per Sway. Attackers gain 1 Block per Sway when they hit this creature. Lose 1 Sway after its turn. Max 6."
         );
 
     public override string CustomPackedIconPath =>
