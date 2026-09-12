@@ -10,12 +10,12 @@ public sealed class ContagionEngine : PlagueBringerCard, IPlagueCard
 {
     public ContagionEngine() : base(2, CardType.Power, CardRarity.Rare, TargetType.Self)
     {
-        WithVars(new PowerVar<AirborneCulturesPower>("Plague", 2));
+        WithVars(new PowerVar<ContagionEnginePower>("Plague", 2));
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await PowerCmd.Apply<AirborneCulturesPower>(choiceContext, Owner.Creature, DynamicVars["Plague"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<ContagionEnginePower>(choiceContext, Owner.Creature, DynamicVars["Plague"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
