@@ -29,7 +29,6 @@ public sealed class PlagueVial : PlagueBringerCard, IPlagueCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Plague"].UpgradeValueBy(2m);
         EnergyCost.UpgradeBy(-1);
     }
 }
