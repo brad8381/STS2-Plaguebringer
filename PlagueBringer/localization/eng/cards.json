@@ -42,6 +42,8 @@
   "PB-INCUBATION.description": "Increase an enemy's [gold]Plague[/gold] by {Percent:diff()}%, rounded up.",
   "PB-CROSS_CONTAMINATION.title": "Cross Contamination",
   "PB-CROSS_CONTAMINATION.description": "Apply {Percent:diff()}% of the target's [gold]Plague[/gold], rounded up, to every other enemy.",
+  "PB-CROSS_IMMUNITY.title": "Cross Immunity",
+  "PB-CROSS_IMMUNITY.description": "For the first {Triggers:diff()} time(s) each turn you apply [gold]Plague[/gold] to an enemy, apply 1 Sway to that enemy.",
   "PB-PESTILENT_BLOW.title": "Pestilent Blow",
   "PB-PESTILENT_BLOW.description": "Multiply the target's [gold]Plague[/gold] by {Multiplier:diff()}.",
   "PB-PESTILENT_CLOUD.title": "Pestilent Cloud",
