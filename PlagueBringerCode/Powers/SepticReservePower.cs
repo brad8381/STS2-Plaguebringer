@@ -14,8 +14,8 @@ public sealed class SepticReservePower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Septic Reserve",
-            "The first time each turn you remove Plague, gain {Amount} Energy.",
-            "The first time each turn you remove Plague, gain {Amount} Energy."
+            "The first time each turn you remove Plague, gain Energy equal to Septic Reserve.",
+            "The first time each turn you remove Plague, gain [gold]{Amount} Energy[/gold]."
         );
 
     public override PowerType Type => PowerType.Buff;

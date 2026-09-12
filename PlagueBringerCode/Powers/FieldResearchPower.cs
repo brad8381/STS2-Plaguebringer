@@ -11,8 +11,8 @@ public sealed class FieldResearchPower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Field Research",
-            "Whenever you Exhaust a card, gain {Amount} Specimen.",
-            "Whenever you Exhaust a card, gain {Amount} Specimen."
+            "Whenever you Exhaust a card, gain Specimen equal to Field Research.",
+            "Whenever you Exhaust a card, gain [gold]{Amount} Specimen[/gold]."
         );
 
     public override string CustomPackedIconPath =>

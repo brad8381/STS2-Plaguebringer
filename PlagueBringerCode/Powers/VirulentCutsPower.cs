@@ -14,7 +14,7 @@ public sealed class VirulentCutsPower : PlagueBringerPower
         new PowerLoc(
             "Virulent Cuts",
             "Whenever you deal unblocked Attack damage, apply Plague equal to Virulent Cuts.",
-            "Whenever you deal unblocked Attack damage, apply Plague equal to Virulent Cuts."
+            "Whenever you deal unblocked Attack damage, apply [gold]{Amount} Plague[/gold]."
         );
 
     public override PowerType Type => PowerType.Buff;

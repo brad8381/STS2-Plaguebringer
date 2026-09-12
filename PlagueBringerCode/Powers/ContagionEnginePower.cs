@@ -12,8 +12,8 @@ public sealed class ContagionEnginePower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Contagion Engine",
-            "At the start of your turn, apply {Amount} Plague to ALL enemies.",
-            "At the start of your turn, apply {Amount} Plague to ALL enemies."
+            "At the start of your turn, apply Plague equal to Contagion Engine to ALL enemies.",
+            "At the start of your turn, apply [gold]{Amount} Plague[/gold] to ALL enemies."
         );
 
     public override PowerType Type => PowerType.Buff;

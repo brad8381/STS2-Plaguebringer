@@ -13,7 +13,7 @@ public sealed class MutationPower : PlagueBringerPower
         new PowerLoc(
             "Mutation",
             "At the start of your turn, increase Plague on ALL enemies by Mutation percent, rounded up.",
-            "At the start of your turn, increase Plague on ALL enemies by Mutation percent, rounded up."
+            "At the start of your turn, increase Plague on ALL enemies by [gold]{Amount}%[/gold], rounded up."
         );
 
     public override PowerType Type => PowerType.Buff;

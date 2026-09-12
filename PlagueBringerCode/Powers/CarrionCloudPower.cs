@@ -11,8 +11,8 @@ public sealed class CarrionCloudPower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Carrion Cloud",
-            "When an infected enemy dies, apply {Amount}% of its remaining Plague, rounded up, to every living enemy.",
-            "When an infected enemy dies, apply {Amount}% of its remaining Plague, rounded up, to every living enemy."
+            "When an infected enemy dies, spread a percentage of its remaining Plague to every living enemy.",
+            "When an infected enemy dies, apply [gold]{Amount}%[/gold] of its remaining Plague, rounded up, to every living enemy."
         );
 
     public override PowerType Type => PowerType.Buff;

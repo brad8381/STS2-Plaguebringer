@@ -11,7 +11,7 @@ public sealed class RetainEnergyNextTurnPower : PlagueBringerPower
         new PowerLoc(
             "Lingering Energy",
             "Energy is not reset at the start of your next turn.",
-            "Energy is not reset at the start of your next turn."
+            "[gold]Energy is not reset[/gold] at the start of your next turn."
         );
 
     public override PowerType Type => PowerType.Buff;

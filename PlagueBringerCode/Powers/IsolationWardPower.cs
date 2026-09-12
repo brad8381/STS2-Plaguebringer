@@ -17,8 +17,8 @@ public sealed class IsolationWardPower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Isolation Ward",
-            "The first time each turn you apply Plague to an enemy, gain {Amount} Block.",
-            "The first time each turn you apply Plague to an enemy, gain {Amount} Block."
+            "The first time each turn you apply Plague to an enemy, gain Block equal to Isolation Ward.",
+            "The first time each turn you apply Plague to an enemy, gain [blue]{Amount} Block[/blue]."
         );
 
     public override PowerType Type => PowerType.Buff;

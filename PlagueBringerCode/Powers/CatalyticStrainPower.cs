@@ -16,7 +16,7 @@ public sealed class CatalyticStrainPower : PlagueBringerPower
         new PowerLoc(
             "Catalytic Strain",
             "Whenever you apply Plague to an enemy, trigger its Plague, then add 10% of its current Plague, rounded up.",
-            "Whenever you apply Plague to an enemy, trigger its Plague, then add 10% of its current Plague, rounded up."
+            "Whenever you apply [gold]Plague[/gold] to an enemy, trigger its Plague, then add [gold]10%[/gold] of its current Plague, rounded up."
         );
 
     public override PowerType Type => PowerType.Buff;

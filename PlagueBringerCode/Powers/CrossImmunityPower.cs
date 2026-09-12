@@ -13,8 +13,8 @@ public sealed class CrossImmunityPower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Cross Immunity",
-            "The first time you apply Plague each turn, apply 1 Sway to that enemy.",
-            "The first 2 times you apply Plague each turn, apply 1 Sway to that enemy."
+            "Each turn, a limited number of your Plague applications also apply 1 Sway to that enemy.",
+            "Each turn, up to [gold]{Amount}[/gold] Plague applications also apply [gold]1 Sway[/gold] to that enemy."
         );
 
     public override PowerType Type => PowerType.Buff;

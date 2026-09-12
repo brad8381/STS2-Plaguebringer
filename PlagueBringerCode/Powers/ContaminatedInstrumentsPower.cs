@@ -12,8 +12,8 @@ public sealed class ContaminatedInstrumentsPower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Contaminated Instruments",
-            "Whenever you Exhaust a card, apply {Amount} Plague to ALL enemies.",
-            "Whenever you Exhaust a card, apply {Amount} Plague to ALL enemies."
+            "Whenever you Exhaust a card, apply Plague equal to Contaminated Instruments to ALL enemies.",
+            "Whenever you Exhaust a card, apply [gold]{Amount} Plague[/gold] to ALL enemies."
         );
 
     public override PowerType Type => PowerType.Buff;

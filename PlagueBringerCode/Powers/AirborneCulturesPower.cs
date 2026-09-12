@@ -13,7 +13,7 @@ public sealed class AirborneCulturesPower : PlagueBringerPower
         new PowerLoc(
             "Airborne Cultures",
             "At the end of your turn, apply Plague equal to Airborne Cultures to ALL enemies.",
-            "At the end of your turn, apply Plague equal to Airborne Cultures to ALL enemies."
+            "At the end of your turn, apply [gold]{Amount} Plague[/gold] to ALL enemies."
         );
 
     public override PowerType Type => PowerType.Buff;

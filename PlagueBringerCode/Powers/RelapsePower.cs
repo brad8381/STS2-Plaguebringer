@@ -11,8 +11,8 @@ public sealed class RelapsePower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Relapse",
-            "At the start of your turn, trigger Plague on ALL enemies once for each stack of Relapse.",
-            "At the start of your turn, trigger Plague on ALL enemies once for each stack of Relapse."
+            "At the start of your turn, trigger Plague on ALL enemies once per Relapse.",
+            "At the start of your turn, trigger Plague on ALL enemies [gold]{Amount}x[/gold]."
         );
 
     public override PowerType Type => PowerType.Buff;

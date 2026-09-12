@@ -12,8 +12,8 @@ public sealed class LastPatientPower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Last Patient",
-            "At the start of your turn, if no enemy has Plague, apply Last Patient Plague to an enemy.",
-            "At the start of your turn, if no enemy has Plague, apply Last Patient Plague to an enemy."
+            "At the start of your turn, if no enemy has Plague, apply Plague equal to Last Patient to an enemy.",
+            "At the start of your turn, if no enemy has Plague, apply [gold]{Amount} Plague[/gold] to an enemy."
         );
 
     public override PowerType Type => PowerType.Buff;

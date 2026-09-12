@@ -13,7 +13,7 @@ public sealed class SpecimenPower : PlagueBringerPower
         new PowerLoc(
             "Specimen",
             "A persistent combat resource. Persists between turns. Maximum +6. It can become negative. At the end of combat, lose HP equal to negative Specimen.",
-            "A persistent combat resource. Persists between turns. Maximum +6. It can become negative. At the end of combat, lose HP equal to negative Specimen."
+            "Persists between turns. Max [gold]+6[/gold]. Can become negative. At the end of combat, lose [red]HP equal to negative Specimen[/red]."
         );
 
     public override string CustomPackedIconPath =>

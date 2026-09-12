@@ -17,8 +17,8 @@ public sealed class PlaguePower : PlagueBringerPower
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Plague",
-            "At the start of this creature's turn, take {Amount} damage that ignores Block, then increase Plague by 15%, rounded up.",
-            "At the start of this creature's turn, take {Amount} damage that ignores Block, then increase Plague by 15%, rounded up."
+            "At the start of this creature's turn, take Plague damage that ignores Block, then increase Plague by 15%, rounded up.",
+            "At the start of this creature's turn, take [red]{Amount} damage[/red] that ignores Block, then increase Plague by [gold]15%[/gold], rounded up."
         );
 
     public override PowerType Type => PowerType.Debuff;
