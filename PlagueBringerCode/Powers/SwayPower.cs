@@ -1,12 +1,9 @@
 using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace PB.Powers;
 
@@ -15,15 +12,11 @@ public sealed class SwayPower : PlagueBringerPower
     public const int MaxStacks = 5;
     public const int MaxReductionStacks = 5;
 
-    private bool _blockRewardActive = true;
-
-    private int EffectiveStacks => Math.Min(Amount, MaxStacks);
-
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Sway",
-            "Each Sway reduces Attack damage by 12%. During the turn Sway is applied, attackers gain 1 Block per Sway when they hit this creature. Lose 1 Sway after its turn. Max 5.",
-            "[red]Attack damage -{Amount:choose(1|2|3|4|5):12|24|36|48|60|60}%[/red] ([red]12% per Sway[/red]). During the turn Sway is applied, attackers gain [blue]{Amount} Block[/blue] when they hit this creature. Lose [gold]1 Sway[/gold] after its turn. Max [gold]5[/gold]."
+            "Each Sway reduces Attack damage by 12%. Lose 1 Sway after this creature's turn. Max 5.",
+            "[red]Attack damage -{Amount:choose(1|2|3|4|5):12|24|36|48|60|60}%[/red] ([red]12% per Sway[/red]). Lose [gold]1 Sway[/gold] after this creature's turn. Max [gold]5[/gold]."
         );
 
     public override string CustomPackedIconPath =>
@@ -35,66 +28,11 @@ public sealed class SwayPower : PlagueBringerPower
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterPowerAmountChanged(
-        PlayerChoiceContext choiceContext,
-        PowerModel power,
-        decimal amount,
-        Creature? applier,
-        CardModel? cardSource)
-    {
-        await base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
-
-        if (power == this && amount > 0)
-            _blockRewardActive = true;
-    }
-
-    public override async Task AfterDamageGiven(
-        PlayerChoiceContext choiceContext,
-        Creature? dealer,
-        DamageResult result,
-        ValueProp props,
-        Creature target,
-        CardModel? cardSource)
-    {
-        if (!_blockRewardActive)
-            return;
-
-        if (target != Owner)
-            return;
-
-        if (dealer == null)
-            return;
-
-        if (dealer.Side == Owner.Side)
-            return;
-
-        if (!props.IsPoweredAttack())
-            return;
-
-        if (result.UnblockedDamage <= 0)
-            return;
-
-        var sway = EffectiveStacks;
-
-        if (sway <= 0)
-            return;
-
-        Flash();
-
-        await CreatureCmd.GainBlock(
-            dealer,
-            sway,
-            ValueProp.Unpowered,
-            null);
-    }
-
     public override async Task AfterSideTurnEnd(
         PlayerChoiceContext choiceContext,
         CombatSide side,
         IEnumerable<Creature> participants)
     {
-        _blockRewardActive = false;
-
         if (side != Owner.Side || !participants.Contains(Owner))
             return;
 
