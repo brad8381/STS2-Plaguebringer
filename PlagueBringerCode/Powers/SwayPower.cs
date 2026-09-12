@@ -15,13 +15,15 @@ public sealed class SwayPower : PlagueBringerPower
     public const int MaxStacks = 5;
     public const int MaxReductionStacks = 5;
 
+    private bool _blockRewardActive = true;
+
     private int EffectiveStacks => Math.Min(Amount, MaxStacks);
 
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Sway",
-            "Each Sway reduces Attack damage by 12%. Attackers gain 1 Block per Sway when they hit this creature. Lose 1 Sway after its turn. Max 5.",
-            "[red]Attack damage -{Amount:choose(1|2|3|4|5):12|24|36|48|60|60}%[/red] ([red]12% per Sway[/red]). Attackers gain [blue]{Amount} Block[/blue] when they hit this creature. Lose [gold]1 Sway[/gold] after its turn. Max [gold]5[/gold]."
+            "Each Sway reduces Attack damage by 12%. During the turn Sway is applied, attackers gain 1 Block per Sway when they hit this creature. Lose 1 Sway after its turn. Max 5.",
+            "[red]Attack damage -{Amount:choose(1|2|3|4|5):12|24|36|48|60|60}%[/red] ([red]12% per Sway[/red]). During the turn Sway is applied, attackers gain [blue]{Amount} Block[/blue] when they hit this creature. Lose [gold]1 Sway[/gold] after its turn. Max [gold]5[/gold]."
         );
 
     public override string CustomPackedIconPath =>
@@ -33,6 +35,19 @@ public sealed class SwayPower : PlagueBringerPower
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
+    public override async Task AfterPowerAmountChanged(
+        PlayerChoiceContext choiceContext,
+        PowerModel power,
+        decimal amount,
+        Creature? applier,
+        CardModel? cardSource)
+    {
+        await base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
+
+        if (power == this && amount > 0)
+            _blockRewardActive = true;
+    }
+
     public override async Task AfterDamageGiven(
         PlayerChoiceContext choiceContext,
         Creature? dealer,
@@ -41,6 +56,9 @@ public sealed class SwayPower : PlagueBringerPower
         Creature target,
         CardModel? cardSource)
     {
+        if (!_blockRewardActive)
+            return;
+
         if (target != Owner)
             return;
 
@@ -75,6 +93,8 @@ public sealed class SwayPower : PlagueBringerPower
         CombatSide side,
         IEnumerable<Creature> participants)
     {
+        _blockRewardActive = false;
+
         if (side != Owner.Side || !participants.Contains(Owner))
             return;
 
