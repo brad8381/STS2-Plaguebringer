@@ -12,14 +12,14 @@ namespace PB.Powers;
 
 public sealed class SwayPower : PlagueBringerPower
 {
-    public const int MaxStacks = 6;
-    public const int MaxReductionStacks = 6;
+    public const int MaxStacks = 5;
+    public const int MaxReductionStacks = 5;
 
     public override List<(string, string)>? Localization =>
         new PowerLoc(
             "Sway",
-            "Attack damage -10% per Sway. Attackers gain 1 Block per Sway when they hit this creature. Lose 1 Sway after its turn. Max 6.",
-            "Attack damage -10% per Sway. Attackers gain 1 Block per Sway when they hit this creature. Lose 1 Sway after its turn. Max 6."
+            "Attack damage -12% per Sway. Attackers gain 1 Block per Sway when they hit this creature. Lose 1 Sway after its turn. Max 5.",
+            "Attack damage -12% per Sway. Attackers gain 1 Block per Sway when they hit this creature. Lose 1 Sway after its turn. Max 5."
         );
 
     public override string CustomPackedIconPath =>
