@@ -3,10 +3,10 @@
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
         <AssemblyName>PlagueBringer</AssemblyName>
-        <Version>0.1.0</Version>
+        <Version>0.1.1</Version>
         <ImplicitUsings>true</ImplicitUsings>
         <Nullable>enable</Nullable> <!--Makes code analysis regarding null values stricter.-->
-        <Publicize>false</Publicize> <!--Allows access to originally private/protected members but may (unlikely to) cause errors.-->
+        <Publicize>false</Publicize> <!--Allows access to originally private/protected members but may (unlikely) to cause errors.-->
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
         <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
