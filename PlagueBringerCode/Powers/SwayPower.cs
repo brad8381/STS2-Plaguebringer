@@ -16,22 +16,13 @@ public sealed class SwayPower : PlagueBringerPower
     public const int MaxReductionStacks = 5;
 
     private int EffectiveStacks => Math.Min(Amount, MaxStacks);
-    private int CurrentDamageReductionPercent => EffectiveStacks * 12;
 
-    public override List<(string, string)>? Localization
-    {
-        get
-        {
-            var description =
-                $"Attack damage -{CurrentDamageReductionPercent}%. Attackers gain {EffectiveStacks} Block when they hit this creature. Lose 1 Sway after its turn. Max 5.";
-
-            return new PowerLoc(
-                "Sway",
-                description,
-                description
-            );
-        }
-    }
+    public override List<(string, string)>? Localization =>
+        new PowerLoc(
+            "Sway",
+            "Reduces Attack damage by 12% per Sway. Attackers gain 1 Block per Sway when they hit this creature. Lose 1 Sway after its turn. Max 5.",
+            "Attack damage -{Amount:choose(1|2|3|4|5):12|24|36|48|60|60}%. Attackers gain {Amount} Block when they hit this creature. Lose 1 Sway after its turn. Max 5."
+        );
 
     public override string CustomPackedIconPath =>
         "res://PlagueBringer/images/powers/sway_power.png";
