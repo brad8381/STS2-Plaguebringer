@@ -43,6 +43,36 @@ public static class SwayActions
                 source);
         }
 
+        // Off Balance is the temporary part of Sway. While it is active,
+        // attackers gain Block equal to the target's current Sway.
+        // Keep it synchronized instead of stacking the total repeatedly
+        // when multiple Sway applications happen during the same turn.
+        var desiredOffBalance = Math.Min(power.Amount, SwayPower.MaxStacks);
+        var offBalance = target.GetPower<OffBalancePower>();
+
+        if (offBalance == null)
+        {
+            await PowerCmd.Apply<OffBalancePower>(
+                choiceContext,
+                target,
+                desiredOffBalance,
+                applier,
+                source);
+        }
+        else
+        {
+            var difference = desiredOffBalance - offBalance.Amount;
+            if (difference != 0)
+            {
+                await PowerCmd.ModifyAmount(
+                    choiceContext,
+                    offBalance,
+                    difference,
+                    applier,
+                    source);
+            }
+        }
+
         return toApply;
     }
 }
