@@ -2,35 +2,43 @@
 
 > Created with help from AI while I learn mod development.
 
-A plague doctor character for Slay the Spire 2. Small wounds build into a sickness that grows stronger each turn.
+A fully playable plague doctor character for **Slay the Spire 2**, built around spreading an infection that grows stronger instead of counting down.
 
-**Status:** early source prototype. No playable download is available yet. Compilation, in-game testing and final artwork are still pending.
+**Current release:** v0.1.1
 
 ## Features
 
-- **Plague:** deals damage equal to its stacks at the start of an affected enemy's turn, ignoring Block, then gains 1 stack.
-- **Sealed Censer:** applies 1 Plague to all enemies at the start of combat.
-- **Open Censer:** the starter-relic upgrade also lets you choose one of up to three Plague cards from your draw pile after the opening draw.
-- Six prototype card types, a ten-card starting deck and a black Plague status icon.
-
-Character, card and relic artwork currently uses template placeholders.
+- **Plague:** at the start of the affected creature's turn, deals damage equal to its stacks that ignores Block, then grows by **15%**, rounded up.
+- **Specimen:** a persistent secondary resource used by a separate set of cards and build paths.
+- **Sway:** reduces an enemy's Attack damage by **10% per stack**, up to 5 stacks. Sway loses 1 stack after that creature's turn.
+- **Off Balance:** applying Sway also applies an equal amount of Off Balance for the current turn. Attackers gain Block equal to Off Balance when they deal unblocked Attack damage to that creature.
+- Full custom card pool, relics and powers.
+- Multiple build paths including Plague, Specimens, Exhaust and surgical attacks.
+- Custom character, combat, rest-site, merchant and selection artwork.
 
 ## Requirements
 
 - Slay the Spire 2, standard Steam branch.
-- BaseLib **3.3.8**.
+- BaseLib **3.3.8** or newer compatible version.
 
-Compatibility with the current game build and other mods is not yet verified.
+Slay the Spire 2 is in Early Access, so game updates can temporarily break mods.
 
 ## Downloads
 
-There is no compiled `.dll` or `.pck` in this draft. GitHub's **Download ZIP** contains source code, not an installable mod.
+- [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3799022303)
+- [Nexus Mods](https://www.nexusmods.com/slaythespire2/mods/536)
 
-Tested packages will be attached to **GitHub Releases** and uploaded to Nexus Mods. The game package will contain the mod's `.dll`, `.pck` and `.json`.
+## Feedback
+
+The mod is still being actively balanced and polished. If something feels too strong, too weak or broken, feedback is welcome.
 
 ## Development
 
-[Build and debugging guide](docs/DEVELOPMENT.md) · [Test checklist](docs/TESTING.md) · [Release process](docs/RELEASING.md)
+[Build and debugging guide](docs/DEVELOPMENT.md) · [Test checklist](docs/TESTING.md) · [Release process](docs/RELEASING.md) · [Changelog](CHANGELOG.md)
+
+## AI disclosure
+
+Some artwork in this mod was generated using OpenAI/ChatGPT. AI tools were also used to assist with programming and debugging.
 
 ## Support
 
@@ -38,6 +46,6 @@ The mod will remain free. [Optional support via PayPal](https://paypal.me/brad83
 
 ## Credits
 
-Built on [BaseLib](https://github.com/Alchyr/BaseLib-StS2) using [Alchyr's character template](https://github.com/Alchyr/ModTemplate-StS2) and its placeholder assets.
+Built on [BaseLib](https://github.com/Alchyr/BaseLib-StS2) using [Alchyr's character template](https://github.com/Alchyr/ModTemplate-StS2).
 
 Unofficial fan mod; not affiliated with Mega Crit.
