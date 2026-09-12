@@ -13,7 +13,7 @@ public sealed class BlackTonic : PlagueBringerCard, IPlagueCard
     {
         WithVars(
             new PowerVar<PlaguePower>("SelfPlague", 1),
-            new DynamicVar("Energy", 3));
+            new DynamicVar("Energy", 2));
         WithKeywords(CardKeyword.Exhaust);
     }
 
