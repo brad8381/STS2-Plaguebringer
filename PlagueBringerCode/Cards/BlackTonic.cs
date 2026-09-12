@@ -9,7 +9,7 @@ namespace PB.Cards;
 
 public sealed class BlackTonic : PlagueBringerCard, IPlagueCard
 {
-    public BlackTonic() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    public BlackTonic() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
         WithVars(
             new PowerVar<PlaguePower>("SelfPlague", 1),
