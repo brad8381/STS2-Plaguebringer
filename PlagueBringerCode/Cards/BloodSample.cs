@@ -4,7 +4,6 @@ using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
@@ -29,13 +28,11 @@ public sealed class BloodSample : PlagueBringerCard
         if (!hand.Any(card => !ReferenceEquals(card, this)))
             return;
 
-        var prompt = new LocString("gameplay_ui", "CHOOSE_CARD_HEADER");
-        var prefs = new CardSelectorPrefs(prompt, 1);
         CardModel? selected = (await CardSelectCmd.FromHand(
                 choiceContext,
                 Owner,
-                prefs,
-                card => !ReferenceEquals(card, this),
+                new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1),
+                null,
                 this))
             .FirstOrDefault();
 
